@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection"/>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta content="yes" name="full-screen"/>
+<meta content="application" name="browsermode"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta content="portrait" name="x5-orientation"/>
+<meta content="true" name="x5-fullscreen"/>
+<meta content="app" name="x5-page-mode"/>
+<link href="/qunar-touch.png" rel="apple-touch-icon-precomposed"/>
+<title>
+	去哪儿网-触屏版-火车票搜索 -  去哪儿网 Qunar.com</title>
+<link href="http://qunarzz.com/m_train_common/prd/v2/css/common-2015040920491269.css" rel="stylesheet" type="text/css"/>
+<link href="http://qunarzz.com/m_train_common/prd/v2/css/common-image2x-2015040920491269.css" rel="stylesheet" type="text/css"/>
+<link href="http://qunarzz.com/m_train_common/prd/v2/css/train-2015040920491269.css" rel="stylesheet" type="text/css"/>
+<style tyle="text/css">
+
+
+.qn_sort{border-top:1px solid #c1c1c1;}
+.qn_sort .by_default{width:27%;}
+.qn_sort .by_starttime{width:27%;}
+.qn_sort .by_price{width:26%;}
+.qn_sort .filter{width:20%;float:left;}
+.qn_sort a{float:left;position:relative;white-space:nowrap;text-align:center}
+.qn_sort li{position:static;width:100%;}
+.qn_sort li span{margin-left:10px;}
+.qn_sort .filter{margin-top:7px; right:5px;}
+
+.qn_recommendPlane{position:relative;display:block;margin:10px;padding:10px;background-color:#fff;border:1px solid #cacaca;}
+.qn_recommendPlane .planeInfo{margin-right:60px;font-size:16px;}
+.qn_recommendPlane .planeInfo .date{margin-right:15px;}
+.qn_recommendPlane .planeInfo .company{margin-top:5px;}
+.qn_recommendPlane .planeInfo .station{margin-top:5px;color:#8c8c8c;font-size:14px;}
+.qn_recommendPlane .priceInfo{float:right;color:#f60;}
+.qn_recommendPlane .priceInfo .price{font-size:18px;}
+.qn_recommendPlane .priceInfo .price em{font-size:14px;}
+.qn_recommendPlane .priceInfo .discount{margin-top:5px;font-size:14px;}
+
+.qn_pa10 { padding:5px 10px 2px 10px;}
+.qn_font14 .qn_ml15 { margin-left:19px;}
+.qn_list li.hover{background: #bdf5ff;}
+
+.trainName{font-size:14px;}
+.important{font-size:18px;font-weight:bold;}
+.station{font-size:14px;}
+.aInfo{font-size:14px;white-space:nowrap;}
+
+.allTime{margin:-12px 0;}
+.allTime .time{margin-left:155px;font-size:14px;}
+.allTime .des{float:right;margin-top:-14px;margin-left:10px;font-size:14px;}
+
+.qn_header .change_calendar{right:40px;}
+.qn_header .title span{display:block;line-height:18px;font-size:14px;text-align:center;}
+.qn_header .title span.trainNum{padding-top:4px;font-size:16px;}
+
+.qn_arrow_grey.l.disable:after{left:-20px;}
+.qn_arrow_grey.r.disable:after{right:-20px;}
+
+		.qn_main { position:relative;}
+         .marsk{ width: 100%; height:100%; position: fixed; left:0px; top:0px; z-index:101; background:#000; opacity: 0.5; filter:Alpha(opacity=50); }
+        .qn_pop { padding: 0 15px; position: absolute; z-index:102; font-size:14px; color:#808080;max-width:540px;}
+        .qn_pop .qn_pop_bg { background:#fff; }
+        .qn_pop .title,.qn_pop .clickview{ height:50px; line-height: 50px; }
+        .qn_pop .border_b{border-bottom:1px solid #eee;}
+        .qn_pop .text-c{ text-align: center;}
+        .qn_pop .f_grey{ color: #8c8c8c;}
+        .qn_pop .f_w{ font-weight: bold;}
+        .qn_pop .f_12{ font-size:12px;}
+        .qn_pop .f_16{ font-size:16px;}
+        .qn_pop .listbox{ padding:0 10px;}
+        .qn_pop .list{ overflow: hidden; width:96%; padding:0 2%; height:50px; border-bottom: 1px solid #eee; display:table;}
+        .qn_pop .other{ height:62px; line-height:20px;}
+        .qn_pop .other{ height:62px; line-height:18px;}
+        .qn_pop .list:last-child{ border:none;}
+        .qn_pop .item{ vertical-align:middle; display:table-cell;}
+        .qn_pop .item1{ width:32%;}
+        .qn_pop .item2{ width:27%;}
+        .qn_pop .item3{ width:18%;text-align:right;}
+        .qn_pop .item4{ width:18%; text-align:right;}
+        .qn_pop .item5{ width:16%;}
+        .qn_pop .item6{ width:16%;}
+        .qn_pop .item2 p{ width:80px; text-overflow : ellipsis;white-space : nowrap;overflow : hidden; }
+        .qn_pop .price{ color:#ff6600;}
+        .qn_pop .clickview{ color: #25a4bb;}
+        .qn_pop .orderbut{ width:40px; height:30px; border-radius:2px;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffa442), to(#ff801a)); border:none; color:#fff;}
+        .qn_pop .arrow{ background:url("http://simg1.qunarzz.com/site/images/wap/touch/images/v2/icon-arrow.png") no-repeat; width:7px; height:11px; display: inline-block;overflow: hidden; margin-left: 5px; background-size:7px 11px;}
+        .qn_pop .transnum{width:40px;word-break:break-all; word-wrap:break-word;}
+        
+        /**抢票列表页**/
+.trainName .qn_fr{ font-size:13px;}
+.allTime .sougou_tiket{ background:#ff4500; color:#fff; padding:4px 10px; border-radius:3px; margin-top:-10px;}
+.allTime .sougou_tiket:hover{background:#be3300;}
+
+    /**银行渠道**/
+    .qn_header.qn_dbSource {border-bottom:none;}
+    .qn_header.qn_dbSource .title span.trainNum {font-size: 20px;line-height: 32px;}
+    .qn_sub_header.qn_dbSource {position: relative;display: inherit}
+    .qn_sub_header.qn_dbSource .header_item { float: left;margin-left: 27px;width: 20%;border-right: none;}
+    .qn_sub_header.qn_dbSource .header_item.bd_next_day{float: right;margin-right: 20px;}
+    .qn_sub_header.qn_dbSource .bd_cal{position: absolute;top: 10px;left: 30%;width: 40%;background: #fff;color: #000; height: 28px; margin-top: -3px; line-height: 28px;border-radius: 6px}
+
+.tag_promotion {background: #FF6B62;}
+.tag_chain{background:#26BA54;}
+.tag_fiveDiscount{background:#FF6B62;}
+.tag_lmLowestPrice{background:#f60;}
+.tag_starticket_return{background:#ff0000;}
+.tag_signin{background: #2bba54}
+        
+
+</style>
+</meta></head>
+<body class="qn_skin_qunar">
+<div class="qn_main">
+<div class="qn_pages">
+<div d="a" id="trainListPage">
+<div class="ad">
+<script src="http://qde.qunar.com/js.ng/chan=hcp&amp;pg=list&amp;plateform=wap&amp;pos=top&amp;site=wap.qunar&amp;size=320x44&amp;terminal=touch" type="text/javascript"></script>
+</div>
+<div class="qn_header">
+<div class="back"><a href="/h5/train/">后退</a></div>
+<div class="title">
+<span class="trainNum">哈尔滨 - 广州</span>
+<span>2016-05-30 星期一</span>
+</div>
+<a class="right home" href="/h5/index"></a>
+<div class="right change_calendar" id="changeCal"><span class="qn_hide" id="changeCalContent"></span></div>
+</div>
+<div class="qn_sub_header">
+<div class="header_item" id="prevDay">
+<span class="qn_arrow l">前一天 <span class="price"></span></span>
+</div>
+<div class="header_item" id="nextDay">
+<span class="qn_arrow r"><span class="price"></span>后一天</span>
+</div>
+</div>
+<div class="qn_sort">
+<ul>
+<a class="by_starttime" href="#">
+<li class=""><span>按出发时间</span>
+</li>
+</a>
+<a class="by_default" href="#">
+<li class=""><span>按运行时长</span>
+</li>
+</a>
+<!--<a href="#" class="by_endtime">-->
+<!--<li class=""><span>到达时间</span>-->
+<!-- -->
+<!--</li>-->
+<!--</a>-->
+<a class="by_price" href="#">
+<li class=""><span>按票价</span>
+</li>
+</a>
+<div class="filter">
+<div class="filter_bg_btn" id="gotoScreen" style="left:-5px;">
+<span>筛选</span><span class="qn_triangle_right"></span>
+</div>
+</div>
+</ul>
+</div>
+<div class="qn_list">
+<ul>
+<li class="qn_arrow_grey r">
+<a data-href="trainOrderFillOpt?startStation=哈尔滨&amp;endStation=广州&amp;searchType=stasta&amp;trainNum=Z114&amp;date=2016-05-30&amp;searchDep=哈尔滨&amp;searchArr=广州&amp;startCity=香坊&amp;endCity=广州&amp;sort=7&amp;seatType=硬座">
+<div class="qn_pa10">
+<p class="clearfix trainName">
+<span class="qn_fl">Z114<span class="qn_grey">(直达特快)</span></span>
+<span class="qn_fr qn_grey" style="color:#999999">
+                    428张                </span>
+</p>
+<p class="dInfo">
+<span class="important">11:05</span>
+<span class="qn_tag blue qn_ml10 qn_visible">始</span>
+<span class="station">哈尔滨</span>
+<span class="qn_fr qn_orange important">¥341</span>
+</p>
+<p class="allTime">
+<span class="time">34时39分</span>
+</p>
+<p class="aInfo">
+<span class="qn_grey">21:44(+1)</span>
+<span class="qn_tag orange qn_ml10 ">终</span>
+<span class="qn_grey station">广州</span>
+<span class="qn_fr">硬座</span>
+</p>
+</div>
+</a>
+</li>
+<li class="qn_arrow_grey r">
+<a data-href="trainOrderFillOpt?startStation=哈尔滨&amp;endStation=广州东&amp;searchType=stasta&amp;trainNum=Z238&amp;date=2016-05-30&amp;searchDep=哈尔滨&amp;searchArr=广州&amp;startCity=香坊&amp;endCity=广州&amp;sort=7&amp;seatType=硬座">
+<div class="qn_pa10">
+<p class="clearfix trainName">
+<span class="qn_fl">Z238<span class="qn_grey">(直达特快)</span></span>
+<span class="qn_fr qn_grey" style="color:#999999">
+                    606张                </span>
+</p>
+<p class="dInfo">
+<span class="important">21:36</span>
+<span class="qn_tag blue qn_ml10 qn_visible">始</span>
+<span class="station">哈尔滨</span>
+<span class="qn_fr qn_orange important">¥348</span>
+</p>
+<p class="allTime">
+<span class="time">34时46分</span>
+</p>
+<p class="aInfo">
+<span class="qn_grey">08:22(+2)</span>
+<span class="qn_tag orange qn_ml10 qn_visible">终</span>
+<span class="qn_grey station">广州东</span>
+<span class="qn_fr">硬座</span>
+</p>
+</div>
+</a>
+</li>
+</ul>
+<div class="bottom">
+<div class="more">点击查看更多</div>
+<div class="goTop"><span>回到顶部</span></div>
+</div>
+</div>
+</div>
+<div class="qn_page" id="filterPage">
+<div class="qn_header">
+<div class="back"></div>
+<div class="title">火车票过滤</div>
+<a class="right" href="#" onclick="trainFilter.submit();">确定</a>
+</div>
+<div class="qn_index_list">
+<form action="trainList" id="trainFilter" method="get&amp;rtype">
+<input name="startStation" type="hidden" value="哈尔滨"/> <input name="endStation" type="hidden" value="广州"/> <input name="searchType" type="hidden" value="stasta"/> <input name="date" type="hidden" value="2016-05-30"/> <input name="sort" type="hidden" value="7"/> <dl class="content">
+<dt>按坐席类型</dt>
+<dd><label><input name="filterTicketType" type="checkbox" value="1"/><span>硬座</span></label></dd>
+<dd><label><input name="filterTicketType" type="checkbox" value="5"/><span>硬卧</span></label></dd>
+<dd><label><input name="filterTicketType" type="checkbox" value="6"/><span>软卧</span></label></dd>
+<dd><label><input name="filterTicketType" type="checkbox" value="10"/><span>无座</span></label></dd>
+<dt>按发车/到站</dt>
+<dd><label><input name="filterStation" type="checkbox" value="广州"/><span>广州</span></label></dd>
+<dd><label><input name="filterStation" type="checkbox" value="哈尔滨"/><span>哈尔滨</span></label></dd>
+<dd><label><input name="filterStation" type="checkbox" value="广州东"/><span>广州东</span></label></dd>
+<dt>按发车时段</dt>
+<dd><label><input name="filterDeptTimeRange" type="checkbox" value="1"/><span>上午：6-12点</span></label></dd>
+<dd><label><input name="filterDeptTimeRange" type="checkbox" value="4"/><span>晚上：18-6点</span></label></dd>
+<dt>按到站时段</dt>
+<dd><label><input name="filterArriTimeRange" type="checkbox" value="1"/><span>上午：6-12点</span></label></dd>
+<dd><label><input name="filterArriTimeRange" type="checkbox" value="4"/><span>晚上：18-6点</span></label></dd>
+<dt>按车站类型</dt>
+<dd><label><input name="filterStationType" type="checkbox" value="1"/><span>始发</span></label></dd>
+<dd><label><input name="filterStationType" type="checkbox" value="2"/><span>过路</span></label></dd>
+<dd><label><input name="filterStationType" type="checkbox" value="3"/><span>终到</span></label></dd>
+</dl>
+<div class="bottom">
+<div class="btn">
+<a class="reset" href="#" onclick="trainFilter.reset();">重置</a>
+<a class="confirm" href="javascript:void(0);" onclick="trainFilter.submit();">确定</a>
+</div>
+<div class="goTop"><span>回到顶部</span></div>
+</div>
+</form>
+</div>
+</div>
+<!-- 日期列表 -->
+<div class="qn_page" id="calendarPage">
+<div class="qn_header">
+<div class="back BD_WA_LOG_BTN"><a href="#trainListPage">后退</a></div>
+<div class="title">日期选择</div>
+</div>
+<div class="qn_calendar">
+</div>
+</div>
+<!-- /日期列表 -->
+</div>
+<div class="ad">
+<script src="http://qde.qunar.com/js.ng/chan=hcp&amp;pg=list&amp;plateform=wap&amp;pos=mid&amp;site=wap.qunar&amp;size=320x44&amp;terminal=touch" type="text/javascript"></script>
+</div>
+<style>
+	.qn_vouch { margin:5px 0 0 0;}
+	.qn_footer .main_nav_wrapper{ border-top: 1px solid #cacaca;}
+    .qn_footer .main_nav{ position:relative; width:300px; height:25px; margin:0 auto;padding:10px 10px 0 10px; overflow:hidden;}
+	.qn_footer .main_nav:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+	.qn_footer .main_nav li { margin:0px; padding-left:10px; height:31px; width:65px; float:left; position:relative; background:none;}
+	.qn_footer .main_nav li .icon{ float:left; width:22px; height:22px; background: url(http://simg1.qunarzz.com/site/images/wap/touch/images/v2/images2x/nav_7.png) 0 0 no-repeat; background-size: 175px 50px;}
+    .qn_footer .main_nav li a{ display:block; height:22px; width:100%; font-size: 12px; }
+	.qn_footer .main_nav li .title { float:left; display:inline-block; color:#9e9e9e; margin:3px 0 0 5px; border-bottom:1px solid #acacac; font-size: 12px; }
+	.qn_footer .main_nav li.actived .title { border-bottom:none;}
+	.qn_footer .main_nav li.tag { position:absolute; top: 8px; right:6px; background:#f3f3f3;font-size:14px;color: #9e9e9e; width:70px;}
+	.qn_footer .main_nav li.tag span { display:inline-block; border-left:1px solid #acacac; padding-left:30px; margin-top:5px; }
+	.qn_footer .main_nav li.tag:after { content : ' '; position:absolute; top:7px; left:25px; width:12px;height:12px; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIfSURBVEhLvVbnysJAEMz7P4u9otgbKIogKvaCvbcH2I8JXLi77BlR+H4oanI7szOzG63X60X/8bJkkPF4TN1u9yfgx+NBjUaDDoeDUscBGg6H5Pf7yefzUbPZ/ArscrlQNpu1a8TjcTqdTk4dG6jf79sX5Ve1WiWw+1TW/X5PiURCqZFMJgngqGHdbjcbXQfC91wuR7juBbZcLikcDrM10IQNhDegZjIZ9sZUKqVIoIMOBgMKBAKus/htNBqp0uEwZKrVaixYLBaj3W7n6qzdbrP3R6NRWq/XfBgE006n44RCljMUChEkEqTgISd3Op1mFVDiLcCm0ykFg0FWDmhukrlcLtP9fmc9ZYEAuN1ujSHhOoGM70JjBPIKiQBD5xh0r2QqQPP5XEmKV0hg+mazUUCezyehO3lYnXjjA3wRMUUgdIZ6SGD6+XxW7sPMFQoF21t5WB0g5F2sHyEJ9hXYyYCz2YyQvkql4jIdHWDmZP9ARgy8db1eCRJwBpdKJbag3i3kM9UQS9r26Hg8utgIYEQZZExmm0YBCvV6PfdmQIvFYpHtDHqDjA4GtrrkIIi9t1gszJsBnrRaLeNaEQnDffV63UgKm1wnxc4Rnk3cosTMTCYTJ1m6r/l83iizcWBXqxVFIhGWNRccLqVyV283w7uQCDB4JJ45X68gHMSSRMy5LjjTTWBvOxKHuJAgifofkJ86kg+LkMD0Tx7x8tk/qrabQu3SN6AAAAAASUVORK5CYII=) 0 0 no-repeat; background-size:12px 12px;}
+	.qn_footer .main_nav li.toggle:after{ background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIfSURBVEhLlZZnCgJBDIW9/1nsFcXeQFEEUbEX7L0dIPIWZpmZzeyuPwSZHfMlLy9ZA9/vl/x+ns8nlUolCofDNJlMfP8O8QN+IefzmTKZDAWDQfvT7Xbp8/n4AvoCrddrisViCkQAq9UqvV4vT5gnaDQaUSgUYiECls1m6XK5uMKMIEjSbrddAbKM8XicttutEcaCHo+H1XQ5kPheLpdpPp9TJBJxPHcziQN0Op0cTReQVqtlN3+/31MikWCT4UyigExNR48Gg4FDFvRFd6JIqlKpEMZBuNoGDYdDtumQaLFYGLWHzPl8nq1MNokFQrZcPyANJNJn7Xq9KmewN2xuioFkLBBKzOVyykVkwwWs1+sUjUZpuVwqMM6lkHw6nVr3bOnu97utN5wl64uLt9tNSQZB+v2+o1qcoTI4UJZcMQMq6PV6jrXi5rBms0nv91sBoorVaqWceW6G2WzGzozcD5gBirjtTVcQquMazJ2lUik6HA7/bQa4qFarsRBkj/2HHuhAt1FwVIQ+6Q4UARuNht2PzWZjuU+HmUyigHa7nXGtQEa9B8fjkZLJJFu5bhIbBKdwcuBsPB4btYcCmDmub7JJLBA05y7iZQeJvN7CmLliscjGgEnw3ALJwyqA6XSasMm9IOI5Zgk91BNGEcpmgASg42KhUPCcC1MCnU7HigFTyH9gFDPgDwjeqvqk+61K3MOSxqDLv/PcDP9CTPd/7sWbQk+SlPgAAAAASUVORK5CYII=) 0 0 no-repeat; background-size:12px 12px;}
+	
+    .qn_footer .main_nav .flight .icon{background-position:0 0}
+    .qn_footer .main_nav .hotel .icon{background-position:-25px 0}
+    .qn_footer .main_nav .tuan .icon{background-position:-50px 0}	
+    .qn_footer .main_nav .gonglue .icon{background-position:-75px -25px}	
+    .qn_footer .main_nav .train .icon{background-position:-50px -25px}
+    .qn_footer .main_nav .jingdian .icon{background-position:-75px 0}
+    .qn_footer .main_nav .dujia .icon{background-position:0 -25px}
+    .qn_footer .main_nav .lvtu .icon{background-position:-100px -25px}
+    .qn_footer .main_nav .dangdi .icon{background-position:-25px -25px}
+    .qn_footer .main_nav .zuche .icon{background-position:-100px 0}
+    .qn_footer .main_nav .cheche .icon{background-position:-125px 0}
+    .qn_footer .main_nav .dangdiren .icon{background-position:-125px -25px}
+    .qn_footer .main_nav .gongyu .icon{background-position:-150px 0px}
+	
+    .qn_footer .main_nav li.hover:after{ content:' '; position:absolute; top:-2px; left:5px; width:70px; height:28px; background:black; opacity:0.25; border-radius:0;}
+	.qn_footer .main_nav li.actived.hover:after{ background:transparent;}
+
+    .qn_footer .bg_color{background-color: #f3f3f3}
+    .qn_footer .footer_nav { width:300px;height:39px;margin:0 auto;}
+    .qn_footer .footer_nav li {float:left;padding-left:20px}
+    .qn_footer .footer_nav li a{ position:relative; color:#25a4bb;font-size:14px;line-height:39px;}
+    .qn_footer .footer_nav li a.hover{color:#fff;}
+    .qn_footer .footer_nav li a.hover:after{content:' '; position:absolute; top:-4px; left:-4px; width:100%; height:100%; padding:4px; background:black; opacity:0.25; border-radius:5px; z-index:-1;}
+    .qn_footer .mobile_pc{padding:10px 0 0 0;text-align:center}
+    .qn_footer .mobile_pc li{display:inline-block;margin:0 15px}
+    .qn_footer .mobile_pc a{font-size:14px;color:#25a4bb}
+    .qn_footer .mobile_pc .active a{color:black}
+    .qn_footer .copyright{color:#9e9e9e;text-align:center;font-size:14px;padding:10px}
+    .qn_footer .copyright a{color:#9e9e9e;height:33px}
+</style>
+<div class="qn_footer">
+<div class="main_nav_wrapper">
+<ul class="main_nav" id="qunarFooterUL">
+<li class="flight ">
+<a href="/h5/flight/"> <div class="icon"></div>
+<span class="title">机票</span>
+</a> </li>
+<li class="hotel ">
+<a href="/h5/hotel/"> <div class="icon"></div>
+<span class="title">酒店</span>
+</a> </li>
+<li class="gongyu">
+<a href="http://touch.gongyu.qunar.com">
+<div class="icon"></div>
+<span class="title">公寓</span>
+</a>
+</li>
+<li class="tuan ">
+<a href="/h5/group/grouplist"> <div class="icon"></div>
+<span class="title">团购</span>
+</a> </li>
+<li class="train actived ">
+<div class="icon"></div>
+<span class="title">火车票</span>
+</li>
+<li class="jingdian">
+<a href="http://touch.piao.qunar.com/touch/index.htm">
+<div class="icon"></div>
+<span class="title">景点</span>
+</a>
+</li>
+<li class="zuche">
+<a href="http://car.qunar.com/?from=10">
+<div class="icon"></div>
+<span class="title">接送机</span>
+</a>
+</li>
+<li class="dujia">
+<a href="http://touch.dujia.qunar.com">
+<div class="icon"></div>
+<span class="title">度假</span>
+</a>
+</li>
+<li class="gonglue">
+<a href="http://touch.travel.qunar.com/">
+<div class="icon"></div>
+<span class="title">攻略</span>
+</a>
+</li>
+<li class="lvtu">
+<a href="http://touch.lvtu.qunar.com">
+<div class="icon"></div>
+<span class="title">旅图</span>
+</a>
+</li>
+<li class="cheche">
+<a href="http://cheche.qunar.com/?from=28">
+<div class="icon"></div>
+<span class="title">车车</span>
+</a>
+</li>
+<li class="dangdiren">
+<a href="http://dangdi.qunar.com/touch/localman/city-list">
+<div class="icon"></div>
+<span class="title">当地人</span>
+</a>
+</li>
+<li class="tag" id="qnFooterToggle">
+<span>更多</span>
+</li>
+</ul>
+</div>
+<div class="ad">
+<script src="" type="text/javascript"></script>
+</div>
+<div class="bg_color">
+<ul class="footer_nav clearfix">
+<li><a href="/h5/user/login">登录</a></li>
+<li><a href="/h5/user/usercenter">我的订单</a></li>
+<li><a href="/h5/recent">最近浏览</a></li>
+<li><a href="/h5/about">关于我们</a></li>
+</ul>
+</div>
+<ul class="mobile_pc qn_btop clearfix">
+<li class="active"><a href="/h5/">触屏版</a></li>
+<li><a href="http://train.qunar.com/stationToStation.htm?fromStation=哈尔滨&amp;toStation=广州&amp;date=&amp;from=touchlist" onclick="document.cookie='QN163=1;domain=.qunar.com;path=/;expires=' + (function(){var d = new Date();d.setTime(d.getTime()+6*3600*1000); return d.toGMTString() })();">电脑版</a></li>
+</ul>
+<div class="copyright">
+<span>Qunar 京ICP备05021087</span>
+<a class="qn_ml25" href="/h5/feedback">意见反馈</a>
+</div>
+<script>
+	;(function(){
+		var toggle = document.getElementById('qnFooterToggle'),
+			main = document.getElementById('qunarFooterUL'),
+			label = toggle.getElementsByTagName('span')[0];
+			
+		toggle.addEventListener('click', function(){
+			if(this.className.indexOf('toggle') != -1) {
+				main.style.height = '25px';
+				label.innerHTML = '更多';
+				toggle.className = 'tag';
+				toggle.style.top = '8px';
+				
+			} else {
+				main.style.height = '110px';
+				label.innerHTML = '收起';
+				toggle.className = 'tag toggle';
+				toggle.style.top = '97px';
+			}
+		});
+		
+		var isAnimate = false, time = 25;
+		function animate(dom, height, value) {
+			if(isAnimate) clearInterval(isAnimate);
+			var oKey = dom.style['key'];
+			isAnimate = setInterval(function(){
+				
+			}, time)
+		}
+	})();	
+	</script>
+</div>
+</div><!-- end qn_main -->
+<script src="http://qunarzz.com/m_train_common/prd/v2/js/zepto-2015040920491269.js" type="text/javascript"></script>
+<script id="cTpl" type="text/template">
+<table>
+    <thead><tr><td colspan="7"><h5><%= year %>年<span class="qn_blue"><%= month %>月</span></h5></td></tr></thead>
+	<tbody>
+		<tr class="weeks">
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <th class="weekend">周六</th>
+            <th class="weekend">周日</th>
+        </tr>
+		<% _.each(weeks, function(days){ %>
+			<tr class="days">
+				<% _.each(days, function(day){ %>
+					<td class="<%= day.content.className %>" data-day="<%= day.date%>"><%= day.content.html %></td>
+				<% })%>
+			</tr>
+		<% }) %>
+	</tbody>
+</table>
+</script>
+<script id="calendarTpl" type="text/template">
+ <table>
+    <thead><tr><td colspan="7"><h5><%= display.y %>年<span class="qn_blue"><%= display.m %>月</span></h5></td></tr></thead>
+    <tbody <% if(tags) { %>class="withTag" <% } %>>
+        <tr class="weeks">
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <th class="weekend">周六</th>
+            <th class="weekend">周日</th>
+        </tr>
+        <% if(tags) { %>
+        <% _.each(weeks, function(days){ %>
+            <tr class="days">
+                <% for(var i = 0; i < 7; i++){ %>
+                    <td class="<% if(choosen.d == days[i] && choosen.m == display.m && choosen.y == display.y){ %>active<% } %> 
+                    <% if (i > 4){ %>weekend<% } %>
+                    <% if (holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]){ %>holiday<% } %>
+                    <% if (tiaoxiu[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]){ %>weekday<% } %>
+                    <% if (!days[i]){ %>null"<% } %>
+                    <% if (days[i] < 0) { %>disable"
+                    <% } else{ %>" data-day="<%= $.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-') %>" <% } %>>
+                    <p>
+                    <% if(holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]) { %>
+                    <%= holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')] %>
+                    <% } else { %>
+                    <%= days[i] ? ((today.d == days[i] && today.m == display.m) ? "今天" : Math.abs(days[i])) : "&nbsp;" %></p>
+                    <% } %>
+                    <%= tags[$.fixTo8Date(display.y, display.m, Math.abs(days[i]))] || '<p>&nbsp;</p>' %>
+                    </td>
+                <% } %>
+            </tr>
+        <% })} else if(holiday) { %>
+            <% _.each(weeks, function(days){ %>
+            <tr class="days">
+                <% for(var i = 0; i < 7; i++){ %>
+                    <td class="<% if(choosen.d == days[i] && choosen.m == display.m && choosen.y == display.y){ %>active<% } %> 
+                    <% if (i > 4){ %>weekend<% } %>
+                    <% if (holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]){ %>holiday<% } %>
+                    <% if (tiaoxiu[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]){ %>weekday<% } %>
+                    <% if (!days[i]){ %>null"<% } %>
+                    <% if (days[i] < 0) { %>disable"
+                    <% } else{ %>" data-day="<%= $.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-') %>" <% } %>>
+                    <% if(holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')]) { %>
+                    <%= holiday[$.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-')] %>
+                    <% } else { %>
+                    <%= days[i] ? ((today.d == days[i] && today.m == display.m) ? "今天" : Math.abs(days[i])) : "&nbsp;" %>
+                    <% } %>
+                    </td>
+                <% } %>
+            </tr>
+        <% })} else { %>
+            <% _.each(weeks, function(days){ %>
+            <tr class="days">
+                <% for(var i = 0; i < 7; i++){ %>
+                    <td class="<% if(choosen.d == days[i] && choosen.m == display.m && choosen.y == display.y){ %>active<% } %> 
+                    <% if (i > 4){ %>weekend<% } %>
+                    <% if (!days[i]){ %>null"<% } %>
+                    <% if (days[i] < 0) { %>disable"
+                    <% } else{ %>" data-day="<%= $.fixTo8Date(display.y, display.m, Math.abs(days[i]), '-') %>" <% } %>>
+                    <%= days[i] ? ((today.d == days[i] && today.m == display.m) ? "今天" : Math.abs(days[i])) : "&nbsp;" %>
+                    </td>
+                <% } %>
+            </tr>
+        <% })} %>
+    </tbody>
+</table>
+</script>
+<script type="text/javascript">
+    var activeDay = '2016-05-30';
+    var calendarP = $('#calendarPage').page({
+        init : function() {
+            var me = this, holiday = {"2015-10-05":"5","2015-10-06":"6","2014-10-01":"国庆节","2015-10-07":"国庆节","2014-09-08":"中秋节","2014-10-04":"4","2014-10-05":"5","2014-10-02":"2","2014-10-03":"3","2014-10-06":"6","2014-10-07":"7","2015-10-01":"1","2015-10-02":"2","2015-10-03":"3","2015-10-04":"4","2014-12-24":"平安夜","2014-01-30":"除夕","2014-12-25":"圣诞节","2014-01-31":"春节","2015-01-01":"元旦","2015-01-02":"2","2015-12-24":"平安夜","2015-12-25":"圣诞节","2014-05-31":"31","2015-01-03":"3","2015-06-22":"22","2015-02-24":"24","2015-02-22":"22","2015-06-20":"端午节","2015-06-21":"21","2015-02-23":"23","2014-06-01":"1","2014-06-02":"端午节","2014-09-07":"7","2015-05-01":"劳动节","2014-09-06":"6","2015-02-19":"春节","2014-01-01":"元旦","2015-04-06":"6","2015-04-05":"清明节","2014-02-14":"情人节","2015-02-14":"情人节","2015-02-18":"除夕","2015-08-20":"七夕","2015-02-21":"21","2015-02-20":"20","2014-08-02":"七夕","2014-05-03":"3","2015-09-27":"中秋节","2014-05-02":"2","2014-05-01":"劳动节","2014-02-06":"6","2014-02-05":"5","2014-02-04":"4","2014-02-03":"3","2014-02-02":"2","2014-02-01":"1","2014-04-07":"7","2014-04-06":"6","2014-04-05":"清明节","2015-11-11":"光棍节","2014-11-11":"光棍节"}, tiaoxiu = {"2014-02-08":"2014-02-08","2014-05-04":"2014-05-04","2014-10-11":"2014-10-11","2015-12-24":"2015-12-24","2015-12-25":"2015-12-25","2014-02-14":"2014-02-14","2015-01-04":"2015-01-04","2015-10-10":"2015-10-10","2015-02-28":"2015-02-28","2014-01-26":"2014-01-26","2015-02-15":"2015-02-15","2014-12-24":"2014-12-24","2014-12-25":"2014-12-25","2014-01-30":"2014-01-30","2014-09-28":"2014-09-28","2015-08-20":"2015-08-20","2014-11-11":"2014-11-11","2015-11-11":"2015-11-11","2014-08-02":"2014-08-02"}, DAYTOMILS = 1000 * 60 * 60 * 24;
+
+            //获取预售期天数
+            $.ajax({
+                url: '/h5/train/TrainCommonCalendar',
+                dataType: 'json',
+                timeout:2000,
+                success: function (data) {
+                    next(data || {});
+                },
+                error: function () {
+                    next({});
+                }
+            });
+
+            var next = function (data) {
+                var rst = data.dataMap;
+                var pre12306 = Number(rst && rst.pre12306) || 0,
+                        preQunar = Number(rst && rst.preQunar) || 0;
+                var preSaleDays = pre12306 + preQunar;
+                if (!preSaleDays) {
+                    preSaleDays = 60;
+                }
+
+                var calendar = this.calendar = new $._QunarCalendar({
+                    serverDate : '2016-05-22',
+                    container : '.qn_calendar',
+                    validDays : preSaleDays,
+                    init : function(){
+
+                    },
+                    fill : function(date){
+                        var key = $.getDateString(date),
+                                className = '', html = date.getDate(),
+                                today = new Date('2016-05-22'.replace(/-/g, "/")), end = today;
+                        var preSaleEndDay = new Date('2016-05-22'.replace(/-/g, "/"));
+                        preSaleEndDay.setDate(preSaleEndDay.getDate() + preSaleDays - 1);
+                        var thisday = new Date(date);
+
+                        if(date.getDay() == 6 || date.getDay() == 0) className = 'weekend';
+                        if(holiday[key]) {
+                            className = 'holiday';
+                            html = holiday[key];
+                        }
+                        if(tiaoxiu[key]) {
+                            className += ' weekday'
+                        }
+
+                        if(date.getFullYear() == today.getFullYear() && date.getMonth() == today.getMonth() && date.getDate() == today.getDate()) {
+                            className = '';
+                            html = '今天';
+                        }
+
+                        if(key == activeDay){
+                            className += ' active';
+                        }
+
+                        if(thisday - preSaleEndDay > 0){
+                            className += ' disable';
+                        }
+
+                        className += end - date >= DAYTOMILS ? ' disable' : '';
+
+                        return {
+                            className : className,
+                            html : html
+                        }
+                    },
+                    active : function(date){
+                        calendar.render(null, null, { clear : true });
+                    },
+                    unactive : function(dom){
+                        var that = this, dom = $(dom);
+                        if(dom.hasClass('disable') || dom.hasClass('null') || dom.attr('colspan')) return;
+                        $('.qn_calendar').find('.active').removeClass('active');
+                        dom.addClass('active');
+                        $.href().param('date',dom.data('day')).exec();
+                        //setTimeout(me.unactive,200);
+                    }
+                });
+
+                $('#changeCal').on('click', function(){
+                    calendar.active();
+                    pages.toPage('calendarPage');
+                });
+            };
+
+        }
+    });
+
+
+    var filterPage = $('#filterPage').page({
+        init : function(){
+            var filter = {
+                    'filterTrainType' : [],
+                    'filterTicketType' : [],
+                    'filterStationType' : [],
+                    'filterDeptTimeRange' : [],
+                    'filterArriTimeRange' : [],
+                    'filterStation' : []
+                }, f, temp;
+            for(var i in filter) {
+                f = filter[i];
+                for(var j = 0, len = f.length; j < len; j++) {
+                    temp = $('input[name="' + i + '"]');
+                    temp.each(function(){
+                        if(this.value == f[j]) this.checked = true;
+                    });
+                }
+            }
+        }
+    });
+    var pages = $('.qn_pages').pages({
+        main : 'trainListPage',
+        side : [filterPage,calendarP]
+    });
+
+    $('.filter').on('click', function() {
+        pages.toPage('filterPage');
+    });
+
+    //添加更多
+    var pageNum = 1 ;
+    var totalSize = 2;
+    var pageSize = 15;
+    if((7 &&  7==7) || (pageNum*pageSize>totalSize-1)){
+        $('.qn_list .more').html('已加载完毕');
+    }
+    else {
+        $('.qn_list .more').on('click', function () {
+            var thiz = $(this);
+
+            if (thiz.html() == '正在加载...' || thiz.html() == '已加载完毕') return;
+        thiz.html("正在加载...");
+
+        pageNum++;
+        $.ajax({
+                url: $.href().param({
+                    'pageNum': pageNum,
+                    'tpl': 'train.trainListOptTpl'
+            }).getValue(),
+                dataType: 'html',
+                success: function (data) {
+                    if (data !== '') {
+                    $('.qn_list > ul').append(data);
+                    thiz.html('点击查看更多');
+                        if(pageNum*pageSize>totalSize-1){
+                    thiz.html('已加载完毕');
+
+                }
+                    } else {
+                        thiz.html('已加载完毕');
+            }
+                }
+        });
+
+    });
+    }
+
+    //回到顶部
+    $('.bottom .goTop').on('click', function(){
+        window.scroll(0,1);
+    });
+
+    $('.content dd').on('click', function(){});
+
+
+    //排序
+        $('.by_default').on('click',function(e){
+            e.preventDefault();
+            pageNum = 1;
+            $.href().param({
+                'sort' : '0'
+            }).exec()
+        })
+
+    $('.by_starttime').on('click',function(e){
+        e.preventDefault();
+        pageNum = 1;
+        $.href().param({
+            'sort' : '3'        }).exec()
+    })
+
+    $('.by_endtime').on('click',function(e){
+        e.preventDefault();
+        pageNum = 1;
+        $.href().param({
+            'sort' : '5'    }).exec()
+    })
+
+    $('.by_price').on('click',function(e){
+        e.preventDefault();
+        pageNum = 1;
+        $.href().param({
+            'sort' : '1'        }).exec()
+    })
+    //前一天后一天
+    $('.qn_sub_header #prevDay').on('click', function(){
+        if($(this).find('span').hasClass('disable')) return;
+        $.href().param('date', $.jumpDate('2016-05-30', -1)).exec();
+    });
+    $('.qn_sub_header #nextDay').on('click', function(){
+        if($(this).find('span').hasClass('disable')) return;
+        $.href().param('date', $.jumpDate('2016-05-30', 1)).exec();
+    });
+
+
+
+    $('.qn_list .qn_arrow_grey').hover();
+	$('.main_nav li, .footer_nav li a').hover();
+    $('.back, .right, .bottom div, .footer_nav li a, .qn_sort li').hover();
+
+	//bind a
+	(function(){
+
+		$('.qn_list').delegate('a:not([notorder=true])','click',function(e){
+			var url = $(this).attr('data-href');
+			getRecommend(url);
+		});
+		
+		
+		//sougou
+		$('.qn_list').delegate('a[data-role=sougou]','click',function(e){
+			var url = $(this).attr('data-href'), msg = $(this).attr('data-alert');
+			if(!msg){
+				location.href = url;
+			}else{
+				alert(msg)
+			}
+		})
+	})()
+	function getRecommend(url){
+		$.ajax({
+				url:url,
+				success:function(data){
+					if(data.match("id='js_recommendTips'")){
+						renderTpl(data);
+						bindEventsTpl(url);
+					}else{
+						location.href = url;
+					}
+					
+				},
+				error:function(){
+					alert('网络异常，请稍后再试！');
+				}
+			})
+	}
+	function renderTpl(tpl){
+	 	$('#js_recommendTips').remove();
+		$('.qn_main').append(tpl);
+        $(".qn_pop").css('top',$("body").scrollTop()+ ($(window).height()-$('.qn_pop').height())/2)
+        if($('.qn_main').width()==$(window).width()){
+        	$(".qn_pop").css('left', ($(window).width()-$('.qn_pop').width())/2);
+        }
+        $(".qn_pop").on('touchmove', function(e){ e.preventDefault();});
+	}
+	function bindEventsTpl(url){
+		$('.qn_pop').delegate('[action-type=order]','click',function(e){
+			var data=$(this).attr('action-data').split('&');
+			var type = data[0], num = data[1], dstation = data[2], astation = data[3];
+			//var num = $(this).attr('action-num');
+			url = url.replace(/seatType=.*$/,'seatType='+type);
+			if(dstation){
+				url = url.replace(/trainNum=[A-Za-z0-9/]*&/,'trainNum='+num+'&').replace(/startStation=[^&]*&/,'startStation='+dstation+'&').replace(/endStation=[^&]*&/,'endStation='+astation+'&');
+			}
+            else{
+                url+='&ticketId='+num;
+            }
+			//location.href = url+'&jumpFrom=bookingRecommend';
+			url += '&jumpFrom=bookingRecommend';
+			//有可能再次推荐
+			getRecommend(url);
+			
+		});
+		$('.qn_pop').delegate('[action-type=moreList]','click',function(e){
+			var url=$(this).attr('action-data');
+			
+			location.href = url+'&jumpFrom=bookingRecommend';
+			
+		});
+		
+	}
+
+
+</script>
+<script src="/js/sug_download.js"></script>
+<script>addEventListener('DOMContentLoaded',function(){setTimeout(function(){scrollTo(0,1);},0);},false);</script>
+</body>
+</html>
+

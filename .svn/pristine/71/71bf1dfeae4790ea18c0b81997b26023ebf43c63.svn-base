@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+{% block title%}benben-lu{% endblock %}
+
+
+{% block navbar %}
+<header class="navbar navbar-default" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">benben-lu</a>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-6 col-md-offset-2">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="输入..." id="input-box">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="send">发送</button>
+      </span>
+    </div><!-- /input-group -->
+    <p>例子：明天从北京到哈尔滨的一等座</p>
+  </div>
+</div>
+
+<div class="row">
+  <p></p>
+</div>
+
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>输入</th>
+          <th>回复</th>
+          <th>解析</th>
+        </tr>
+      </thead>
+      <tbody id="reply-box">
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script src="../static/js/main.js"></script>
+{% endblock %}
