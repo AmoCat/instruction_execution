@@ -21,7 +21,8 @@ class Deal(object):
         self.price = price
 
     def __unicode__(self):
-        rt = u"%s\t[%s]\t%s\t%s" %(self.roomTitle, self.roomTypeName, self.breakfast, self.price)
+        rt = u"%s\t[%s]\t%s\t%s\t¥%s" %(self.roomTitle, self.roomTypeName, self.breakfast, self.wifi, self.price)
+        return rt
 
     def __str__(self):
         return unicode(self).encode('utf-8')
@@ -42,7 +43,8 @@ class Hotel(object):
     def __unicode__(self):
         rt = u"%s\t[%s]%s\n" % (self.hotelName, self.areaName, self.address)
         for d in self.dealList:
-            rt = u"%s\t[%s]\t%s\t%s\n" %(d.roomTitle, d.roomTypeName, d.breakfast, d.price)
+            rt += u"%s\t[%s]\t%s\t¥%s\n" %(d.roomTitle, d.roomTypeName, d.breakfast, d.price)
+        return rt
 
     def __str__(self):
         return unicode(self).encode('utf-8')
@@ -82,6 +84,11 @@ class HotelSpider(object):
             return u"含早餐"
         return u"不含早餐"
 
+    def hash_wifi(self,wifi):
+        if wifi:
+            return u"有wifi"
+        return u"无wifi"
+
     def get_hotel_info(self, query):
         """ get ticket infomation"""
         query_url = self.make_query_url(**query)
@@ -107,9 +114,9 @@ class HotelSpider(object):
         response.close()
         data = json.loads(response_html)
         js_data = data['data']
-        dealsData = js_data['dealsData']
-        poiDealList = js_data['poiDealList']
-        poiInfo = js_data['poiInfo']
+        dealsData = js_data['dealsData']#房间预订#
+        poiDealList = js_data['poiDealList']#酒店号与deal对应关系#
+        poiInfo = js_data['poiInfo']#酒店信息#
         hotelList = []
         for h in poiInfo:
             poiID = str(h['poiID'])
@@ -125,18 +132,19 @@ class HotelSpider(object):
             dealIDList = poiDealList[poiID]['dealIDList']
             for id in dealIDList:
                 dealData = dealsData[str(id)]
-                print dealData.keys()
-                print dealData
+                #print dealData.keys()
+                #print dealData
                 breakfast = self.hash_breakfast(dealData['breakfast'])
                 roomTitle = dealData['title']
                 roomTypeName = ""
-                if 'roomTypeName' in dealData.keys()
+                if 'roomTypeName' in dealData.keys():
                     roomTypeName = '/'.join(dealData['roomTypeName'])
                 price = dealData['value']
-                wifi = dealData['wifi']
+                wifi = self.hash_wifi(dealData['wifi'])
                 deal = Deal(roomTitle,roomTypeName,breakfast,wifi,price)
                 dealList.append(deal)
             hotel = Hotel(poiID,hotelName,address,areaID,areaName,districtName,hotelStar,wifi,park,dealList)
+            print hotel
             hotelList.append(hotel)
         return {'hotelList': hotelList, 'link': origin_url}
 
