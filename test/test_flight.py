@@ -7,11 +7,11 @@ url = "http://0.0.0.0:9527/module/instruction_execution/flight"
 
 
 
-content = '后天从北京到哈尔滨'
+content = '我想飞美国'
 context = {'test':'test'}
-ltp = {'seg': '后天 从 北京 到 哈尔滨',
-        'pos': 'nt p ns p ns',
-        'ner': 'O O S-Ns O S-Ns'}
+ltp = {'seg': '我 想 飞 美国',
+        'pos': 'r v v ns',
+        'ner': 'O O O S-Ns'}
 metafield = {'ltp': ltp}
 values = {'content': content, 'context':context, 'metafield': metafield}
 

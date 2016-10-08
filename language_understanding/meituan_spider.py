@@ -20,7 +20,7 @@ class Deal(object):
         self.wifi = wifi
         self.price = price
 
-    def __unicode__(self):
+    def __unicode__(self):  
         rt = u"%s\t[%s]\t%s\t%s\t¥%s" %(self.roomTitle, self.roomTypeName, self.breakfast, self.wifi, self.price)
         return rt
 

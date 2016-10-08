@@ -1,7 +1,7 @@
 #coding:utf-8
 
 from flask import Flask, render_template, jsonify, request
-from language_understanding import TrainCommander,FlightCommander
+from language_understanding import TrainCommander,FlightCommander,HotelCommander
 import json
 import traceback
 import re
@@ -39,6 +39,13 @@ def get_flight_reply():
     res = reply(commander)
     return res
 
+@app.route('/module/instruction_execution/hotel', methods=['POST'])
+def get_hotel_reply():
+    commander = HotelCommander()
+    #status, reply, context = commander.get_reply(sent, context)
+    res = reply(commander)
+    return res
+
 def reply(commander):
     app.logger.info(request.json)
     sent = request.json.get('content')
@@ -67,6 +74,7 @@ def reply(commander):
             not_find = re.search("没有找到",reply)
             before_date = re.search("昨天",reply)
             unsupported_city = re.search("不支持的",reply)
-            if (not not_find) and (not before_date) and (not unsupported_city):
+            error = re.search("有误",reply)
+            if not (not_find or before_date or unsupported_city or error):
                 msg_type = MSG_TYPE_TICKET
     return jsonify({'msg_type': msg_type,'status': status, 'reply': reply, 'context': context, 'metafield':{}})
