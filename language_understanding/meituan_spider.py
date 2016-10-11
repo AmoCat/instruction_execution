@@ -59,6 +59,7 @@ class HotelSpider(object):
             %(MEITUAN_URL)
         self.query_url_template = "%s/%%s?ci=%%s&co=%%s&sort=&w=&attrs="\
             %(QUERY_URL)
+        #http://hotel.meituan.com/api/getcounterandpois/haerbin?ci=2016-10-11&co=2016-10-12&sort=&w=&brand=28349&attrs=
 
     def get_ch_phonetic(self,city):
         print "#####city =",city
@@ -69,12 +70,14 @@ class HotelSpider(object):
         print "####city_name=",res
         return res
 
-    def make_query_url(self, city, check_in_date, check_out_date, *args, **kwargs):
+    def make_query_url(self, city, check_in_date, check_out_date, name_id, *args, **kwargs):
         city = self.get_ch_phonetic(city)
         query_url = self.query_url_template % (city, check_in_date, check_out_date)
+        if name_id != "0":
+            query_url+="&brand="+name_id
         return query_url
 
-    def make_origin_url(self, city, check_in_date, check_out_date, *args, **kwargs):
+    def make_origin_url(self, city, check_in_date, check_out_date, name_id, *args, **kwargs):
         city = self.get_ch_phonetic(city)
         origin_url = self.meituan_url_template % (city, '%', '%', check_in_date, check_out_date)
         return origin_url

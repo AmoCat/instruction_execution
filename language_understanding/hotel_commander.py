@@ -8,6 +8,7 @@ import json
 import CRFPP
 from .meituan_spider import   HotelSpider
 from .ground import date_ground, loc_ground, is_loc_name
+from .hotel_ground import hotel_ground, type_ground
 from functools import wraps
 import os
 import re
@@ -41,11 +42,12 @@ ORIG_SLOT_NAME_PREFIX = '_'
 CONTEXT_EXPECTED = 'expected_slot_name'
 CONTEXT_SLOTS = 'slots'
 
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+#MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
 MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
 tagger = CRFPP.Tagger('-m %s' % (MODEL_PATH))
 
@@ -224,7 +226,6 @@ class HotelCommander(object):
         if word:
             #slots[self.__orig(cur_slot_name)] = word
             self.add_slot(self.__orig(cur_slot_name), word, prob)
-            print "###cur_slot_name = ",cur_slot_name
 
     def construct_regularize_slots(self):
         '''把slots中未规范化的slot规范化'''
@@ -248,12 +249,24 @@ class HotelCommander(object):
             r = self.regularize_loc(slot_value)
         elif slot_name in ['check_in_date', 'check_out_date']:
             r = self.regularize_date(slot_value)
-        elif slot_name is 'cost_relative':
+        elif slot_name == 'cost_relative':
             r = slot_value
+        elif slot_name == 'hotel_name':
+            r = self.regularize_hotel(slot_value)
+        elif slot_name == 'type':
+            r = self.regularize_type(slot_value)
         return r
 
     def regularize_loc(self, loc):
-        r = loc_ground(loc, default=None)
+        r = loc_ground(loc, default = None)
+        return r
+
+    def regularize_hotel(self, hotel):
+        r = hotel_ground(hotel, default = None)
+        return r
+
+    def regularize_type(self, h_type):
+        r = type_ground(h_type, default = None)
         return r
 
     def regularize_date(self, dt):
@@ -267,10 +280,10 @@ class HotelCommander(object):
         if FILL_CHECK_OUT_DATE:
             if 'check_in_date' in self.slots and 'check_out_date' not in self.slots:
                 today = datetime.today()
-                tomorrow = today + timedelta(days=1)
-                d = date_ground(dt, tomorrow, default=None)
-                r = '%d-%02d-%02d' % (d.year, d.month, d.day)
-                if r!=None:
+                d = date_ground(dt, today, default=None)
+                if d!=None:
+                    d = d + timedelta(days=1)
+                    r = '%d-%02d-%02d' % (d.year, d.month, d.day)
                     self.slots[self.__reg('check_out_date')] = r
 
     def fill_default_slots(self):
@@ -312,6 +325,18 @@ class HotelCommander(object):
                 if len(hotels) > 1:
                     for f in hotels[1:]:
                         hotels.remove(f)
+            if 'type' in self.slots:
+                type = self.slots['type']
+                for h in hotels[0:]:
+                    f = False
+                    for d in h.dealList[0:]:
+                        if type == d.roomTypeName:
+                            f = True
+                    if not f:
+                        hotels.remove(h)
+                    else:
+                        for d in h.dealList[0:]:
+                            if type != d.roomTypeName: h.dealList.remove(d)
             if len(hotels) != 0:
                 reply += '\n'+'\n'.join([str(f) for f in hotels[:RESULT_SIZE]]).decode('utf-8')
                 reply += '\n'
@@ -342,9 +367,13 @@ class HotelCommander(object):
         city = slots['city'].encode('utf-8')
         check_in_date = slots['check_in_date'].encode('utf-8')
         check_out_date = slots['check_out_date'].encode('utf-8')
+        if 'hotel_name' in self.slots:
+            brand = self.slots['hotel_name'] 
+        else:
+            brand = "0"
         spider = HotelSpider()
         info = spider.get_hotel_info({'city': city, 'check_in_date': check_in_date,
-            'check_out_date':check_out_date})
+            'check_out_date':check_out_date, 'name_id':brand})
         return info
 
     def get_question(self, slot_name):
