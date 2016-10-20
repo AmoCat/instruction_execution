@@ -125,9 +125,7 @@ class HotelCommander(object):
         '''接口，取得回复。words是unicode'''
         self.context = context
         if not self.__is_status_waiting():
-            #print "###not waiting..."
             self.recognize(sent, words, postags, nes)
-            #print "###recognize over..."
         else:
             expected_slot_name = self.context.get(CONTEXT_EXPECTED)
             print "###self.slots = ",self.slots
@@ -162,7 +160,8 @@ class HotelCommander(object):
         self.fill_default_slots()
         if 'check_in_date' in self.slots.keys():
             self.fill_check_out_time(self.slots['check_in_date'])
-        self.area_recognize(sent, self.slots['city'])
+        if 'city' in self.slots:
+            self.area_recognize(sent, self.slots['city'])
         status, reply, context = self.construct_reply()
         return status, reply, context
 
