@@ -1,0 +1,12 @@
+博鳌/boao
+爱华东路/aiuhuadonglu
+爱华西路/aihuaxilu
+汽车站/qichezhan
+元亨街/yuanengjie
+百佳汇超市/baijiahui
+德海路/dehailu
+金海路/jinhailu
+银海路/yinhailu
+兴海路/xinghailu
+官塘镇/guantangzhen
+潭门镇/tanmenzhen

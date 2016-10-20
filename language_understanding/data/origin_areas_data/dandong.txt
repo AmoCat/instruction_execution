@@ -1,0 +1,43 @@
+女人街/nvrenj
+新柳步行街/xinliubuxingjie
+江边/jiangbian
+万达广场/wandaguangchang
+站前/zhanqian
+华美新天地/huameixintiandi
+安东老街/andonglaojie
+步行街/buxingjie
+翰墨商圈/hanmoshangquan
+站前/zhanqian02
+黄海市场/huanghaishichang
+桥南/qiaonan
+桥东/qiaodong
+站前/zhanqian01
+天都商厦/tiandoushangsha
+宽甸火车站/kuandianhuochezhan
+元宝区/yuanbaoqu
+振兴区/zhenxingqu
+振安区/zhenqu
+凤城市/fengchengshi
+东港市/donggangshi
+宽甸满族自治县/kuandianmanzuzizhixian
+丹东站/landmark_203
+宽甸火车站 /landmark_16138
+灌水火车站 /landmark_16141
+凤凰城火车站/landmark_13850
+丹东浪头机场/landmark_10655
+元宝山公园/landmark_8650
+抗美援朝纪念馆/landmark_8639
+鸭绿江断桥/landmark_8640
+鸭绿江公园/landmark_8641
+锦江山公园/landmark_8647
+青山沟/landmark_9619
+天华山森林公园/landmark_9620
+玄武湖景区/landmark_9621
+河口断桥/landmark_9622
+黄椅山公园 /landmark_16149
+凤凰山/landmark_8644
+凤城凤凰山/landmark_9617
+大梨树/landmark_14407
+龙原城/landmark_14408
+翰林府/landmark_14409
+丹东广播电视大学/landmark_2902

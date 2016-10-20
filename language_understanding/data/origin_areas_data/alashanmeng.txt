@@ -1,0 +1,9 @@
+新华街/xinhuajie
+南环街道/nanhuanjiedao
+众鑫民族商场/zhongxinminzushangchang
+温州商城/wenzhoushangcheng
+阿拉善左旗/elashanzuoqi
+阿拉善右旗/elashanyouqi
+额济纳旗/ejinaqi
+巴彦浩特城市生态公园/landmark_20861
+阿拉善博物馆/landmark_20863

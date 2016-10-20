@@ -1,0 +1,31 @@
+新大商/xindashang
+老大商/laodashang
+休闲广场/xxgc
+矿总院/kuangzongyuan
+滴道火车站/didaohuochezhan
+虎林百货大楼/hulinbaihuodalou
+吉祥广场/jixiangguangchang
+兴亚时代广场/xingyashidaiguangchang
+朝中区/chaozhongqu
+鸡东火车站/jidonghuochezhan
+鸡冠区/jiguanqu
+恒山区/hengshanqu
+滴道区/didaoqu
+城子河区/chengzihequ
+虎林市/hulinshi
+密山市/mishanshi
+鸡东县/jidongxian
+鸡西站/landmark_217
+鸡西西站/landmark_16433
+滴道火车站/landmark_18931
+鸡东火车站/landmark_16153
+虎林火车站/landmark_16187
+华严寺 /landmark_16427
+河滨公园/landmark_16428
+鸡西市体育会展中心广场 /landmark_16429
+儿童公园/landmark_16434
+恒山国家矿山公园 /landmark_16169
+水上公园/landmark_16170
+天恩堂/landmark_16167
+森林动物园 /landmark_16184
+兴凯湖当壁镇景区/landmark_9423

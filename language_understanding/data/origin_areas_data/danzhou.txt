@@ -1,0 +1,14 @@
+洋浦/yangpu
+中兴大街/zhongxingdajie
+文化北路/wenhuabeilu
+大勇商场/dayongshangchang1
+人民西路/renminxilu
+人民中路/renminzhonglu
+人民东路/renmindonglu
+文化中路/wenhuazhonglu
+先锋路/xianfenglu
+龙腾西路/longtengxilu
+那恁路/neinenlu
+伏波路/fubolu
+东坡路/dongpolu
+农垦路/nongkenlu

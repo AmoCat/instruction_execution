@@ -70,16 +70,22 @@ class HotelSpider(object):
         print "####city_name=",res
         return res
 
-    def make_query_url(self, city, check_in_date, check_out_date, name_id, *args, **kwargs):
+    def make_query_url(self, city, check_in_date, check_out_date, name_id, area_id, *args, **kwargs):
         city = self.get_ch_phonetic(city)
         query_url = self.query_url_template % (city, check_in_date, check_out_date)
         if name_id != "0":
-            query_url+="&brand="+name_id
+            query_url += "&brand="+name_id
+        if area_id != None:
+            query_url += "&geoslug=" + area_id
         return query_url
 
-    def make_origin_url(self, city, check_in_date, check_out_date, name_id, *args, **kwargs):
+    def make_origin_url(self, city, check_in_date, check_out_date, name_id, area_id, *args, **kwargs):
         city = self.get_ch_phonetic(city)
         origin_url = self.meituan_url_template % (city, '%', '%', check_in_date, check_out_date)
+        if name_id != None:
+            origin_url += '&brand=' + name_id
+        if area_id != None:
+            origin_url += '&geoslug=' + area_id
         return origin_url
 
     def hash_breakfast(self,breakfast):
@@ -147,7 +153,7 @@ class HotelSpider(object):
                 deal = Deal(roomTitle,roomTypeName,breakfast,wifi,price)
                 dealList.append(deal)
             hotel = Hotel(poiID,hotelName,address,areaID,areaName,districtName,hotelStar,wifi,park,dealList)
-            print hotel
+            #print hotel
             hotelList.append(hotel)
         return {'hotelList': hotelList, 'link': origin_url}
 

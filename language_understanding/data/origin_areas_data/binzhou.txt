@@ -1,0 +1,50 @@
+汽车总站/qichezongzhan
+渤海十路美食街/bohaishilumeishijie
+滨州学院/binzhouxueyuan
+大润发/darunfa
+渤海国际/bohaiguoji
+公交枢纽中心/gongjiaoshuniu
+中海银座/zhonghaiyinzuo
+渤海六路美食街/bohailiulumeishijie
+瑄嘉名都/xuanjiamingdou
+大观园商城/daguanyuanshangcheng
+文安西路/wenanxilu
+幸福一路/xingfuyilu
+华信商场/huaxinshangchang
+鲁北通力商贸城/lubeitonglishangmaocheng
+新合作购物广场/xinhezuogouwuguangchang
+新城二路/xinchengel
+东谷王/dongguwang
+银座商城/yinzsc
+乐安大街/leandajie
+东河东/donghedong
+兴福镇/xingfuzhen
+黄山二路/huangshanerlu
+黛溪五路/daixiwulu
+新玛特/xinmate
+山南/shannan01
+黄山三路/huangshansanlu
+黛溪三路/daixisanlu
+滨城区/binchengqu
+惠民县/huiminxian
+阳信县/yangxinxian
+无棣县/wudixian
+沾化区/zhanhuaqu
+博兴县/boxingxian
+邹平县/zoupingxian
+滨州站/landmark_275
+阳信站/landmark_14707
+博兴火车站 /landmark_13836
+杜受田故居/landmark_9364
+滨州国际会展中心/landmark_14695
+蒲湖公园/landmark_18689
+九龙湖公园 /landmark_14704
+冬枣生态旅游区 /landmark_14680
+徒骇河公园 /landmark_14681
+兴国寺 /landmark_13838
+董永公园/landmark_13839
+澳博会展中心/landmark_13840
+滨州医学院/landmark_2418
+滨州学院/landmark_2420
+滨州职业学院/landmark_2421
+滨州技术学院/landmark_2422

@@ -8,11 +8,13 @@ import json
 import CRFPP
 from .meituan_spider import   HotelSpider
 from .ground import date_ground, loc_ground, is_loc_name
-from .hotel_ground import hotel_ground, type_ground
+from .hotel_ground import hotel_ground, type_ground, area_ground
+from preprocessor import area_preprocessor
 from functools import wraps
 import os
 import re
 from ltp_handler import LTP_ne
+from CH_phonetic import PinYin
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 
@@ -50,6 +52,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 #MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
 MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
 tagger = CRFPP.Tagger('-m %s' % (MODEL_PATH))
+
 
 def cache(func):
     caches = {}
@@ -159,6 +162,7 @@ class HotelCommander(object):
         self.fill_default_slots()
         if 'check_in_date' in self.slots.keys():
             self.fill_check_out_time(self.slots['check_in_date'])
+        self.area_recognize(sent, self.slots['city'])
         status, reply, context = self.construct_reply()
         return status, reply, context
 
@@ -184,9 +188,17 @@ class HotelCommander(object):
             return {self.__orig(expected_slot_name):sent}
         return None
 
-    def loc_name(self,sent):
+    def loc_name(self, sent):
         res = is_loc_name(sent,default= None)
         return res
+
+    def area_recognize(self, sent, city):
+        print "area_recognize"
+        k, v = area_preprocessor(sent, city)
+        if v != None:
+            self.slots[self.__orig('area')] = k
+            self.slots['area'] = v
+        return k, v
 
     def recognize(self, sent, words, postags, nes):
         '''识别slot'''
@@ -255,6 +267,12 @@ class HotelCommander(object):
             r = self.regularize_hotel(slot_value)
         elif slot_name == 'type':
             r = self.regularize_type(slot_value)
+        elif slot_name == 'area':
+            k,r = self.regularize_area(slot_value)
+        return r
+
+    def regularize_area(self, area):
+        k,r = area_ground(area)
         return r
 
     def regularize_loc(self, loc):
@@ -371,9 +389,10 @@ class HotelCommander(object):
             brand = self.slots['hotel_name'] 
         else:
             brand = "0"
+        area_id = self.slots['area'] if 'area' in self.slots else None
         spider = HotelSpider()
         info = spider.get_hotel_info({'city': city, 'check_in_date': check_in_date,
-            'check_out_date':check_out_date, 'name_id':brand})
+            'check_out_date':check_out_date, 'area_id':area_id, 'name_id':brand})
         return info
 
     def get_question(self, slot_name):

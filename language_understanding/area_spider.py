@@ -15,7 +15,7 @@ AREAS_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 ORIGIN_AREADATA_PATH = os.path.join(DATA_DIR,'origin_areas_data')
 CITIES_PATH = os.path.join(DATA_DIR,'china_cities.txt')
 
-def get_area(cnt, city_name = 'shanghai'):
+def get_area(cnt, city_name = 'chongqing'):
     if os.path.exists(os.path.join(AREAS_PATH,city_name)) == True:
         return cnt
     request_url = MEITUAN_URL % (city_name)
@@ -55,5 +55,6 @@ def spider():
             cnt = get_area(cnt, city_name = name)
 
 if  __name__ == '__main__':
-    spider()
+    #spider()
+    get_area(1)
 

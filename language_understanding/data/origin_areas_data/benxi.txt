@@ -1,0 +1,47 @@
+环球商场/huanqiushangchang
+本溪火车站/benxihuochezhan
+银座购物广场/yinzuogouwuguangchang
+实华文化商场/shihuawenhuashangchang
+永丰步行街/yongfengbuxingjie
+三江商务大厦/sanjiangshangwudasha
+南地/nandi
+东明步行街/dongmingbuxingjie
+彩屯街道/caitunjiedao
+溪湖/xihu
+石桥子/shiqiaozi
+地工路/digonglu
+本溪长客运中心站/benxizhangkeyunzhongxinzhan
+消防三角地/xiaofangsanjiaodi
+银亿家园/yinyijiayuan
+长江步行街/zhangjiangbuxingjie
+本溪南芬火车站/benxinanfenhuochezhan
+本溪县客运站/benxixiankeyunzhan
+鹏翔购物广场/pengxianggouwuguangchang
+八千平购物中心/baqianpinggouwuzhongxin
+桓仁客运站/huanrenkeyunzhan
+平山区/pingshanqu
+溪湖区/xihuqu
+明山区/mingshanqu
+南芬区/nanfenqu
+本溪满族自治县/benximanzuzizhixian
+桓仁满族自治县/huanrenmanzuzizhixian
+本溪站/landmark_202
+本溪湖火车站/landmark_18921
+小市火车站 /landmark_15517
+本溪动植物园 /landmark_15405
+望溪公园 /landmark_15406
+本溪湖公园 /landmark_15531
+藏龙寺 /landmark_15532
+本溪湖 /landmark_15533
+本溪博物馆/landmark_15502
+高峪山公园/landmark_15503
+开元购物广场/landmark_15506
+四方古寨/landmark_15508
+本溪水洞/landmark_9653
+本溪关门山水库/landmark_9655
+本溪天龙古洞/landmark_9656
+关门山国家森林公园/landmark_15512
+大石湖风景名胜区/landmark_15513
+观音阁水库风景区 /landmark_15515
+望天洞 /landmark_15524
+本溪广播电视大学/landmark_2909

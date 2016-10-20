@@ -1,0 +1,15 @@
+北泉镇/beiquanzhen
+新城街道/xinchengjiedao
+向阳街道/xiangyangjiedao
+红山街道/hongshanjiedao
+老街街道/laojiejiedao
+东城街道/dongchengjiedao
+开发区/kaifaqushz
+玛纳斯/manasi
+石河子火车站/landmark_22315
+巴音山庄/landmark_13629
+群众艺术馆/landmark_13775
+军垦博物馆/landmark_13777
+艾青诗歌馆/landmark_13778
+周恩来纪念馆/landmark_13779
+玛河公园/landmark_22318

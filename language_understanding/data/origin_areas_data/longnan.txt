@@ -1,0 +1,12 @@
+武都区/wudouqu
+成县/chengxian
+宕昌县/dangchangxian
+康县/kangxian
+文县/wenxian
+西和县/xihexian
+礼县/lixian
+两当县/liangdangxian
+徽县/huixian
+官鹅沟地质公园/landmark_21058
+白云山公园/landmark_21066
+礼县博物馆/landmark_21146

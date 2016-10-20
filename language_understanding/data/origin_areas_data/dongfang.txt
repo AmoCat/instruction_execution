@@ -1,0 +1,10 @@
+解放西路/jiefangxilu
+东海路/donghailu
+三角公园/sanjiaogongyuan
+琼西路/qiongxilu
+滨海南路/binhainanlu
+东方大道/dongfangdadao
+二环北路/erhuanbeilu
+二环南路/erhuannanlu
+永安西路/yonganxilu
+滨海西路/binhaixilu
