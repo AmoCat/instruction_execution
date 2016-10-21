@@ -11,7 +11,6 @@
 东平德新商圈/dongpingdexinshangquan/湛江/zhanjiang
 东方路/文塔路/湛江/zhanjiang
 法式风情街/fashifengqingjie/湛江/zhanjiang
-国贸商场/guomaoshangchang/湛江/zhanjiang
 观海长廊/guanhaizhanglang/湛江/zhanjiang
 工农路/gongnonglu/湛江/zhanjiang
 广医/guangyi/湛江/zhanjiang
@@ -35,7 +34,6 @@
 人民大道南北段/renmindadaonanbeiduan/湛江/zhanjiang
 人民大道南南段/renmindadaonannanduan/湛江/zhanjiang
 人民大道中/renmindadaozhong/湛江/zhanjiang
-人民大道中北段/renmindadaozhongbeiduan/湛江/zhanjiang
 人民东周边/renmindongzhoubian/湛江/zhanjiang
 三角符周边/sanjiaofuzhoubian/湛江/zhanjiang
 泰轮城/tailuncheng/湛江/zhanjiang

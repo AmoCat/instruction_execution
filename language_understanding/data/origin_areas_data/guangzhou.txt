@@ -13,7 +13,6 @@
 东风中路/越秀公园/广州/guangzhou
 东风东/杨箕/广州/guangzhou
 动物园南门/dongwuyuannanmen01/广州/guangzhou
-东山口/农林下路/广州/guangzhou
 东圃/dongputh/广州/guangzhou
 大学城/daxuecheng/广州/guangzhou
 大石/dashi/广州/guangzhou

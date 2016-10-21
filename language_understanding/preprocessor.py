@@ -4,18 +4,14 @@
 import os
 import sys
 import cPickle as pkl
-from CH_phonetic import PinYin
 
 DATA_DIR = os.path.join(os.path.dirname(__file__),'data')
 AREA_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 
-def area_preprocessor(sent, city, default = None):
-    pinyin = PinYin()
-    pinyin.load_word()
-    city = ''.join(pinyin.hanzipinyin(string = city))
-    file_name = os.path.join(AREA_PATH, city)
+def area_preprocessor(sent, default = None):
+    file_name = os.path.join(AREA_PATH, 'all')
     try :
-        f = open(file_name)
+        f = open(file_name, 'r')
     except Exception, e:
         print sys.stderr,e
         return default, default

@@ -14,6 +14,7 @@
 大王庄/dawangzhuang/天津/tianjin
 大桥道/daqiaodao/天津/tianjin
 东丽开发区/donglikaifaqu01/天津/tianjin
+佛罗伦萨/威尼都/天津/tianjin
 老城厢/鼓楼/天津/tianjin
 工业大学/gongyedaxue/天津/tianjin
 汉沽城区/hanguchengqu/天津/tianjin
@@ -193,6 +194,7 @@
 津湾广场/landmark_10473/天津/tianjin
 解放桥/landmark_10464/天津/tianjin
 空港经济区/landmark_6921/天津/tianjin
+凯旋王国/landmark_5271/天津/tianjin
 梨木台/landmark_5275/天津/tianjin
 梅江会展中心/landmark_8648/天津/tianjin
 南市食品街/landmark_7056/天津/tianjin

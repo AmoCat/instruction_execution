@@ -1,0 +1,12 @@
+卡若区/karuoqu
+江达县/jiangdaxian
+贡觉县/gongjiaoxian
+类乌齐县/leiwuqixian
+丁青县/dingqingxian
+察雅县/chayaxian
+八宿县/basuxian
+左贡县/zuogongxian
+芒康县/mangkangxian
+洛隆县/luolongxian
+边坝县/bianbaxian
+察乐广场/landmark_23931

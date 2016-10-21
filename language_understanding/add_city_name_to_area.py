@@ -16,6 +16,8 @@ def add_cityname(city):
         city_phonetic = 'chongqing'
     dump_areas_path = os.path.join(AREAS_PATH, city_phonetic)
     origin_areas_path = os.path.join(ORIGIN_AREAS_PATH, city_phonetic + ".txt")
+    if (not os.path.exists(origin_areas_path)) or (not os.path.exists(dump_areas_path)):
+        return
     
     data = dict()
     with open(origin_areas_path, 'r') as f:
@@ -36,5 +38,28 @@ def add_all_cityname():
         for line in f:
             add_cityname(line.strip())
 
+def create_dict_of_all_city():
+    with open(os.path.join(DATA_DIR, 'china_cities.txt'), 'r') as f:
+        all = {}
+        for line in f:
+            phonetic = get_phonetic(line.strip())
+            if phonetic == 'zhongqing':
+                phonetic = 'chongqing'
+            path = os.path.join(AREAS_PATH, phonetic)
+            f = open(path, 'r')
+            dictionary = pkl.load(f)
+            all.update(dictionary)
+            f.close()
+        print all['五道口'][1]
+        pkl.dump(all, open(os.path.join(AREAS_PATH, 'all'), 'w'))
+
+def test():
+    path = os.path.join(AREAS_PATH, 'all')
+    f = open(path, 'r')
+    dict = pkl.load(f)
+    print dict['哈工大'][1]
+
 if __name__ == '__main__':
     add_all_cityname()
+    create_dict_of_all_city()
+    test()

@@ -9,6 +9,7 @@
 黄岐山大道/huangqishandadao/揭阳/jieyang
 马牙路/mayalu/揭阳/jieyang
 二号路/erhaolu/揭阳/jieyang
+市政府/shizf/揭阳/jieyang
 阳美/yangmei/揭阳/jieyang
 梅云镇/meiyunzhen/揭阳/jieyang
 广达美佳乐/guangdameijial/揭阳/jieyang

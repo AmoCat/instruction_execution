@@ -3,7 +3,6 @@
 南门街/nanmenjie/清远/qingyuan
 城市广场/chengshiguangchang/清远/qingyuan
 上下廓街/shangxialangjie/清远/qingyuan
-松岗市场/songgangshichang/清远/qingyuan
 锦绣清城/大润发/清远/qingyuan
 东城/dongcheng/清远/qingyuan
 小市桥南/xiaoshiqiaonan/清远/qingyuan

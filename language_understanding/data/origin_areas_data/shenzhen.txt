@@ -30,7 +30,6 @@ CBD中心区/cbdzhongxinqu/深圳/shenzhen
 黄贝岭/huangbeiling/深圳/shenzhen
 华侨城/huaqiaocheng/深圳/shenzhen
 海岸城/保利/深圳/shenzhen
-欢乐海岸/huanlehaian/深圳/shenzhen
 花园城/huayuancheng/深圳/shenzhen
 海上世界/haishangshij/深圳/shenzhen
 海雅缤纷城/haiyabinfencheng/深圳/shenzhen

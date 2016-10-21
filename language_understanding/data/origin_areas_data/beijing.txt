@@ -16,6 +16,7 @@
 八大处/badachu/北京/beijing
 八里桥/baliqiao/北京/beijing
 白河湾/baihewan/北京/beijing
+八达岭/badaling/北京/beijing
 百里画廊/bailihualang/北京/beijing
 朝外大街/chaowaidajie/北京/beijing
 传媒大学/chuanmeidaxue/北京/beijing
@@ -42,12 +43,14 @@
 房山城关/fangshanchengguan/北京/beijing
 国贸/guomao/北京/beijing
 管庄/guanzhuang/北京/beijing
+高碑店/gaobeidian/北京/beijing
 公主坟/万寿路/北京/beijing
 广外大街/guangwaidajie/北京/beijing
 广渠门/guangqumen/北京/beijing
 古城/八角/北京/beijing
 果园/guoyuan/北京/beijing
 孤山寨/gushanzhai/北京/beijing
+古北口/gubeikou/北京/beijing
 航天桥/hangtianqiao/北京/beijing
 花乡/新发地/北京/beijing
 后海/什刹海/北京/beijing
@@ -229,10 +232,12 @@
 龙泽/13haoxian_longze/北京/beijing
 霍营/13haoxian_huoying/北京/beijing
 立水桥/13haoxian_lishuiqiao/北京/beijing
+望京西/13haoxian_wangjingxi/北京/beijing
 芍药居/13haoxian_shaoyaoju/北京/beijing
 光熙门/13haoxian_guangximen/北京/beijing
 柳芳/13haoxian_liufang/北京/beijing
 东直门/13haoxian_dongzhimen/北京/beijing
+望京西/15haoxian_wangjingxi/北京/beijing
 望京/15haoxian_wangjing/北京/beijing
 国展/15haoxian_guozhan/北京/beijing
 南法信/15haoxian_nanfaxin/北京/beijing
@@ -253,12 +258,14 @@
 南礼士路/1haoxian_nanlishilu/北京/beijing
 西单/1haoxian_xidan/北京/beijing
 天安门西/1haoxian_tiananmenxi/北京/beijing
+天安门东/1haoxian_tiananmendong/北京/beijing
 王府井/1haoxian_wangfujing/北京/beijing
 东单/1haoxian_dongdan/北京/beijing
 建国门/1haoxian_jianguomen/北京/beijing
 永安里/1haoxian_yonganli/北京/beijing
 国贸/1haoxian_guomao/北京/beijing
 大望路/1haoxian_dawanglu/北京/beijing
+四惠东/1haoxian_sihuidong/北京/beijing
 西直门/2haoxian_xizhimen/北京/beijing
 车公庄/2haoxian_chegongzhuang/北京/beijing
 阜成门/2haoxian_fuchengmen/北京/beijing
@@ -331,6 +338,7 @@
 东大桥/6haoxian_dongdaqiao/北京/beijing
 呼家楼/6haoxian_hujialou/北京/beijing
 金台路/6haoxian_jintailu/北京/beijing
+青年路/6haoxian_qingnianlu/北京/beijing
 褡裢坡/6haoxian_dalianpo/北京/beijing
 草房/6haoxian_caofang/北京/beijing
 北运河西/6haoxian_beiyunhexi/北京/beijing
@@ -365,6 +373,7 @@
 亦庄文化园/yizhuangxian_yizhuangwenhuayuan/北京/beijing
 同济南路/yizhuangxian_tongjinanlu/北京/beijing
 经海路/yizhuangxian_jinghailu/北京/beijing
+四惠东/batongxian_sihuidong/北京/beijing
 传媒大学/batongxian_chuanmeidaxue/北京/beijing
 双桥/batongxian_shuangqiao/北京/beijing
 通州北苑/batongxian_tongzhoubeiyuan/北京/beijing
@@ -467,6 +476,7 @@ T3航站楼/jichangxian_t3hangzhanlou/北京/beijing
 国家博物馆/landmark_10457/北京/beijing
 恭王府/landmark_451/北京/beijing
 孤山寨/landmark_14797/北京/beijing
+古北口/landmark_13548/北京/beijing
 古北水/landmark_14800/北京/beijing
 古北水镇/landmark_24544/北京/beijing
 后海/landmark_436/北京/beijing

@@ -160,8 +160,7 @@ class HotelCommander(object):
         self.fill_default_slots()
         if 'check_in_date' in self.slots.keys():
             self.fill_check_out_time(self.slots['check_in_date'])
-        if 'city' in self.slots:
-            self.area_recognize(sent, self.slots['city'])
+        self.area_recognize(sent)
         status, reply, context = self.construct_reply()
         return status, reply, context
 
@@ -191,12 +190,13 @@ class HotelCommander(object):
         res = is_loc_name(sent,default= None)
         return res
 
-    def area_recognize(self, sent, city):
-        print "area_recognize"
-        k, v = area_preprocessor(sent, city)
+    def area_recognize(self, sent):
+        k, v = area_preprocessor(sent)
         if v != None:
             self.slots[self.__orig('area')] = k
-            self.slots['area'] = v
+            self.slots['area'] = v[0]
+            if 'city' not in self.slots:
+                self.slots['city'] = v[1]
         return k, v
 
     def recognize(self, sent, words, postags, nes):

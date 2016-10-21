@@ -1,0 +1,12 @@
+乃东县/naidongxian
+扎囊县/zanangxian
+贡嘎县/gonggaxian
+桑日县/sangrixian
+措美县/cuomeixian
+洛扎县/luozaxian
+加查县/jiachaxian
+错那县/cuonaxian
+浪卡子县/langkazixian
+桑耶寺/landmark_9038
+友谊广场/landmark_24006
+羊湖边贸广场/landmark_24010

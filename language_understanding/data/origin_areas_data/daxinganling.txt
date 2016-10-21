@@ -1,0 +1,14 @@
+呼玛县/humaxian
+塔河县/tahexian
+漠河县/mohexian
+加格达奇区/jiagedaqi
+漠河火车站/landmark_16126
+南山公园 /landmark_16094
+美人松原始森林 /landmark_16098
+栖霞山植物园 /landmark_16117
+十八站遗址/landmark_16119
+塔河县展览中心/landmark_16120
+北极村/landmark_9594
+松苑 /landmark_16130
+大兴安岭五·六火灾纪念馆/landmark_16131
+图强林业博物馆 /landmark_16133

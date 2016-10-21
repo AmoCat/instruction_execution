@@ -1,0 +1,14 @@
+德令哈市/delinghashi
+格尔木市/geermushi
+乌兰县/wulanxian
+都兰县/doulanxian
+天峻县/tianjunxian
+格尔木火车站/landmark_19973
+昆仑公园/landmark_19968
+寄畅园/landmark_19972
+将军楼公园/landmark_19978
+儿童公园/landmark_19979
+德令哈烈士陵园/landmark_19942
+西海公园/landmark_19944
+民族博物馆/landmark_19946
+天峻县烈士陵园/landmark_19940

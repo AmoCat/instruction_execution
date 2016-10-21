@@ -26,6 +26,7 @@
 歌乐山/geleshan/重庆/chongqing
 高笋塘/白岩路/重庆/chongqing
 国本路/孙家书房/重庆/chongqing
+观音岩/外贸/重庆/chongqing
 高笋塘/gaosuntangfl/重庆/chongqing
 花卉园/huahuiyuan/重庆/chongqing
 红旗河沟北/hongqihegoubei/重庆/chongqing
@@ -39,6 +40,7 @@
 华怡广场/huayiguangchang/重庆/chongqing
 解放碑/jiefangbei/重庆/chongqing
 较场口/jiaochangkou/重庆/chongqing
+江北大石坝/jiangbeidashiba/重庆/chongqing
 金港国际/jingangguoji/重庆/chongqing
 加州花园/jiazhouhuayuan/重庆/chongqing
 九宫庙/jiugongmiao/重庆/chongqing
@@ -96,7 +98,6 @@
 新天泽国际广场/xintianzeguojiguangchang/重庆/chongqing
 协信星光时代广场/xiexinxingguangshidaiguangchang/重庆/chongqing
 协信广场/xiexinguangchang/重庆/chongqing
-西门桥/ximenqiao/重庆/chongqing
 洋河花园/yanghehuayuan/重庆/chongqing
 一碗水/yiwanshui/重庆/chongqing
 鸳鸯/yuanyang/重庆/chongqing
@@ -111,6 +112,7 @@
 长安锦绣城/zhanganjinxiucheng/重庆/chongqing
 紫都城/沃尔玛/重庆/chongqing
 中干道/zhonggandao/重庆/chongqing
+长寿湖风景区/zhangshouhufengjingqu/重庆/chongqing
 长寿区人民医院/zhangshouqurenminyiyuan/重庆/chongqing
 渝中区/yuzhongqu/重庆/chongqing
 江北区/jiangbeiqu/重庆/chongqing
@@ -234,6 +236,7 @@
 大龙山/6haoxian_dalongshan/重庆/chongqing
 大竹林/6haoxian_dazhulin/重庆/chongqing
 江北城/6haoxian_jiangbeicheng/重庆/chongqing
+万州火车站/landmark_15916/重庆/chongqing
 重庆站/landmark_106/重庆/chongqing
 重庆东站/landmark_108/重庆/chongqing
 重庆南站/landmark_107/重庆/chongqing

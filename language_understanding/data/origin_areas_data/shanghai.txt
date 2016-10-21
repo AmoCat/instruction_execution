@@ -112,7 +112,6 @@
 曲阳地区/quyangdequ/上海/shanghai
 青浦城区/qingpuchengqu/上海/shanghai
 人民广场/renminguangchang/上海/shanghai
-日月光中心广场/riyueguangzhongxinguangchanglw/上海/shanghai
 荣乐中路/ronglezhonglu/上海/shanghai
 人民北路/renminbeilu/上海/shanghai
 世纪公园/shijigongyuan/上海/shanghai
@@ -262,7 +261,6 @@
 浦三路/11haoxian_pusanlu/上海/shanghai
 御桥/11haoxian_yuqiao/上海/shanghai
 罗山路/11haoxian_luoshanlu/上海/shanghai
-白银路/11haoxian_baiyinlu/上海/shanghai
 嘉定北/11haoxian_jiadingbei/上海/shanghai
 嘉定西/11haoxian_jiadingxi/上海/shanghai
 兆丰路/11haoxian_zhaofenglu/上海/shanghai
@@ -435,6 +433,7 @@
 芳华路/7haoxian_fanghualu/上海/shanghai
 龙阳路/7haoxian_longyanglu/上海/shanghai
 花木路/7haoxian_huamulu/上海/shanghai
+祁华路/7haoxian_qihualu/上海/shanghai
 联航路/8haoxian_lianhanglu/上海/shanghai
 江月路/8haoxian_jiangyuelu/上海/shanghai
 凌兆新村/8haoxian_lingzhaoxincun/上海/shanghai
