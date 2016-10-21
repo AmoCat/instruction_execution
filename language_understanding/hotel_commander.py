@@ -199,7 +199,7 @@ class HotelCommander(object):
             self.slots[self.__orig('area')] = k
             self.slots['area'] = v[0]
             if 'city' not in self.slots:
-                self.slots['city'] = v[1]
+                self.slots['city'] = v[1].decode('utf-8')
         return k, v
 
     def recognize(self, sent, words, postags, nes):
@@ -384,7 +384,7 @@ class HotelCommander(object):
         return u"酒店信息#####以下是我找到的%s月%s日%s地区的酒店信息" % (month, day, city)
 
     def get_hotel_info(self, slots):
-        city = slots['city'].encode('utf-8')
+        city = self.slots['city']
         check_in_date = slots['check_in_date'].encode('utf-8')
         check_out_date = slots['check_out_date'].encode('utf-8')
         if 'hotel_name' in self.slots:

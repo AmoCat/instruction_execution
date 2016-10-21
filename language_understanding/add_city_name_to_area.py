@@ -58,8 +58,9 @@ def create_dict_of_all_city():
 def test():
     path = os.path.join(AREAS_PATH, 'all')
     dict = pkl.load(open(path, 'r'))
-    dict['哈工大'] = ('1haoxian_hagongda','哈尔滨')
-    del dict['大学']
+    dict['哈工大'] = ('1haoxian_hagongda', '哈尔滨')
+    dict['中央大街'] = ('zhongyangdajie', '哈尔滨')
+    #del dict['大学']
     pkl.dump(dict, open(path, 'w'))
     print dict['哈工大'][1]
 
