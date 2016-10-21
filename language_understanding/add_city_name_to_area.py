@@ -46,6 +46,8 @@ def create_dict_of_all_city():
             if phonetic == 'zhongqing':
                 phonetic = 'chongqing'
             path = os.path.join(AREAS_PATH, phonetic)
+            if not os.path.exists(path):
+                continue
             f = open(path, 'r')
             dictionary = pkl.load(f)
             all.update(dictionary)
@@ -55,11 +57,13 @@ def create_dict_of_all_city():
 
 def test():
     path = os.path.join(AREAS_PATH, 'all')
-    f = open(path, 'r')
-    dict = pkl.load(f)
+    dict = pkl.load(open(path, 'r'))
+    dict['哈工大'] = ('1haoxian_hagongda','哈尔滨')
+    del dict['大学']
+    pkl.dump(dict, open(path, 'w'))
     print dict['哈工大'][1]
 
 if __name__ == '__main__':
-    add_all_cityname()
-    create_dict_of_all_city()
+    #add_all_cityname()
+    #create_dict_of_all_city()
     test()
