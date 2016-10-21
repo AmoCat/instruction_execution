@@ -191,7 +191,10 @@ class HotelCommander(object):
         return res
 
     def area_recognize(self, sent):
-        k, v = area_preprocessor(sent)
+        if 'city' in self.slots:
+            k, v = area_preprocessor(sent, self.slots['city'])
+        else:
+            k, v = area_preprocessor(sent)
         if v != None:
             self.slots[self.__orig('area')] = k
             self.slots['area'] = v[0]
