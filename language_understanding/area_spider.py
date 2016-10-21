@@ -15,7 +15,7 @@ AREAS_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 ORIGIN_AREADATA_PATH = os.path.join(DATA_DIR,'origin_areas_data')
 CITIES_PATH = os.path.join(DATA_DIR,'china_cities.txt')
 
-def get_area(cnt, city_name = 'chongqing'):
+def get_area(cnt, city_name = 'haerbin'):
     if city_name == 'zhongqing':
         city_name = 'chongqing'
     if os.path.exists(os.path.join(AREAS_PATH,city_name)) == True:
@@ -40,10 +40,10 @@ def get_area(cnt, city_name = 'chongqing'):
     for list in  soup.findAll('ul', class_ = "filter-sect-list sub-filter-sect-w__content"):
         areas = list.findAll('li')
         for l in areas:
-            if 'haerbin' in l.a['href']:
-                out.close()
-                os.system("rm "+file_path)
-                return cnt
+            #if 'haerbin' in l.a['href']:
+            #    out.close()
+            #    os.system("rm "+file_path)
+            #    return cnt
             #    print l.a['id'],l.string.encode('utf-8')
             data[l.string.encode('utf-8')] = l.a['id']
             out.write(l.string.encode('utf-8')+("/"+l.a['id']+"\n").encode('utf-8'))
@@ -61,5 +61,6 @@ def spider():
             cnt = get_area(cnt, city_name = name)
 
 if  __name__ == '__main__':
-    spider()
+    #spider()
+    get_area(1)
 
