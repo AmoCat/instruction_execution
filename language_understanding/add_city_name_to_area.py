@@ -50,21 +50,29 @@ def create_dict_of_all_city():
                 continue
             f = open(path, 'r')
             dictionary = pkl.load(f)
-            all.update(dictionary)
+            #all.update(dictionary)
+            for k,v in dictionary.items():
+                if all.has_key(k):
+                    city_list = [t[1] for t in all[k][0:]]
+                    if v not in city_list:
+                        all[k].append(v)
+                else:
+                    all[k] = [v]
             f.close()
-        print all['五道口'][1]
-        pkl.dump(all, open(os.path.join(AREAS_PATH, 'all'), 'w'))
+        print all['五道口']
+        pkl.dump(all, open(os.path.join(AREAS_PATH, 'all_with_multicity'), 'w'))
 
 def test():
-    path = os.path.join(AREAS_PATH, 'all')
+    path = os.path.join(AREAS_PATH, 'all_with_multicity')
     dict = pkl.load(open(path, 'r'))
-    dict['哈工大'] = ('1haoxian_hagongda', '哈尔滨')
-    dict['中央大街'] = ('zhongyangdajie', '哈尔滨')
+    #dict['哈工大'] = ('1haoxian_hagongda', '哈尔滨')
+    #dict['中央大街'] = ('zhongyangdajie', '哈尔滨')
     #del dict['大学']
     pkl.dump(dict, open(path, 'w'))
-    print dict['哈工大'][1]
+    #print dict['哈工大'][0][1],dict['哈工大'][1][1]
+    #print dict['中央大街'][0][1],dict['中央大街'][1][1],dict['中央大街'][2][1]
 
 if __name__ == '__main__':
     #add_all_cityname()
-    #create_dict_of_all_city()
+    create_dict_of_all_city()
     test()
