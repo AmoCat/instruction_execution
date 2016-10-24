@@ -11,7 +11,8 @@ AREA_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 
 def area_preprocessor(sent, city = None, default = None):
     if city == None:
-        file_name = os.path.join(AREA_PATH, 'all')
+        #file_name = os.path.join(AREA_PATH, 'all')
+        file_name = os.path.join(AREA_PATH, 'all_with_multicity')
     else:
         file_name = os.path.join(AREA_PATH, get_phonetic(city.strip()))
     try :

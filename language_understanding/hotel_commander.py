@@ -145,6 +145,9 @@ class HotelCommander(object):
             print "###self.slots = ",self.slots
 
         self.construct_regularize_slots()
+        k,v = self.area_recognize(sent)
+        if (k != None) and (v != None):
+            self.context['prev'] = (k,v)
         if self.__orig('check_in_date') in self.slots.keys():
             if self.slots[self.__orig('check_in_date')] == u'昨天':
                 reply = u'入住日期填写有误'
@@ -160,7 +163,6 @@ class HotelCommander(object):
         self.fill_default_slots()
         if 'check_in_date' in self.slots.keys():
             self.fill_check_out_time(self.slots['check_in_date'])
-        self.area_recognize(sent)
         status, reply, context = self.construct_reply()
         return status, reply, context
 
@@ -195,12 +197,16 @@ class HotelCommander(object):
             k, v = area_preprocessor(sent, self.slots['city'])
         else:
             k, v = area_preprocessor(sent)
-        if v != None:
+        if v == None:
+            return None, None
+        if len(v) == 1:
             self.slots[self.__orig('area')] = k
-            self.slots['area'] = v[0]
+            self.slots['area'] = v[0][0]
             if 'city' not in self.slots:
-                self.slots['city'] = v[1].decode('utf-8')
-        return k, v
+                self.slots['city'] = v[0][1].decode('utf-8')
+        else:
+            return k.decode('utf-8'), [t[1].decode('utf-8') for t in v]
+        return None,None
 
     def recognize(self, sent, words, postags, nes):
         '''识别slot'''
@@ -330,6 +336,9 @@ class HotelCommander(object):
         for needed_slot_name in NEEDED_SLOTS:
             if needed_slot_name not in self.slots:
                 reply = self.get_question(needed_slot_name)
+                if self.context.has_key('prev') and needed_slot_name == 'city':
+                    reply_pre = self.get_prev_city(self.context['prev'])
+                    reply = reply_pre + reply
                 self.context[CONTEXT_EXPECTED] = needed_slot_name
                 self.context[CONTEXT_SLOTS] = self.slots
                 return STATUS_WAITING, reply.encode('utf-8'), self.context
@@ -399,4 +408,9 @@ class HotelCommander(object):
 
     def get_question(self, slot_name):
         return QUESTIONS[slot_name]
+
+    def get_prev_city(self, t):
+        res = u','.join(t[1])
+        res += u"都有" + t[0] + u','
+        return res
 

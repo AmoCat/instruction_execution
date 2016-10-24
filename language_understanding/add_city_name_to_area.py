@@ -48,18 +48,18 @@ def create_dict_of_all_city():
             path = os.path.join(AREAS_PATH, phonetic)
             if not os.path.exists(path):
                 continue
-            f = open(path, 'r')
-            dictionary = pkl.load(f)
+            ff = open(path, 'r')
+            dictionary = pkl.load(ff)
             #all.update(dictionary)
             for k,v in dictionary.items():
                 if all.has_key(k):
                     city_list = [t[1] for t in all[k][0:]]
-                    if v not in city_list:
+                    if v[1] not in city_list:
                         all[k].append(v)
                 else:
                     all[k] = [v]
-            f.close()
-        print all['五道口']
+            ff.close()
+        #print all['五道口']
         pkl.dump(all, open(os.path.join(AREAS_PATH, 'all_with_multicity'), 'w'))
 
 def test():
