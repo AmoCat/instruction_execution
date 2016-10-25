@@ -28,8 +28,8 @@ def add_cityname(city):
     with open(origin_areas_path, 'w') as f:
         for l in list:
             words = l.strip().split('/', 2)
-            f.write(words[0] + '/' +  words[1] + '/' + city + '/' + city_phonetic + '\n')
-            data[words[0]] = (words[1], city)
+            #f.write(words[0] + '/' +  words[1] + '/' + city + '/' + city_phonetic + '\n')
+            data[words[0]] = [(words[1], city)]
     
     pkl.dump(data, open(dump_areas_path, 'w'))
 
@@ -54,25 +54,25 @@ def create_dict_of_all_city():
             for k,v in dictionary.items():
                 if all.has_key(k):
                     city_list = [t[1] for t in all[k][0:]]
-                    if v[1] not in city_list:
-                        all[k].append(v)
+                    if v[0][1] not in city_list:
+                        all[k].append(v[0])
                 else:
-                    all[k] = [v]
+                    all[k] = [v[0]]
             ff.close()
         #print all['五道口']
         pkl.dump(all, open(os.path.join(AREAS_PATH, 'all_with_multicity'), 'w'))
 
 def test():
-    path = os.path.join(AREAS_PATH, 'all_with_multicity')
+    path = os.path.join(AREAS_PATH, 'haerbin')
     dict = pkl.load(open(path, 'r'))
     #dict['哈工大'] = ('1haoxian_hagongda', '哈尔滨')
     #dict['中央大街'] = ('zhongyangdajie', '哈尔滨')
     #del dict['大学']
     pkl.dump(dict, open(path, 'w'))
-    #print dict['哈工大'][0][1],dict['哈工大'][1][1]
+    print dict['哈工大'][0][1]
     #print dict['中央大街'][0][1],dict['中央大街'][1][1],dict['中央大街'][2][1]
 
 if __name__ == '__main__':
-    #add_all_cityname()
-    create_dict_of_all_city()
+    add_all_cityname()
+    #create_dict_of_all_city()
     test()
