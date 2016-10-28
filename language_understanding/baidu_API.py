@@ -8,6 +8,7 @@ import json
 import time
 import cPickle as pkl
 import re
+import pprint
 
 MY_AK = "3MP2ADZT6RXtdSCKa4l0S2Gqe8ZKsdWY"
 API_URL = "http://api.map.baidu.com"
@@ -20,31 +21,40 @@ class Scheme(object):
         self.distance = s['distance']
         self.duration = s['duration']
         self.line_price = s['line_price']
+        self.line_type = s['plan_trans_type'] #地铁6 ，公交3
         self.bus_price = s['price']
         steps = s['steps']
-        if len(steps) >= 3:
-            self.walk_from = unicode(Step(steps[0][0]))
-            self.walk_to = unicode(Step(steps[-1][0]))
-            self.bus_ids = Step(steps[1][0]).get_bus_ids()
+        #if self.line_type == 3 or self.line_type == 6: #3公交,6地铁
+        if self.line_type >= 0 and self.line_type <= 14:
+            self.walks = []
+            first_bus = None
+            for list in steps[0:]:
+                if list[0]['type'] == 5:#5为步行
+                    self.walks.append(unicode(Step(list[0])))
+                if first_bus == None and list[0]['type'] != 5:
+                    first_bus = Step(list[0])
+            self.bus_ids = first_bus.get_bus_ids()
+            self.instruction = first_bus.get_instruction()
             self.steps = []
-            for list in steps[1:-1]:
-                for i in range(len(list)):
-                    self.steps.append(Step(list[i]))
+            for list in steps[0:]:
+                for step in list:
+                    if step['type'] != 5:
+                        self.steps.append(Step(step))
         else:
-            self.walk_from = None
-            self.walk_to = None
+            self.walks = None
             self.steps = None
             self.bus_ids = None
 
     def __unicode__(self):
-        res = u"距离:%s 公里\t耗时:%s\t票价:¥%s\n"\
-                % (self.cal_dis(self.distance), self.cal_time(self.duration), self.cal_price(self.bus_price))
-        res += u"以下路线需先" + self.walk_from + "\n" if self.walk_from != None else ""
+        res = u"%s\t耗时:%s\t票价:¥%s\t距离:%s\n"\
+                % (self.instruction, self.cal_time(self.duration), self.cal_price(self.bus_price), self.cal_dis(self.distance))
+        res += u"以下路线需先" + self.walks[0] + "\n" if self.walks != None else ""
         if self.steps != None:
             for i in range(len(self.steps)):
-                res += self.bus_ids[i] + u"\t"
+                res += self.bus_ids[i] + u"\t" if i < len(self.bus_ids) else ""
                 res += unicode(self.steps[i])
-        res += self.walk_to + u"至终点" if self.walk_to != None else ""
+        res += self.walks[1] + u"至终点" if self.walks != None and len(self.walks) >= 2 else ""
+        res += "\n"
         return res
 
     def __str__(self):
@@ -76,7 +86,7 @@ class Step(object):
         self.path = step['path'] if step.has_key('path') else None
         self.vehicle = Vehicle(step['vehicle']) if step['vehicle'] != None else None
         color = re.compile("<[/]*[a-z]*[\s]*[a-z]*[=\"#]*[a-z0-9]*[\"]*>")
-        bus_id_compile = re.compile(u"[0-9a-z]*路")
+        bus_id_compile = re.compile(u"[地铁]*[0-9a-z]*[号]*[路|线]")
         direction_compile = re.compile(u"(.*)")
         if step.has_key('stepInstruction'):
             self.stepInstruction = re.sub(color,'', step['stepInstruction'])
@@ -115,6 +125,9 @@ class Step(object):
     def get_bus_ids(self):
         return self.bus_ids
 
+    def get_instruction(self):
+        return self.stepInstruction
+
 class Vehicle(object):
     def __init__(self, v):
         self.type_hash = [u"普通日行公交", u"地铁、轻轨", u"机场巴士(往)", u"有轨电车", u"机场巴士（返）",
@@ -141,6 +154,29 @@ class Vehicle(object):
     def __str__(self):
         return unicode(self).encode('utf-8')
 
+class Selection(object):
+    def __init__(self, s):
+        self.origin = s['origin'] if s.has_key('origin') else None
+        self.destination = s['destination'] if s.has_key('destination') else None
+
+    def __unicode__(self):
+        res = u""
+        if self.origin != None:
+            for dict in self.origin:
+                res += dict['name'] + ':' + dict['address'] + '\n'
+        if self.destination != None:
+            for dict in self.destination:
+                res += dict['name'] + ":" + dict['address'] + '\n'
+        return res
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
+    def get_first_origin(self):
+        return None if self.origin == None else self.origin[0]['name'].encode('utf-8')
+
+    def get_first_des(self):
+        return None if self.destination == None else self.destination[0]['name'].encode('utf-8')
 
 class baiduAPI(object):
 
@@ -162,6 +198,8 @@ class baiduAPI(object):
             print >> sys.stderr, e
             return None
         response.close()
+        f = open('bus_info.txt', 'w')
+        print >> f, response_html
         data = json.loads(response_html)
         return data
 
@@ -180,31 +218,59 @@ class baiduAPI(object):
         origin = result['origin']
         destination = result['destination']
         taxi = result['taxi']
-        f = open("scheme_format.txt",'w')
         for v in routes:
             schemes = v["scheme"]
             for s in schemes:
                 "scheme is a dictionary"
                 scheme = Scheme(s)
                 print scheme
-                return
-                #print >> f,json.dumps(scheme, sort_keys = True, indent = 4)
-                #steps = scheme['steps']
-                #for v in steps:
-                #    for step in v:
-                #        s = Step(step)
-                #        print s 
+    
+    def get_bus_selection(self, data):
+        print >> sys.stderr, "GET_BUS_SELECTION: status: " + data['message']
+        if data['status'] != 0:
+            return None
+        #info = data['info'] 版权信息
+        result = data['result']
+        selection = Selection(result)
+        return selection
+
+    def info_mode_hash(self, mode, data):
+        if mode == 'transit':
+            return self.get_bus_info(data)
+        else:
+            return None
+
+    def selection_mode_hash(self, mode, data):
+        if mode == 'transit':
+            return self.get_bus_selection(data)
+        else:
+            return None
 
     def get_info(self, query):
-        #url = self.make_query_url(**query)
-        #data = self.request(url)
-        #pkl.dump(data, open('bus_info','w'))
-        data = pkl.load(open('bus_info', 'r'))
-        if query['mode'] == "transit":
-            return self.get_bus_info(data)
+        url = self.make_query_url(**query)
+        data = self.request(url)
+        pkl.dump(data, open('beijing_response','w'))
+        #data = pkl.load(open('beijing_response', 'r'))
+        if data['type'] == 2: #起终点明确，得到查询结果
+            self.info_mode_hash(query['mode'], data)
+        elif data['type'] == 1: #起终点模糊，得到选择界面
+            sel =  self.selection_mode_hash(query['mode'], data)
+            if sel == None:
+                print >> sys.stderr, "ERROR INFO: In selection page get \"None\" response.."
+                return None
+            else:
+                first_origin = sel.get_first_origin()
+                first_des = sel.get_first_des()
+                query['origin'] = first_origin if first_origin != None else query['origin']
+                query['destination'] = first_des if first_des != None else query['destination']
+                url = self.make_query_url(**query)
+                data = self.request(url)
+                self.info_mode_hash(query['mode'], data)
 
 if __name__ == "__main__":
     api = baiduAPI()
-    query = {"origin":"上地五街","destination":"北京大学","mode":"transit","region":"北京"}
+    #query = {"origin":"哈工大","destination":"凯德广场","mode":"transit","region":"哈尔滨"}
+    #query = {"origin":"上地五街","destination":"北京大学","mode":"transit","region":"北京"}
+    query = {"origin":"哈工大","destination":"中央大街","mode":"transit","region":"哈尔滨"}
     api.get_info(query)
 
