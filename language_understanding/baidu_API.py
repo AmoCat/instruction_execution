@@ -16,6 +16,28 @@ URL_SUFFIX_V1 = "/direction/v1"
 URL_SUFFIX_V2 = "/direction/v2"
 ERROR_CODE = {"1":"Parameter Error","2":"Permission denied"}
 
+class Taxi(object):
+    def __init__(self, t):
+        self.day = t['detail'][0]
+        self.night = t['detail'][1]
+        self.distance = t['distance']
+        self.duration = t['duration']
+        self.remark = t['remark']
+        self.start_km = re.search(u"[0-9.]*公里起步", self.remark).group(0).rstrip(u'公里起步')
+
+    def __unicode__(self):
+        res = u"打车费用:"
+        res += u"\n%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
+                % (self.day['desc'], self.day['total_price'], \
+                   self.day['start_price'], self.start_km, self.day['km_price'])
+        res += u"%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
+                %(self.night['desc'], self.night['total_price'], \
+                  self.night['start_price'], self.start_km, self.night['km_price'])
+        return res
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
 class Scheme(object):
     def __init__(self, s):
         self.distance = s['distance']
@@ -224,6 +246,7 @@ class baiduAPI(object):
                 "scheme is a dictionary"
                 scheme = Scheme(s)
                 print scheme
+        print Taxi(taxi)
     
     def get_bus_selection(self, data):
         print >> sys.stderr, "GET_BUS_SELECTION: status: " + data['message']
