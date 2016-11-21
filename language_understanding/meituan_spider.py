@@ -41,9 +41,18 @@ class Hotel(object):
         self.dealList = dealList
 
     def __unicode__(self):
-        rt = u"%s\t[%s]%s\n" % (self.hotelName, self.areaName, self.address)
+        rt = u"%s" % (self.hotelName)
+        if self.areaName != None and self.areaName.strip() != "":
+            rt += u"\t[%s]" % (self.areaName)
+        rt += u"\t%s\n" % (self.address)
+        #rt = u"%s\t[%s]%s\n" % (self.hotelName, self.areaName, self.address)
         for d in self.dealList:
-            rt += u"%s\t[%s]\t%s\t¥%s\n" %(d.roomTitle, d.roomTypeName, d.breakfast, d.price)
+            #rt += u"%s\t[%s]\t%s\t¥%s\n" %(d.roomTitle, d.roomTypeName, d.breakfast, d.price)
+            #rt += u"%s\t[%s]\t%s\n" %(d.roomTitle, d.roomTypeName, d.breakfast)
+            rt += u"%s" % (d.roomTitle)
+            if d.roomTypeName != None and d.roomTypeName.strip() != "":
+                rt += u"\t[%s]" % (d.roomTypeName)
+            rt += u"\t%s\n" % (d.breakfast)
         return rt
 
     def __str__(self):
@@ -73,7 +82,7 @@ class HotelSpider(object):
     def make_query_url(self, city, check_in_date, check_out_date, name_id, area_id, *args, **kwargs):
         city = self.get_ch_phonetic(city)
         query_url = self.query_url_template % (city, check_in_date, check_out_date)
-        if name_id != "0":
+        if name_id != None:
             query_url += "&brand="+name_id
         if area_id != None:
             query_url += "&geoslug=" + area_id

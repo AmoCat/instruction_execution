@@ -399,7 +399,7 @@ class HotelCommander(object):
         if 'hotel_name' in self.slots:
             brand = self.slots['hotel_name'] 
         else:
-            brand = None
+            brand = "0"
         area_id = self.slots['area'] if 'area' in self.slots else None
         spider = HotelSpider()
         info = spider.get_hotel_info({'city': city, 'check_in_date': check_in_date,
