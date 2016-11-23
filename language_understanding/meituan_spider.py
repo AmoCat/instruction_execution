@@ -131,11 +131,14 @@ class HotelSpider(object):
             return None
         response.close()
         data = json.loads(response_html)
+        hotelList = []
         js_data = data['data']
+        if not js_data.has_key('dealsData'):
+            return {'hotelList': hotelList, 'link': origin_url}
+        #return {'hotelList': hotelList, 'link': origin_url}
         dealsData = js_data['dealsData']#房间预订#
         poiDealList = js_data['poiDealList']#酒店号与deal对应关系#
         poiInfo = js_data['poiInfo']#酒店信息#
-        hotelList = []
         for h in poiInfo:
             poiID = str(h['poiID'])
             hotelName = h['name']

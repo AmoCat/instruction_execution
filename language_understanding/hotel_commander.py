@@ -199,8 +199,8 @@ class HotelCommander(object):
             k, v = area_preprocessor(sent)
         if v == None:
             return None, None
+        self.slots[self.__orig('area')] = k
         if len(v) == 1:
-            self.slots[self.__orig('area')] = k
             self.slots['area'] = v[0][0]
             if 'city' not in self.slots:
                 self.slots['city'] = v[0][1].decode('utf-8')
@@ -275,13 +275,14 @@ class HotelCommander(object):
             r = self.regularize_hotel(slot_value)
         elif slot_name == 'type':
             r = self.regularize_type(slot_value)
-        elif slot_name == 'area':
+        elif slot_name == 'area' and self.__orig('city') in  self.slots:
             k,r = self.regularize_area(slot_value)
+            print r
         return r
 
     def regularize_area(self, area):
-        k,r = area_ground(area)
-        return r
+        k,r = area_ground(area, self.slots[self.__orig('city')])
+        return k,r[0][0]
 
     def regularize_loc(self, loc):
         r = loc_ground(loc, default = None)
@@ -349,7 +350,14 @@ class HotelCommander(object):
             hotels = info['hotelList']
             link = info['link']
             reply = self.make_reply_title(self.slots['check_in_date'],
-                    self.slots['check_out_date'],self.slots['city'])
+                    self.slots['check_out_date'],self.slots['city'],0)
+            if len(hotels) == 0:
+                reply = self.make_reply_title(self.slots['check_in_date'],
+                    self.slots['check_out_date'],self.slots['city'],1) + u"#####" + link
+                context = {}
+                if DEBUG:
+                    context = {CONTEXT_SLOTS: self.slots}
+                return STATUS_SUCCESS, reply.encode('utf-8'), context
             if 'cost_relative' in self.slots:
                 if len(hotels) > 1:
                     for f in hotels[1:]:
@@ -371,7 +379,8 @@ class HotelCommander(object):
                 reply += '\n'
                 reply += u'更多酒店信息请点击该消息#####' + link
             else:
-                reply +=u'\n您的限制条件太多啦！没有符合条件的酒店信息\n查看全部酒店信息请点该消息#####' + link
+                #reply = u"\"
+                reply +=u'\n没有符合条件的酒店信息\n查看全部酒店信息请点该消息#####' + link
         else:
             reply = REPLY_NOT_FOUND
         context = {}
@@ -386,11 +395,14 @@ class HotelCommander(object):
         return h*60+m
 
 
-    def make_reply_title(self, check_in_date, check_out_date, city):
+    def make_reply_title(self, check_in_date, check_out_date, city, type):
         year, month, day = check_in_date.split('-')
         month = month.lstrip('0')
         day = day.lstrip('0')
-        return u"酒店信息#####以下是我找到的%s月%s日%s地区的酒店信息" % (month, day, city)
+        if type == 0:
+            return u"酒店信息#####以下是我找到的%s月%s日%s地区的酒店信息" % (month, day, city)
+        else:
+            return u"酒店信息#####帮您找到了%s月%s日%s地区的酒店信息，请点击该消息查看" % (month, day, city)
 
     def get_hotel_info(self, slots):
         city = self.slots['city']

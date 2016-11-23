@@ -374,7 +374,15 @@ class FlightCommander(object):
             flights.sort(key=lambda x: int(x.price))
             reply = self.make_reply_title(self.slots['start_date'],
                     self.slots['start_city'],
-                    self.slots['arrival_city'])
+                    self.slots['arrival_city'], 0)
+            if len(flights) == 0:
+                reply = self.make_reply_title(self.slots['start_date'],
+                    self.slots['start_city'],
+                    self.slots['arrival_city'], 1) + u"#####" + link
+                context = {}
+                if DEBUG:
+                    context = {CONTEXT_SLOTS: self.slots}
+                return STATUS_SUCCESS, reply.encode('utf-8'), context
             if 'arrival_airport' in self.slots:
                 airport = self.slots['arrival_airport']
                 for f in flights[0:]:
@@ -429,7 +437,7 @@ class FlightCommander(object):
                 reply += u'更多航班信息请点击该消息#####' + link
             else:
                 #reply +=u'\n您的限制条件太多啦！没有符合条件的航班信息\n查看当日航班请点' + make_link(u'这里', link)
-                reply +=u'\n您的限制条件太多啦！没有符合条件的航班信息\n查看当日航班请点该消息#####' + link
+                reply +=u'\n没有符合条件的航班信息\n查看当日航班请点该消息#####' + link
         else:
             reply = REPLY_NOT_FOUND
         context = {}
@@ -444,11 +452,15 @@ class FlightCommander(object):
         return h*60+m
 
 
-    def make_reply_title(self, start_date, start_city, arrival_city):
+    def make_reply_title(self, start_date, start_city, arrival_city, type):
         year, month, day = start_date.split('-')
         month = month.lstrip('0')
         day = day.lstrip('0')
-        return u"机票信息#####以下是我找到的%s月%s日从%s到%s的机票" % (month, day, start_city, arrival_city)
+        res = u"机票信息#####"
+        if type == 0:
+            return res + u"以下是我找到的%s月%s日从%s到%s的机票" % (month, day, start_city, arrival_city)
+        else:
+            return res + u"帮您查到了%s月%s日从%s到%s的机票，请点击该消息查看" % (month, day, start_city, arrival_city)
 
     def get_ticket_info(self, slots):
         start_city = slots['start_city'].encode('utf-8')
