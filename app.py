@@ -1,7 +1,7 @@
 #coding:utf-8
 
 from flask import Flask, render_template, jsonify, request
-from language_understanding import TrainCommander,FlightCommander,HotelCommander
+from language_understanding import TrainCommander,FlightCommander,HotelCommander,BusCommander
 import json
 import traceback
 import re
@@ -35,14 +35,18 @@ def get_train_reply():
 @app.route('/module/instruction_execution/flight', methods=['POST'])
 def get_flight_reply():
     commander = FlightCommander()
-    #status, reply, context = commander.get_reply(sent, context)
     res = reply(commander)
     return res
 
 @app.route('/module/instruction_execution/hotel', methods=['POST'])
 def get_hotel_reply():
     commander = HotelCommander()
-    #status, reply, context = commander.get_reply(sent, context)
+    res = reply(commander)
+    return res
+
+@app.route('/module/instruction_execution/bus', methods=['POST'])
+def get_bus_reply():
+    commander = BusCommander()
     res = reply(commander)
     return res
 

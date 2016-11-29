@@ -8,7 +8,7 @@ var get_reply = function() {
     $.ajax({
       type: 'POST',
       contentType: 'application/json',
-      url: 'module/instruction_execution/flight',
+      url: 'module/instruction_execution/bus',
       data: JSON.stringify({
         content: sent,
         context: context,

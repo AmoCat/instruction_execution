@@ -240,13 +240,19 @@ class baiduAPI(object):
         origin = result['origin']
         destination = result['destination']
         taxi = result['taxi']
+        bus_info_list = {}
+        buses = []
         for v in routes:
             schemes = v["scheme"]
             for s in schemes:
                 "scheme is a dictionary"
                 scheme = Scheme(s)
+                buses.append(scheme)
                 print scheme
+        bus_info_list['bus'] = buses
         print Taxi(taxi)
+        bus_info_list['taxi'] = Taxi(taxi)
+        return bus_info_list
     
     def get_bus_selection(self, data):
         print >> sys.stderr, "GET_BUS_SELECTION: status: " + data['message']
@@ -288,7 +294,11 @@ class baiduAPI(object):
                 query['destination'] = first_des if first_des != None else query['destination']
                 url = self.make_query_url(**query)
                 data = self.request(url)
-                self.info_mode_hash(query['mode'], data)
+                res = self.info_mode_hash(query['mode'], data)
+                if res:
+                    return res
+                else:
+                    return None
 
 if __name__ == "__main__":
     api = baiduAPI()

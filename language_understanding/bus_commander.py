@@ -1,16 +1,15 @@
 #coding:utf-8
 
-__all__ = ['HotelCommander']
+__all__ = ['BusCommander']
 
 import urllib2
 from datetime import datetime, timedelta
 import json
 import CRFPP
-from .meituan_spider import   HotelSpider
 from .ground import date_ground, loc_ground, is_loc_name
-from .hotel_ground import hotel_ground, type_ground, area_ground
 from preprocessor import area_preprocessor
 from functools import wraps
+from .baidu_API import Scheme, Step, Taxi, Selection, Vehicle, baiduAPI
 import os
 import re
 from ltp_handler import LTP_ne
@@ -20,20 +19,18 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 
 RESULT_SIZE = 5
 
-SLOTS = ['city', 'area', 'price', 'hotel_level', 'hotel_name', 'check_in_date', 'chek_out_date', 'cost_relative', 'type']
+SLOTS = ['from', 'to', 'mode', 'city', 'bus_id']
 
-NEEDED_SLOTS = ['city', 'check_in_date'] # 必须的slot
+NEEDED_SLOTS = ['from', 'to', 'city']
 
-QUESTIONS = {'city': u'您要订哪个城市的酒店呢？',
-        'check_in_date': u'您想要哪天入住呢？'} 
+QUESTIONS = {'city': u'您在哪个城市呢？','to': u'您要去哪里呢？'} 
 
-REPLY_UNSUPPORTED_START_CITY = u'不支持的出发地'
-REPLY_NOT_FOUND = u'没有找到酒店信息'
+REPLY_UNSUPPORTED_CITY = u'不支持的城市'
+REPLY_NOT_FOUND = u'没有找到信息'
 
-FILL_DEFAULT_CITY = False #是否填充默认的城市
-FILL_DEFAULT_CHECK_IN_DATE = False #是否填充默认的入住日期，默认为今天
-FILL_DEFAULT_CHECK_OUT_DATE = False
-FILL_CHECK_OUT_DATE = True
+FILL_DEFAULT_CITY = False
+FILL_DEFAULT_FROM  = False 
+FILL_DEFAULT_TO = False
 
 STATUS_SUCCESS = 0
 STATUS_WAITING = 1
@@ -49,8 +46,7 @@ DEBUG = True
 
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
-#MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
-MODEL_PATH = os.path.join(DATA_DIR, 'hotel.model') # crf模型路径
+MODEL_PATH = os.path.join(DATA_DIR, 'bus.model') # crf模型路径
 tagger = CRFPP.Tagger('-m %s' % (MODEL_PATH))
 
 
@@ -68,9 +64,8 @@ def cache(func):
 def make_link(text, link):
     return u"<a href=\"%s\">%s</a>" % (link, text)
 
-class HotelCommander(object):
+class BusCommander(object):
     def __init__(self):
-        #self.tagger = CRFPP.Tagger('-m /Users/Oliver/Documents/IR/笨笨/project/crf.model')
         self.slots = {}
         self.slot_probs = {}
         self.context = {}
@@ -148,21 +143,7 @@ class HotelCommander(object):
         k,v = self.area_recognize(sent)
         if (k != None) and (v != None):
             self.context['prev'] = (k,v)
-        if self.__orig('check_in_date') in self.slots.keys():
-            if self.slots[self.__orig('check_in_date')] == u'昨天':
-                reply = u'入住日期填写有误'
-                return STATUS_SUCCESS,reply,'{}'
-        if self.__orig('check_out_date') in self.slots.keys():
-            if self.slots[self.__orig('check_out_date')] == u'昨天':
-                reply = u'离店日期填写有误'
-                return STATUS_SUCCESS,reply,'{}'
-        if 'check_in_date' in self.slots.keys() and 'check_out_date' in self.slots.keys():
-            if self.slots['check_in_date'] == self.slots['check_out_date']:
-                reply = u'入住日期与离店日期不能相同'
-                return STATUS_SUCCESS, reply, '{}'
         self.fill_default_slots()
-        if 'check_in_date' in self.slots.keys():
-            self.fill_check_out_time(self.slots['check_in_date'])
         status, reply, context = self.construct_reply()
         return status, reply, context
 
@@ -267,16 +248,14 @@ class HotelCommander(object):
         r = slot_value
         if slot_name in ['city']:
             r = self.regularize_loc(slot_value)
-        elif slot_name in ['check_in_date', 'check_out_date']:
-            r = self.regularize_date(slot_value)
-        elif slot_name == 'cost_relative':
-            r = slot_value
-        elif slot_name == 'hotel_name':
-            r = self.regularize_hotel(slot_value)
-        elif slot_name == 'type':
-            r = self.regularize_type(slot_value)
         elif slot_name == 'area':
             k,r = self.regularize_area(slot_value)
+        elif slot_name in ['from','to']:
+            r = self.regularize_area_tag(slot_value)#规范化识别到的area
+        return r
+
+    def regularize_area_tag(self, orig):
+        r = orig
         return r
 
     def regularize_area(self, area):
@@ -315,18 +294,12 @@ class HotelCommander(object):
     def fill_default_slots(self):
         if FILL_DEFAULT_CITY and 'city' not in self.slots:
             pass
-        if FILL_DEFAULT_CHECK_IN_DATE and 'check_in_date' not in self.slots:
-            today = datetime.now()
-            self.slots.update({'check_in_date': '%d-%02d-%02d' % (today.year, today.month, today.day)})
-        if FILL_DEFAULT_CHECK_OUT_DATE and 'check_out_date' not in self.slots:
-            tomorrow = datetime.now()+timedelta(days=1)
-            self.slots.update({'start_date': '%d-%02d-%02d' % (tomorrow.year, tomorrow.month, tomorrow.day)})
 
     def construct_reply(self):
         '''构造回复'''
         #不支持的地点
         if self.__orig('city') in self.slots and 'city' not in self.slots:
-            reply = REPLY_UNSUPPORTED_START_CITY
+            reply = REPLY_UNSUPPORTED_CITY
             context = {}
             if DEBUG:
                 context = {CONTEXT_SLOTS: self.slots}
@@ -336,42 +309,20 @@ class HotelCommander(object):
         for needed_slot_name in NEEDED_SLOTS:
             if needed_slot_name not in self.slots:
                 reply = self.get_question(needed_slot_name)
-                if self.context.has_key('prev') and needed_slot_name == 'city':
-                    reply_pre = self.get_prev_city(self.context['prev'])
-                    reply = reply_pre + reply
                 self.context[CONTEXT_EXPECTED] = needed_slot_name
                 self.context[CONTEXT_SLOTS] = self.slots
                 return STATUS_WAITING, reply.encode('utf-8'), self.context
 
         # 如果必须的slot都有了
-        info = self.get_hotel_info(self.slots)
+        info = self.get_bus_info(self.slots)
         if info:
-            hotels = info['hotelList']
-            link = info['link']
-            reply = self.make_reply_title(self.slots['check_in_date'],
-                    self.slots['check_out_date'],self.slots['city'])
-            if 'cost_relative' in self.slots:
-                if len(hotels) > 1:
-                    for f in hotels[1:]:
-                        hotels.remove(f)
-            if 'type' in self.slots:
-                type = self.slots['type']
-                for h in hotels[0:]:
-                    f = False
-                    for d in h.dealList[0:]:
-                        if type == d.roomTypeName:
-                            f = True
-                    if not f:
-                        hotels.remove(h)
-                    else:
-                        for d in h.dealList[0:]:
-                            if type != d.roomTypeName: h.dealList.remove(d)
-            if len(hotels) != 0:
-                reply += '\n'+'\n'.join([str(f) for f in hotels[:RESULT_SIZE]]).decode('utf-8')
-                reply += '\n'
-                reply += u'更多酒店信息请点击该消息#####' + link
-            else:
-                reply +=u'\n您的限制条件太多啦！没有符合条件的酒店信息\n查看全部酒店信息请点该消息#####' + link
+            buses = info['bus']#list
+            taxi = info['taxi']
+            reply = self.make_reply_title(self.slots['from'],self.slots['to'])
+            if buses:
+                reply += u'\n' + '\n'.join([str(bus) for bus in buses]).decode('utf-8')
+            if taxi:
+                reply += u'\n' + str(taxi).decode('utf-8')
         else:
             reply = REPLY_NOT_FOUND
         context = {}
@@ -379,31 +330,18 @@ class HotelCommander(object):
             context = {CONTEXT_SLOTS: self.slots}
         return STATUS_SUCCESS, reply.encode('utf-8'), context
 
-    def hash_time(self, str):
-        l = str.split(':')
-        h = int(l[0])
-        m = int(l[1])
-        return h*60+m
 
+    def make_reply_title(self, st, des):
+        return u"公交线路信息#####以下是我找到的从%s到%s的公交线路信息" % (st, des)
 
-    def make_reply_title(self, check_in_date, check_out_date, city):
-        year, month, day = check_in_date.split('-')
-        month = month.lstrip('0')
-        day = day.lstrip('0')
-        return u"酒店信息#####以下是我找到的%s月%s日%s地区的酒店信息" % (month, day, city)
-
-    def get_hotel_info(self, slots):
-        city = self.slots['city']
-        check_in_date = slots['check_in_date'].encode('utf-8')
-        check_out_date = slots['check_out_date'].encode('utf-8')
-        if 'hotel_name' in self.slots:
-            brand = self.slots['hotel_name'] 
-        else:
-            brand = "0"
-        area_id = self.slots['area'] if 'area' in self.slots else None
-        spider = HotelSpider()
-        info = spider.get_hotel_info({'city': city, 'check_in_date': check_in_date,
-            'check_out_date':check_out_date, 'area_id':area_id, 'name_id':brand})
+    def get_bus_info(self, slots):
+        region = self.slots['city'].encode('utf-8')
+        origin = self.slots['from'].encode('utf-8')
+        destination = self.slots['to'].encode('utf-8')
+        mode = 'transit'
+        api = baiduAPI()
+        info = api.get_info({'region': region, 'origin': origin,
+            'destination':destination, 'mode':mode})
         return info
 
     def get_question(self, slot_name):
