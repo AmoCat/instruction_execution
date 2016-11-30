@@ -144,8 +144,22 @@ class BusCommander(object):
         if (k != None) and (v != None):
             self.context['prev'] = (k,v)
         self.fill_default_slots()
+        self.infer_city()
         status, reply, context = self.construct_reply()
         return status, reply, context
+
+    def infer_city(self):
+        if 'from' in self.slots and 'to' in self.slots:
+            f = self.slots['from']
+            to = self.slots['to']
+            k,v = area_preprocessor(f)
+            f_city = [tup[1] for tup in v] if v else []
+            k,v = area_preprocessor(to)
+            t_city = [tup[1] for tup in v] if v else []
+            same = [s for s in f_city if s in t_city]
+            if len(same) == 1:
+                self.slots['city'] = same[0].decode('utf-8')
+
 
     def add_slot(self, slot_name, slot_value, prob):
         if slot_name not in self.slots:
@@ -320,9 +334,9 @@ class BusCommander(object):
             taxi = info['taxi']
             reply = self.make_reply_title(self.slots['from'],self.slots['to'])
             if buses:
-                reply += u'\n' + '\n'.join([str(bus) for bus in buses]).decode('utf-8')
+                reply += u'\n' + ''.join([str(bus) for bus in buses]).decode('utf-8')
             if taxi:
-                reply += u'\n' + str(taxi).decode('utf-8')
+                reply += str(taxi).decode('utf-8')
         else:
             reply = REPLY_NOT_FOUND
         context = {}

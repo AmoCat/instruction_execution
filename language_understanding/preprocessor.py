@@ -10,6 +10,9 @@ DATA_DIR = os.path.join(os.path.dirname(__file__),'data')
 AREA_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 
 def area_preprocessor(sent, city = None, default = None):
+    '''
+    返回对应到美团id
+    '''
     if city == None:
         #file_name = os.path.join(AREA_PATH, 'all')
         file_name = os.path.join(AREA_PATH, 'all_with_multicity')

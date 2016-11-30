@@ -26,8 +26,8 @@ class Taxi(object):
         self.start_km = re.search(u"[0-9.]*公里起步", self.remark).group(0).rstrip(u'公里起步')
 
     def __unicode__(self):
-        res = u"打车费用:"
-        res += u"\n%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
+        res = u"打车费用:\n"
+        res += u"%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
                 % (self.day['desc'], self.day['total_price'], \
                    self.day['start_price'], self.start_km, self.day['km_price'])
         res += u"%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
@@ -68,14 +68,19 @@ class Scheme(object):
             self.bus_ids = None
 
     def __unicode__(self):
-        res = u"%s\t耗时:%s\t票价:¥%s\t距离:%s\n"\
-                % (self.instruction, self.cal_time(self.duration), self.cal_price(self.bus_price), self.cal_dis(self.distance))
-        res += u"以下路线需先" + self.walks[0] + "\n" if self.walks != None else ""
+        res = u"%s\t耗时：%s\t%s公里" % (self.instruction,self.cal_time(self.duration),self.cal_dis(self.distance))
+        if self.bus_price != -1:
+            res += u"\t¥%s" % (self.cal_price(self.bus_price))
+        #res = u"%s\t耗时:%s\t票价:¥%s\t距离:%s\n"\
+        #        % (self.instruction, self.cal_time(self.duration), self.cal_price(self.bus_price), self.cal_dis(self.distance))
+        res += u"\n详情:\n"
+        #res += u"以下路线需先" + self.walks[0] + "\n" if self.walks != None else ""
         if self.steps != None:
             for i in range(len(self.steps)):
-                res += self.bus_ids[i] + u"\t" if i < len(self.bus_ids) else ""
-                res += unicode(self.steps[i])
-        res += self.walks[1] + u"至终点" if self.walks != None and len(self.walks) >= 2 else ""
+                if i < len(self.bus_ids):
+                    res += self.bus_ids[i] + u"\t" 
+                    res += unicode(self.steps[i])
+        #res += self.walks[1] + u"至终点" if self.walks != None and len(self.walks) >= 2 else ""
         res += "\n"
         return res
 
@@ -108,7 +113,7 @@ class Step(object):
         self.path = step['path'] if step.has_key('path') else None
         self.vehicle = Vehicle(step['vehicle']) if step['vehicle'] != None else None
         color = re.compile("<[/]*[a-z]*[\s]*[a-z]*[=\"#]*[a-z0-9]*[\"]*>")
-        bus_id_compile = re.compile(u"[地铁]*[0-9a-z]*[号]*[路|线]")
+        bus_id_compile = re.compile(u"[地铁]*[0-9a-z]+[号]*[路|线]")
         direction_compile = re.compile(u"(.*)")
         if step.has_key('stepInstruction'):
             self.stepInstruction = re.sub(color,'', step['stepInstruction'])
@@ -121,7 +126,7 @@ class Step(object):
 
     def __unicode__(self):
         if self.type != 5:
-            res = u"耗时：%s\t" % (self.duration)
+            res = u"耗时:%s\t" % (self.duration)
             if self.vehicle != None:
                 res += unicode(self.vehicle)
         elif self.type == 5:
@@ -169,8 +174,8 @@ class Vehicle(object):
 
        
     def __unicode__(self): 
-        res = u"从 %s 上车 - %s 下车 共 %s 站\t" % (self.start_name, self.end_name, self.stop_num)
-        res += u"首班车:%s\t末班车:%s\n" % (self.start_time, self.end_time)
+        #res = u"从 %s 上车 - %s 下车 共 %s 站\t" % (self.start_name, self.end_name, self.stop_num)
+        res = u"首班车:%s\t末班车:%s\n" % (self.start_time, self.end_time)
         return res
 
     def __str__(self):
@@ -281,7 +286,7 @@ class baiduAPI(object):
         pkl.dump(data, open('beijing_response','w'))
         #data = pkl.load(open('beijing_response', 'r'))
         if data['type'] == 2: #起终点明确，得到查询结果
-            self.info_mode_hash(query['mode'], data)
+            return self.info_mode_hash(query['mode'], data)
         elif data['type'] == 1: #起终点模糊，得到选择界面
             sel =  self.selection_mode_hash(query['mode'], data)
             if sel == None:
