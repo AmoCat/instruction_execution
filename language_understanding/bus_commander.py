@@ -23,7 +23,7 @@ SLOTS = ['from', 'to', 'mode', 'city', 'bus_id']
 
 NEEDED_SLOTS = ['from', 'to', 'city']
 
-QUESTIONS = {'city': u'您在哪个城市呢？','to': u'您要去哪里呢？'} 
+QUESTIONS = {'city': u'您在哪个城市呢?','to':u'您要去哪里呢?', 'from':u'您要从哪里出发呢?'} 
 
 REPLY_UNSUPPORTED_CITY = u'不支持的城市'
 REPLY_NOT_FOUND = u'没有找到信息'
@@ -195,10 +195,11 @@ class BusCommander(object):
         if v == None:
             return None, None
         if len(v) == 1:
-            self.slots[self.__orig('area')] = k
-            self.slots['area'] = v[0][0]
+            #self.slots[self.__orig('area')] = k
+            #self.slots['area'] = v[0][0]
             if 'city' not in self.slots:
                 self.slots['city'] = v[0][1].decode('utf-8')
+            pass
         else:
             return k.decode('utf-8'), [t[1].decode('utf-8') for t in v]
         return None,None
