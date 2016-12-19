@@ -46,7 +46,7 @@ class Scheme(object):
         self.line_type = s['plan_trans_type'] #地铁6 ，公交3
         self.bus_price = s['price']
         steps = s['steps']
-        #if self.line_type == 3 or self.line_type == 6: #3公交,6地铁
+        #if self.line_type == 3 or self.line_type == 6: #3公交,6地铁,4观光线路
         if self.line_type >= 0 and self.line_type <= 14:
             self.walks = []
             first_bus = None
@@ -55,8 +55,17 @@ class Scheme(object):
                     self.walks.append(unicode(Step(list[0])))
                 if first_bus == None and list[0]['type'] != 5:
                     first_bus = Step(list[0])
-            self.bus_ids = first_bus.get_bus_ids()
-            self.instruction = first_bus.get_instruction()
+            if self.line_type == 3:#公交车，第一个instruction包含了所有公交号
+                self.bus_ids = first_bus.get_bus_ids()
+                self.instruction = first_bus.get_instruction()
+            else:
+                self.bus_ids = None
+                self.instruction = ""
+                for list in steps[0:]:
+                    step = Step(list[0])
+                    self.instruction += step.get_instruction()
+                    self.instruction += "\n" if list[0]['type'] != 5 else ","
+                self.instruction += u"至终点"
             self.steps = []
             for list in steps[0:]:
                 for step in list:
@@ -68,20 +77,24 @@ class Scheme(object):
             self.bus_ids = None
 
     def __unicode__(self):
-        res = u"%s\t耗时：%s\t%s公里" % (self.instruction,self.cal_time(self.duration),self.cal_dis(self.distance))
+        res = u"%s" % (self.instruction)
+        res += "\t" if self.bus_ids != None else "\n"
+        res += u"耗时：%s\t%s公里" % (self.cal_time(self.duration),self.cal_dis(self.distance))
         if self.bus_price != -1:
             res += u"\t¥%s" % (self.cal_price(self.bus_price))
+        res += u"\n"
         #res = u"%s\t耗时:%s\t票价:¥%s\t距离:%s\n"\
         #        % (self.instruction, self.cal_time(self.duration), self.cal_price(self.bus_price), self.cal_dis(self.distance))
-        res += u"\n详情:\n"
+        res += u"详情:\n" if self.bus_ids != None else ""
         #res += u"以下路线需先" + self.walks[0] + "\n" if self.walks != None else ""
-        if self.steps != None:
+        if self.steps != None and self.bus_ids != None:
             for i in range(len(self.steps)):
                 if i < len(self.bus_ids):
                     res += self.bus_ids[i] + u"\t" 
                     res += unicode(self.steps[i])
+        res += u"\n"
         #res += self.walks[1] + u"至终点" if self.walks != None and len(self.walks) >= 2 else ""
-        res += "\n"
+        #res += "\n"
         return res
 
     def __str__(self):
@@ -240,6 +253,7 @@ class baiduAPI(object):
         print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
         if data['status'] != 0:
             return None
+
         result = data['result']
         routes = result['routes']
         origin = result['origin']
@@ -309,6 +323,6 @@ if __name__ == "__main__":
     api = baiduAPI()
     #query = {"origin":"哈工大","destination":"凯德广场","mode":"transit","region":"哈尔滨"}
     #query = {"origin":"上地五街","destination":"北京大学","mode":"transit","region":"北京"}
-    query = {"origin":"哈工大","destination":"中央大街","mode":"transit","region":"哈尔滨"}
+    query = {"origin":"五道口","destination":"天安门","mode":"transit","region":"哈尔滨"}
     api.get_info(query)
 
