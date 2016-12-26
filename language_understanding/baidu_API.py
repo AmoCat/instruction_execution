@@ -255,6 +255,7 @@ class baiduAPI(object):
             return None
 
         result = data['result']
+        print result.keys()
         routes = result['routes']
         origin = result['origin']
         destination = result['destination']
@@ -279,6 +280,10 @@ class baiduAPI(object):
             return None
         #info = data['info'] 版权信息
         result = data['result']
+
+        pp = pprint.PrettyPrinter(indent = 4)
+        pp.pprint(data['result'])
+
         selection = Selection(result)
         return selection
 
@@ -297,7 +302,7 @@ class baiduAPI(object):
     def get_info(self, query):
         url = self.make_query_url(**query)
         data = self.request(url)
-        pkl.dump(data, open('beijing_response','w'))
+        #pkl.dump(data, open('beijing_response','w'))
         #data = pkl.load(open('beijing_response', 'r'))
         if data['type'] == 2: #起终点明确，得到查询结果
             return self.info_mode_hash(query['mode'], data)
@@ -313,6 +318,10 @@ class baiduAPI(object):
                 query['destination'] = first_des if first_des != None else query['destination']
                 url = self.make_query_url(**query)
                 data = self.request(url)
+                
+                #pp = pprint.PrettyPrinter(indent = 4)
+                #pp.pprint(data['result'])
+
                 res = self.info_mode_hash(query['mode'], data)
                 if res:
                     return res

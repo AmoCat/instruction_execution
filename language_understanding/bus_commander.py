@@ -338,6 +338,7 @@ class BusCommander(object):
                 reply += u'\n' + ''.join([str(bus) for bus in buses]).decode('utf-8')
             if taxi:
                 reply += str(taxi).decode('utf-8')
+            reply += "#####"
         else:
             reply = REPLY_NOT_FOUND
         context = {}
