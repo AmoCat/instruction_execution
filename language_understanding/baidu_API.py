@@ -82,10 +82,10 @@ class Scheme(object):
         res += u"耗时：%s\t%s公里" % (self.cal_time(self.duration),self.cal_dis(self.distance))
         if self.bus_price != -1:
             res += u"\t¥%s" % (self.cal_price(self.bus_price))
-        res += u"\n"
+        #res += u"\n"
         #res = u"%s\t耗时:%s\t票价:¥%s\t距离:%s\n"\
         #        % (self.instruction, self.cal_time(self.duration), self.cal_price(self.bus_price), self.cal_dis(self.distance))
-        res += u"详情:\n" if self.bus_ids != None else ""
+        res += u"\t详情:\n" if self.bus_ids != None else "\n"
         #res += u"以下路线需先" + self.walks[0] + "\n" if self.walks != None else ""
         if self.steps != None and self.bus_ids != None:
             for i in range(len(self.steps)):
@@ -255,7 +255,6 @@ class baiduAPI(object):
             return None
 
         result = data['result']
-        print result.keys()
         routes = result['routes']
         origin = result['origin']
         destination = result['destination']
@@ -280,9 +279,6 @@ class baiduAPI(object):
             return None
         #info = data['info'] 版权信息
         result = data['result']
-
-        pp = pprint.PrettyPrinter(indent = 4)
-        pp.pprint(data['result'])
 
         selection = Selection(result)
         return selection

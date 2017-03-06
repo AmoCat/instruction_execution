@@ -9,9 +9,6 @@ import re
 app = Flask('benben-lu')
 app.config.from_object('config')
 
-#coding:utf8
-import re
-
 from flask.ext.bootstrap import Bootstrap
 Bootstrap(app)
 

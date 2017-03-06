@@ -133,7 +133,7 @@ class HotelCommander(object):
             self.slots = self.context.get(CONTEXT_SLOTS, {})
             print "###self.slots = ",self.slots
             self.recognize(sent, words, postags, nes)
-            if self.__orig(expected_slot_name) in self.slots.keys():
+            if self.__reg(expected_slot_name) in self.slots.keys():
                 print "###self.__orig(expected_slot_name) in self.slots.keys()"
                 pass
             elif slot != None:
@@ -148,11 +148,11 @@ class HotelCommander(object):
         k,v = self.area_recognize(sent)
         if (k != None) and (v != None):
             self.context['prev'] = (k,v)
-        if self.__orig('check_in_date') in self.slots.keys():
+        if self.__reg('check_in_date') in self.slots.keys():
             if self.slots[self.__orig('check_in_date')] == u'昨天':
                 reply = u'入住日期填写有误'
                 return STATUS_SUCCESS,reply,'{}'
-        if self.__orig('check_out_date') in self.slots.keys():
+        if self.__reg('check_out_date') in self.slots.keys():
             if self.slots[self.__orig('check_out_date')] == u'昨天':
                 reply = u'离店日期填写有误'
                 return STATUS_SUCCESS,reply,'{}'
@@ -300,7 +300,7 @@ class HotelCommander(object):
         today = datetime.today()
         tomorrow = today + timedelta(days=1)
         d = date_ground(dt, today, default=None)
-        r = '%d-%02d-%02d' % (d.year, d.month, d.day)
+        r = '%d-%02d-%02d' % (d.year, d.month, d.day) if d else None
         return r
 
     def fill_check_out_time(self,dt):

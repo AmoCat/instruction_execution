@@ -134,7 +134,7 @@ class FlightCommander(object):
             self.slots = self.context.get(CONTEXT_SLOTS, {})
             print "###self.slots = ",self.slots
             self.recognize(sent, words, postags, nes)
-            if self.__orig(expected_slot_name) in self.slots.keys():
+            if self.__reg(expected_slot_name) in self.slots.keys():
                 print "###self.__orig(expected_slot_name) in self.slots.keys()"
                 pass
             elif slot != None:
@@ -332,7 +332,7 @@ class FlightCommander(object):
         today = datetime.today()
         tomorrow = today + timedelta(days=1)
         d = date_ground(dt, today, default=None)
-        r = '%d-%02d-%02d' % (d.year, d.month, d.day)
+        r = '%d-%02d-%02d' % (d.year, d.month, d.day) if d else None
         return r
 
     def fill_default_slots(self):

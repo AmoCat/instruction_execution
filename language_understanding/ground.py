@@ -178,7 +178,7 @@ def date_ground(orig, base_date, default=None):
             return base_date
         if re.match(ur'昨天', orig):
             return base_date + timedelta(days=-1)
-        if re.match(ur'明天|明早|明晚', orig):
+        if re.match(ur'明天|明日|明早|明晚', orig):
             return base_date + timedelta(days=1)
         if re.match(ur'后天', orig):
             return base_date + timedelta(days=2)
@@ -213,7 +213,7 @@ def date_ground(orig, base_date, default=None):
                 delta = int(m.group(3))
             return base_date + timedelta(days = delta)
 
-        m = re.match(ur'(' + numbers+ur'|(\d+))月'+ ur'(' + numbers+ur'|(\d+))(号|日)', orig)
+        m = re.match(ur'(' + numbers+ur'|(\d+))月'+ ur'(' + numbers+ur'|(\d+))(号|日)*', orig)
         if m:
             if m.group(2):
                 mon = hashnum(m.group(2))
@@ -226,7 +226,7 @@ def date_ground(orig, base_date, default=None):
                 d = int(m.group(6))
             return datetime(year=base_date.year, month=mon, day=d)
 
-        m = re.match(ur'下(个)?月' + ur'(' + numbers+ur'|(\d+))(号|日)', orig)
+        m = re.match(ur'下(个)?月' + ur'(' + numbers+ur'|(\d+))(号|日)*', orig)
         if m:
             if m.group(3):
                 d = hashnum(m.group(3))
