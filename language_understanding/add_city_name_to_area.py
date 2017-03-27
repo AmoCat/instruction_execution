@@ -12,7 +12,7 @@ ORIGIN_AREAS_PATH = os.path.join(DATA_DIR, 'origin_areas_data')
 
 def add_cityname(city):
     city_phonetic = get_phonetic(city)
-    if city_phonetic == 'zhongqing':
+    if city_phonetic == 'zhongqing':#重庆拼音调用有误，会返回zhongqing。
         city_phonetic = 'chongqing'
     dump_areas_path = os.path.join(AREAS_PATH, city_phonetic)
     origin_areas_path = os.path.join(ORIGIN_AREAS_PATH, city_phonetic + ".txt")

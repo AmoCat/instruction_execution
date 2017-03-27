@@ -250,7 +250,7 @@ class baiduAPI(object):
         return self.add_sk(query_url)   
     
     def get_bus_info(self, data):
-        print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
+        #print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
         if data['status'] != 0:
             return None
 
