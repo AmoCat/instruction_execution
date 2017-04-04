@@ -9,6 +9,7 @@ import sys
 
 QUNAR_URL = "http://flight.qunar.com/site/oneway_list.htm"
 QUNAR_TOUCH_URL = "http://touch.qunar.com/h5/flight/flightlist"
+RESULT_URL = "https://m.flight.qunar.com/ncs/page/flightlist"
 
 class Flight(object):
     def __init__(self, from_place, to_place, from_time, to_time, company1, company2, price):
@@ -42,6 +43,8 @@ class QunarSpider(object):
                 %(QUNAR_URL)
         self.touch_url_template = "%s?startCity=%%s&destCity=%%s&startDate=%%s&backDate=&flightType=oneWay&bd_source=flightList3W"\
                 %(QUNAR_TOUCH_URL)
+        self.result_url = "%s?depCity=%%s&arrCity=%%s&goDate=%%s&sort=&airLine=&from="\
+                %(RESULT_URL)
 
     def make_query_url(self, start_city, arrival_city, start_date, *args, **kwargs):
         query_url = self.qunar_url_template % (start_city, arrival_city, start_date)
@@ -50,6 +53,10 @@ class QunarSpider(object):
     def make_touch_url(self, start_city, arrival_city,start_date, *args, **kwargs):
         touch_url = self.touch_url_template % (start_city, arrival_city, start_date)
         return touch_url
+
+    def make_result_url(self, start_city, arrival_city,start_date, *args, **kwargs):
+        result_url = self.result_url % (start_city, arrival_city, start_date)
+        return result_url.decode('utf-8')
 
     def get_query_page(self, query):
         """ get the query url for the ticket infomation page """
@@ -86,6 +93,7 @@ class QunarSpider(object):
         """ get ticket infomation"""
         query_url = self.get_query_page(query)
         touch_url = self.make_touch_url(**query)
+        result_url = self.make_result_url(**query)
         if query_url == None:
             return None
         #query_url = "http://touch.qunar.com/h5/flight/flightlist?startCity=北京destCity=&startDate=2016-04-10"
@@ -126,7 +134,8 @@ class QunarSpider(object):
             #print "###company1=",flight.company1,"company2=",flight.company2
             flights.append(flight)
         touch_url=touch_url.decode('utf-8')
-        return {'flights': flights, 'link': touch_url}
+        #return {'flights': flights, 'link': touch_url}
+        return {'flights': flights, 'link': result_url}
 
 if __name__ =="__main__":
     qunar_spider = QunarSpider()
