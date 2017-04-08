@@ -26,7 +26,7 @@ NEEDED_SLOTS = ['from', 'to', 'city']
 QUESTIONS = {'city': u'您在哪个城市呢?','to':u'您要去哪里呢?', 'from':u'您要从哪里出发呢?'} 
 
 REPLY_UNSUPPORTED_CITY = u'不支持的城市'
-REPLY_NOT_FOUND = u'没有找到信息'
+REPLY_NOT_FOUND = u'抱歉！(╯﹏╰)我可能太笨了，没能查到%s市从%s到%s的公交线路信息'
 
 FILL_DEFAULT_CITY = False
 FILL_DEFAULT_FROM  = False 
@@ -341,12 +341,14 @@ class BusCommander(object):
                 reply += str(taxi).decode('utf-8')
             reply += "#####"
         else:
-            reply = REPLY_NOT_FOUND
+            reply = make_not_found_titile(self.slots['from'],self.slots['to'],self.slots['city'])
         context = {}
         if DEBUG:
             context = {CONTEXT_SLOTS: self.slots}
         return STATUS_SUCCESS, reply.encode('utf-8'), context
 
+    def make_not_found_titile(self, st, des,city):
+        return REPLY_NOT_FOUND % (city, st, des)
 
     def make_reply_title(self, st, des, city):
         return u"公交线路信息#####以下是我找到%s市从%s到%s的公交线路信息" % (city, st, des)

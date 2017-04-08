@@ -260,9 +260,9 @@ class baiduAPI(object):
     
     def get_bus_info(self, data):
         print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
-        f = open("response/txt_response.txt",'w')
-        print >> f,data
-        pkl.dump(data, open('response/pkl_response','w'))
+        #f = open("response/txt_response.txt",'w')
+        #print >> f,data
+        #pkl.dump(data, open('response/pkl_response','w'))
         if data['status'] != 0:
             return None
         if data['type'] == 2:
