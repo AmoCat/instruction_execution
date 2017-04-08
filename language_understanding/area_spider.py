@@ -15,9 +15,11 @@ AREAS_PATH = os.path.join(DATA_DIR,'dump_areas_data')
 ORIGIN_AREADATA_PATH = os.path.join(DATA_DIR,'origin_areas_data')
 CITIES_PATH = os.path.join(DATA_DIR,'china_cities.txt')
 
-def get_area(cnt, city_name = 'haerbin'):
+def get_area(cnt, city="哈尔滨",city_name = 'haerbin'):
     if city_name == 'zhongqing':
         city_name = 'chongqing'
+    if city_name == 'shamen':
+        city_name = 'xiamen'
     if os.path.exists(os.path.join(AREAS_PATH,city_name)) == True:
         return cnt
     request_url = MEITUAN_URL % (city_name)
@@ -46,7 +48,7 @@ def get_area(cnt, city_name = 'haerbin'):
             #    return cnt
             #    print l.a['id'],l.string.encode('utf-8')
             data[l.string.encode('utf-8')] = l.a['id']
-            out.write(l.string.encode('utf-8')+("/"+l.a['id']+"\n").encode('utf-8'))
+            out.write(l.string.encode('utf-8')+"/"+l.a['id'].encode('utf-8')+"/"+city+"/"+city_name +"\n")
     out.close()
     pkl.dump(data, open(os.path.join(AREAS_PATH, city_name),'w'))
     if cnt % 3 == 0:
@@ -58,9 +60,10 @@ def spider():
         cnt = 0
         for line in cities:
             name = get_phonetic(line.strip())
-            cnt = get_area(cnt, city_name = name)
+            cnt = get_area(cnt, line.strip(), city_name = name)
 
 if  __name__ == '__main__':
     #spider()
-    get_area(1)
+    #get_area(1)
+    get_area(0, "厦门",'xiamen')
 

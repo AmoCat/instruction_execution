@@ -14,6 +14,8 @@ def add_cityname(city):
     city_phonetic = get_phonetic(city)
     if city_phonetic == 'zhongqing':#重庆拼音调用有误，会返回zhongqing。
         city_phonetic = 'chongqing'
+    if city_phonetic == 'shamen':
+        city_phonetic = 'xiamen'
     dump_areas_path = os.path.join(AREAS_PATH, city_phonetic)
     origin_areas_path = os.path.join(ORIGIN_AREAS_PATH, city_phonetic + ".txt")
     if (not os.path.exists(origin_areas_path)) or (not os.path.exists(dump_areas_path)):
@@ -45,6 +47,8 @@ def create_dict_of_all_city():
             phonetic = get_phonetic(line.strip())
             if phonetic == 'zhongqing':
                 phonetic = 'chongqing'
+            if phonetic == 'shamen':
+                phonetic = 'xiamen'
             path = os.path.join(AREAS_PATH, phonetic)
             if not os.path.exists(path):
                 continue
@@ -54,6 +58,7 @@ def create_dict_of_all_city():
             for k,v in dictionary.items():
                 if all.has_key(k):
                     city_list = [t[1] for t in all[k][0:]]
+                    print v,line,phonetic
                     if v[0][1] not in city_list:
                         all[k].append(v[0])
                 else:
@@ -74,6 +79,6 @@ def test():
 
 if __name__ == '__main__':
     #add_all_cityname()
-    add_cityname('鹤岗')
-    #create_dict_of_all_city()
+    add_cityname('厦门')
+    create_dict_of_all_city()
     #test()
