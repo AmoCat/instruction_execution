@@ -1,0 +1,51 @@
+南站/nanzhan/抚顺/fushun
+万达广场/wandagc/抚顺/fushun
+浙商/天朗/抚顺/fushun
+道街/daojie/抚顺/fushun
+步行街/buxingjie/抚顺/fushun
+劳动公园/laodonggongyuan/抚顺/fushun
+北站/beizhan/抚顺/fushun
+新华乐购/xinhualegou/抚顺/fushun
+将军/jaingjun/抚顺/fushun
+河东/hedong/抚顺/fushun
+雷锋体育场/leifeng/抚顺/fushun
+望花乐购/whlegou/抚顺/fushun
+丹东路/dandonglu/抚顺/fushun
+雷锋路/leifenglu/抚顺/fushun
+东洲商场/dzsc/抚顺/fushun
+虎万地区/huwandiqu/抚顺/fushun
+大官屯火车站/daguantunhuochezhan/抚顺/fushun
+新宾客运站/xinbinkeyunzhan/抚顺/fushun
+柴河路/chaihelu/抚顺/fushun
+清原客运站/qingyuankeyunzhan/抚顺/fushun
+清原商场/qingyuanshangchang/抚顺/fushun
+紫龙商场/zilongshangchang/抚顺/fushun
+新抚区/xinfuqu/抚顺/fushun
+顺城区/shunchengqu/抚顺/fushun
+望花区/wanghuaqu/抚顺/fushun
+东洲区/dongzhouqu/抚顺/fushun
+抚顺县/fushunxian/抚顺/fushun
+新宾满族自治县/xinbinmanzuzizhixian/抚顺/fushun
+清原满族自治县/qingyuanmanzuzizhixian/抚顺/fushun
+李石经济开发区/lsjjkfq/抚顺/fushun
+高湾经济开发区/gwjjkfq/抚顺/fushun
+抚顺火车站 /landmark_15149/抚顺/fushun
+大官屯站 /landmark_15150/抚顺/fushun
+抚顺北站/landmark_13644/抚顺/fushun
+清原火车站/landmark_15167/抚顺/fushun
+抚顺市动物园/landmark_15145/抚顺/fushun
+玉清宫/landmark_15146/抚顺/fushun
+劳动公园 /landmark_15147/抚顺/fushun
+碳矿俱乐部旧址/landmark_15148/抚顺/fushun
+萨尔浒风景名胜区/landmark_15109/抚顺/fushun
+抚顺平顶山惨案纪念馆 /landmark_15110/抚顺/fushun
+虎台山公园 /landmark_15111/抚顺/fushun
+雷锋纪念馆/landmark_9867/抚顺/fushun
+抚顺皇家极地海洋世界 /landmark_15157/抚顺/fushun
+热高乐园 /landmark_15158/抚顺/fushun
+辽宁冠翔冰雪大世界/landmark_15160/抚顺/fushun
+抚顺战犯管理所旧址 /landmark_15187/抚顺/fushun
+高尔山公园/landmark_15189/抚顺/fushun
+十里滨水公园 /landmark_15190/抚顺/fushun
+南杂木火车站/landmark_15136/抚顺/fushun
+辽宁石油化工大学/landmark_2919/抚顺/fushun

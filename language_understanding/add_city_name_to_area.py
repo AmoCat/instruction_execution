@@ -25,11 +25,11 @@ def add_cityname(city):
         for line in f:
             list.append(line)
 
-    with open(origin_areas_path, 'w') as f:
-        for l in list:
-            words = l.strip().split('/', 2)
-            #f.write(words[0] + '/' +  words[1] + '/' + city + '/' + city_phonetic + '\n')
-            data[words[0]] = [(words[1], city)]
+    #with open(origin_areas_path, 'r') as f:
+    for l in list:
+        words = l.strip().split('/', 2)
+        #f.write(words[0] + '/' +  words[1] + '/' + city + '/' + city_phonetic + '\n')
+        data[words[0]] = [(words[1], city)]
     
     pkl.dump(data, open(dump_areas_path, 'w'))
 
@@ -73,6 +73,7 @@ def test():
     #print dict['中央大街'][0][1],dict['中央大街'][1][1],dict['中央大街'][2][1]
 
 if __name__ == '__main__':
-    add_all_cityname()
+    #add_all_cityname()
+    add_cityname('鹤岗')
     #create_dict_of_all_city()
-    test()
+    #test()

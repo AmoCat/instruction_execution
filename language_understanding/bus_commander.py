@@ -197,8 +197,9 @@ class BusCommander(object):
         if len(v) == 1:
             #self.slots[self.__orig('area')] = k
             #self.slots['area'] = v[0][0]
-            if 'city' not in self.slots:
-                self.slots['city'] = v[0][1].decode('utf-8')
+            #此处若加入city可能因为单个识别不准而出错
+            #if 'city' not in self.slots:
+            #    self.slots['city'] = v[0][1].decode('utf-8')
             pass
         else:
             return k.decode('utf-8'), [t[1].decode('utf-8') for t in v]
@@ -333,7 +334,7 @@ class BusCommander(object):
         if info:
             buses = info['bus']#list
             taxi = info['taxi']
-            reply = self.make_reply_title(self.slots['from'],self.slots['to'])
+            reply = self.make_reply_title(self.slots['from'],self.slots['to'],self.slots['city'])
             if buses:
                 reply += u'\n' + ''.join([str(bus) for bus in buses]).decode('utf-8')
             if taxi:
@@ -347,8 +348,8 @@ class BusCommander(object):
         return STATUS_SUCCESS, reply.encode('utf-8'), context
 
 
-    def make_reply_title(self, st, des):
-        return u"公交线路信息#####以下是我找到的从%s到%s的公交线路信息" % (st, des)
+    def make_reply_title(self, st, des, city):
+        return u"公交线路信息#####以下是我找到%s市从%s到%s的公交线路信息" % (city, st, des)
 
     def get_bus_info(self, slots):
         region = self.slots['city'].encode('utf-8')

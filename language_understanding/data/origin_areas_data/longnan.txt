@@ -1,0 +1,12 @@
+武都区/wudouqu/陇南/longnan
+成县/chengxian/陇南/longnan
+宕昌县/dangchangxian/陇南/longnan
+康县/kangxian/陇南/longnan
+文县/wenxian/陇南/longnan
+西和县/xihexian/陇南/longnan
+礼县/lixian/陇南/longnan
+两当县/liangdangxian/陇南/longnan
+徽县/huixian/陇南/longnan
+官鹅沟地质公园/landmark_21058/陇南/longnan
+白云山公园/landmark_21066/陇南/longnan
+礼县博物馆/landmark_21146/陇南/longnan

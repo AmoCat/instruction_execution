@@ -1,0 +1,6 @@
+玉树市/yushushi/玉树/yushu
+杂多县/zaduoxian/玉树/yushu
+称多县/chengduoxian/玉树/yushu
+囊谦县/nangqianxian/玉树/yushu
+曲麻莱县/qumalaixian/玉树/yushu
+玉树州博物馆/landmark_23022/玉树/yushu

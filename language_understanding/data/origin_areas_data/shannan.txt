@@ -1,0 +1,12 @@
+乃东县/naidongxian/山南/shannan
+扎囊县/zanangxian/山南/shannan
+贡嘎县/gonggaxian/山南/shannan
+桑日县/sangrixian/山南/shannan
+措美县/cuomeixian/山南/shannan
+洛扎县/luozaxian/山南/shannan
+加查县/jiachaxian/山南/shannan
+错那县/cuonaxian/山南/shannan
+浪卡子县/langkazixian/山南/shannan
+桑耶寺/landmark_9038/山南/shannan
+友谊广场/landmark_24006/山南/shannan
+羊湖边贸广场/landmark_24010/山南/shannan

@@ -1,0 +1,43 @@
+女人街/nvrenj/丹东/dandong
+新柳步行街/xinliubuxingjie/丹东/dandong
+江边/jiangbian/丹东/dandong
+万达广场/wandaguangchang/丹东/dandong
+站前/zhanqian/丹东/dandong
+华美新天地/huameixintiandi/丹东/dandong
+安东老街/andonglaojie/丹东/dandong
+步行街/buxingjie/丹东/dandong
+翰墨商圈/hanmoshangquan/丹东/dandong
+站前/zhanqian02/丹东/dandong
+黄海市场/huanghaishichang/丹东/dandong
+桥南/qiaonan/丹东/dandong
+桥东/qiaodong/丹东/dandong
+站前/zhanqian01/丹东/dandong
+天都商厦/tiandoushangsha/丹东/dandong
+宽甸火车站/kuandianhuochezhan/丹东/dandong
+元宝区/yuanbaoqu/丹东/dandong
+振兴区/zhenxingqu/丹东/dandong
+振安区/zhenqu/丹东/dandong
+凤城市/fengchengshi/丹东/dandong
+东港市/donggangshi/丹东/dandong
+宽甸满族自治县/kuandianmanzuzizhixian/丹东/dandong
+丹东站/landmark_203/丹东/dandong
+宽甸火车站 /landmark_16138/丹东/dandong
+灌水火车站 /landmark_16141/丹东/dandong
+凤凰城火车站/landmark_13850/丹东/dandong
+丹东浪头机场/landmark_10655/丹东/dandong
+元宝山公园/landmark_8650/丹东/dandong
+抗美援朝纪念馆/landmark_8639/丹东/dandong
+鸭绿江断桥/landmark_8640/丹东/dandong
+鸭绿江公园/landmark_8641/丹东/dandong
+锦江山公园/landmark_8647/丹东/dandong
+青山沟/landmark_9619/丹东/dandong
+天华山森林公园/landmark_9620/丹东/dandong
+玄武湖景区/landmark_9621/丹东/dandong
+河口断桥/landmark_9622/丹东/dandong
+黄椅山公园 /landmark_16149/丹东/dandong
+凤凰山/landmark_8644/丹东/dandong
+凤城凤凰山/landmark_9617/丹东/dandong
+大梨树/landmark_14407/丹东/dandong
+龙原城/landmark_14408/丹东/dandong
+翰林府/landmark_14409/丹东/dandong
+丹东广播电视大学/landmark_2902/丹东/dandong

@@ -1,0 +1,12 @@
+博鳌/boao/琼海/qionghai
+爱华东路/aiuhuadonglu/琼海/qionghai
+爱华西路/aihuaxilu/琼海/qionghai
+汽车站/qichezhan/琼海/qionghai
+元亨街/yuanengjie/琼海/qionghai
+百佳汇超市/baijiahui/琼海/qionghai
+德海路/dehailu/琼海/qionghai
+金海路/jinhailu/琼海/qionghai
+银海路/yinhailu/琼海/qionghai
+兴海路/xinghailu/琼海/qionghai
+官塘镇/guantangzhen/琼海/qionghai
+潭门镇/tanmenzhen/琼海/qionghai

@@ -1,0 +1,13 @@
+海晏县/haiyanxian/海北/haibei
+祁连县/qilianxian/海北/haibei
+刚察县/gangchaxian/海北/haibei
+门源回族自治县/menyuanhuizuzizhixian/海北/haibei
+海北站/landmark_382/海北/haibei
+门源县公园/landmark_20451/海北/haibei
+卓尔山/landmark_9543/海北/haibei
+森林公园/landmark_20438/海北/haibei
+祁连县民俗博物馆/landmark_20442/海北/haibei
+卓尔山风景区/landmark_20447/海北/haibei
+中国人寿保险公司/landmark_13936/海北/haibei
+西海广场/landmark_13937/海北/haibei
+沙柳河景区/landmark_20431/海北/haibei

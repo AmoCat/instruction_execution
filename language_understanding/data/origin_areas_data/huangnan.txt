@@ -1,0 +1,8 @@
+同仁县/tongrenxian/黄南/huangnan
+尖扎县/jianzaxian/黄南/huangnan
+泽库县/zekuxian/黄南/huangnan
+河南县/henanmengguzuzizhixian/黄南/huangnan
+隆务大寺/landmark_20000/黄南/huangnan
+尖扎县烈士陵园 /landmark_20016/黄南/huangnan
+幸福山公园/landmark_20031/黄南/huangnan
+烈士陵园/landmark_20028/黄南/huangnan

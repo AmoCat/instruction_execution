@@ -1,0 +1,28 @@
+新大商/xindashang/鸡西/jixi
+老大商/laodashang/鸡西/jixi
+休闲广场/xxgc/鸡西/jixi
+矿总院/kuangzongyuan/鸡西/jixi
+滴道火车站/didaohuochezhan/鸡西/jixi
+虎林百货大楼/hulinbaihuodalou/鸡西/jixi
+吉祥广场/jixiangguangchang/鸡西/jixi
+兴亚时代广场/xingyashidaiguangchang/鸡西/jixi
+朝中区/chaozhongqu/鸡西/jixi
+鸡东火车站/jidonghuochezhan/鸡西/jixi
+鸡冠区/jiguanqu/鸡西/jixi
+滴道区/didaoqu/鸡西/jixi
+城子河区/chengzihequ/鸡西/jixi
+虎林市/hulinshi/鸡西/jixi
+密山市/mishanshi/鸡西/jixi
+鸡东县/jidongxian/鸡西/jixi
+鸡西站/landmark_217/鸡西/jixi
+鸡西西站/landmark_16433/鸡西/jixi
+滴道火车站/landmark_18931/鸡西/jixi
+鸡东火车站/landmark_16153/鸡西/jixi
+虎林火车站/landmark_16187/鸡西/jixi
+华严寺 /landmark_16427/鸡西/jixi
+河滨公园/landmark_16428/鸡西/jixi
+鸡西市体育会展中心广场 /landmark_16429/鸡西/jixi
+儿童公园/landmark_16434/鸡西/jixi
+天恩堂/landmark_16167/鸡西/jixi
+森林动物园 /landmark_16184/鸡西/jixi
+兴凯湖当壁镇景区/landmark_9423/鸡西/jixi

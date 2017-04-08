@@ -1,0 +1,67 @@
+延边大学/yanbiandaxue/延边/yanbian
+老客运站/laokeyunzhan/延边/yanbian
+中关村/zhongguancun/延边/yanbian
+西市场/xishichang/延边/yanbian
+铁南区/tienanqu/延边/yanbian
+北大区/beidaqu/延边/yanbian
+少年宫/shaoniangy/延边/yanbian
+东市场/dongshic/延边/yanbian
+公园附近/goongyfj/延边/yanbian
+河南小学/henanxiaox/延边/yanbian
+海关/haiguan/延边/yanbian
+金达莱/jindalai/延边/yanbian
+火车站/huochezhaqn/延边/yanbian
+左岸/南滨国际广场/延边/yanbian
+延边一中/yanbianyizhong/延边/yanbian
+公新/gongxin/延边/yanbian
+河南街/henanjie/延边/yanbian
+水上市场/shuishangshic/延边/yanbian
+延边医院/yanbianyiy/延边/yanbian
+东山汽贸/dongshanqimao/延边/yanbian
+百利城/百货大楼/延边/yanbian
+妇幼医院/fuyouyiyuan/延边/yanbian
+恒号购物中心/henghaogouwuzhongxin/延边/yanbian
+图们火车站/tumenhuochezhan/延边/yanbian
+敖东商贸城/aodongshangmaocheng/延边/yanbian
+百货大楼/baihuodalou/延边/yanbian
+欧亚/ouya/延边/yanbian
+河南市场/henanshichang/延边/yanbian
+现代百货/xiandaibaihuo/延边/yanbian
+影剧院/yingjuyuan/延边/yanbian
+八匹马/bapima/延边/yanbian
+圈楼/quanlou/延边/yanbian
+东市场/dongshichang/延边/yanbian
+友谊商场/youyishangchang/延边/yanbian
+长白山/zhangbaishan/延边/yanbian
+长白山景区周边/zhangbaishanjingquzhoubian/延边/yanbian
+长白山松江镇/zhangbaishansongjiangzhen/延边/yanbian
+安图县内/antuxiannei/延边/yanbian
+长白山池北/zhangbaishanchibei/延边/yanbian
+延吉市/yanjishi/延边/yanbian
+图们市/tumenshi/延边/yanbian
+敦化市/dunhuashi/延边/yanbian
+珲春市/hunchunshi/延边/yanbian
+龙井市/longjingshi/延边/yanbian
+和龙市/helongshi/延边/yanbian
+汪清县/wangqingxian/延边/yanbian
+安图县/tuxian/延边/yanbian
+延吉站/landmark_402/延边/yanbian
+图们火车站/landmark_15056/延边/yanbian
+敦化火车站/landmark_20882/延边/yanbian
+龙井火车站/landmark_15100/延边/yanbian
+汪清火车站 /landmark_15066/延边/yanbian
+延吉朝阳川机场/landmark_10614/延边/yanbian
+图们江公园 /landmark_15051/延边/yanbian
+中国图们口岸/landmark_15052/延边/yanbian
+图们江奇石博物馆 /landmark_15054/延边/yanbian
+吉林敦化六鼎山文化旅游区/landmark_9524/延边/yanbian
+森林广场/landmark_20872/延边/yanbian
+龙源公园/landmark_20873/延边/yanbian
+龙井日本总领事馆遗址 /landmark_15096/延边/yanbian
+海兰江乐园/landmark_15097/延边/yanbian
+巨龙友好公园 /landmark_15098/延边/yanbian
+汪清县博物馆/landmark_15063/延边/yanbian
+延边大学/landmark_2844/延边/yanbian
+延边广播电视大学/landmark_2848/延边/yanbian
+延边职工大学/landmark_2849/延边/yanbian
+珲春市广播电视大学/landmark_20875/延边/yanbian

@@ -1,0 +1,50 @@
+汽车总站/qichezongzhan/滨州/binzhou
+渤海十路美食街/bohaishilumeishijie/滨州/binzhou
+滨州学院/binzhouxueyuan/滨州/binzhou
+大润发/darunfa/滨州/binzhou
+渤海国际/bohaiguoji/滨州/binzhou
+公交枢纽中心/gongjiaoshuniu/滨州/binzhou
+中海银座/zhonghaiyinzuo/滨州/binzhou
+渤海六路美食街/bohailiulumeishijie/滨州/binzhou
+瑄嘉名都/xuanjiamingdou/滨州/binzhou
+大观园商城/daguanyuanshangcheng/滨州/binzhou
+文安西路/wenanxilu/滨州/binzhou
+幸福一路/xingfuyilu/滨州/binzhou
+华信商场/huaxinshangchang/滨州/binzhou
+鲁北通力商贸城/lubeitonglishangmaocheng/滨州/binzhou
+新合作购物广场/xinhezuogouwuguangchang/滨州/binzhou
+新城二路/xinchengel/滨州/binzhou
+东谷王/dongguwang/滨州/binzhou
+银座商城/yinzsc/滨州/binzhou
+乐安大街/leandajie/滨州/binzhou
+东河东/donghedong/滨州/binzhou
+兴福镇/xingfuzhen/滨州/binzhou
+黄山二路/huangshanerlu/滨州/binzhou
+黛溪五路/daixiwulu/滨州/binzhou
+新玛特/xinmate/滨州/binzhou
+山南/shannan01/滨州/binzhou
+黄山三路/huangshansanlu/滨州/binzhou
+黛溪三路/daixisanlu/滨州/binzhou
+滨城区/binchengqu/滨州/binzhou
+惠民县/huiminxian/滨州/binzhou
+阳信县/yangxinxian/滨州/binzhou
+无棣县/wudixian/滨州/binzhou
+沾化区/zhanhuaqu/滨州/binzhou
+博兴县/boxingxian/滨州/binzhou
+邹平县/zoupingxian/滨州/binzhou
+滨州站/landmark_275/滨州/binzhou
+阳信站/landmark_14707/滨州/binzhou
+博兴火车站 /landmark_13836/滨州/binzhou
+杜受田故居/landmark_9364/滨州/binzhou
+滨州国际会展中心/landmark_14695/滨州/binzhou
+蒲湖公园/landmark_18689/滨州/binzhou
+九龙湖公园 /landmark_14704/滨州/binzhou
+冬枣生态旅游区 /landmark_14680/滨州/binzhou
+徒骇河公园 /landmark_14681/滨州/binzhou
+兴国寺 /landmark_13838/滨州/binzhou
+董永公园/landmark_13839/滨州/binzhou
+澳博会展中心/landmark_13840/滨州/binzhou
+滨州医学院/landmark_2418/滨州/binzhou
+滨州学院/landmark_2420/滨州/binzhou
+滨州职业学院/landmark_2421/滨州/binzhou
+滨州技术学院/landmark_2422/滨州/binzhou

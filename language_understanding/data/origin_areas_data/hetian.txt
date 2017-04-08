@@ -1,0 +1,15 @@
+和田市/hetianshi/和田/hetian
+墨玉县/moyuxian/和田/hetian
+皮山县/pishanxian/和田/hetian
+洛浦县/luopuxian/和田/hetian
+策勒县/celexian/和田/hetian
+于田县/yutianxian/和田/hetian
+民丰县/minfengxian/和田/hetian
+和田站/landmark_394/和田/hetian
+和田地区博物馆/landmark_20513/和田/hetian
+昆仑胡公园 /landmark_20522/和田/hetian
+皮山公园/landmark_20560/和田/hetian
+洛浦青年公园/landmark_20551/和田/hetian
+于田县城市公园/landmark_20504/和田/hetian
+尼亚文物馆/landmark_20538/和田/hetian
+和田师范专科学校/landmark_1734/和田/hetian

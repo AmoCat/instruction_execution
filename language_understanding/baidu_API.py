@@ -328,6 +328,7 @@ if __name__ == "__main__":
     api = baiduAPI()
     #query = {"origin":"哈工大","destination":"凯德广场","mode":"transit","region":"哈尔滨"}
     #query = {"origin":"上地五街","destination":"北京大学","mode":"transit","region":"北京"}
-    query = {"origin":"五道口","destination":"天安门","mode":"transit","region":"哈尔滨"}
+    #query = {"origin":"五道口","destination":"天安门","mode":"transit","region":"哈尔滨"}
+    query = {"origin":"哈工大","destination":"哈工大二校区","mode":"transit","region":"哈尔滨"}
     api.get_info(query)
 

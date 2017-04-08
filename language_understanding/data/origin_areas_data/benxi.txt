@@ -1,0 +1,45 @@
+环球商场/huanqiushangchang/本溪/benxi
+本溪火车站/benxihuochezhan/本溪/benxi
+银座购物广场/yinzuogouwuguangchang/本溪/benxi
+实华文化商场/shihuawenhuashangchang/本溪/benxi
+永丰步行街/yongfengbuxingjie/本溪/benxi
+三江商务大厦/sanjiangshangwudasha/本溪/benxi
+南地/nandi/本溪/benxi
+东明步行街/dongmingbuxingjie/本溪/benxi
+彩屯街道/caitunjiedao/本溪/benxi
+溪湖/xihu/本溪/benxi
+石桥子/shiqiaozi/本溪/benxi
+地工路/digonglu/本溪/benxi
+本溪长客运中心站/benxizhangkeyunzhongxinzhan/本溪/benxi
+消防三角地/xiaofangsanjiaodi/本溪/benxi
+银亿家园/yinyijiayuan/本溪/benxi
+长江步行街/zhangjiangbuxingjie/本溪/benxi
+本溪南芬火车站/benxinanfenhuochezhan/本溪/benxi
+本溪县客运站/benxixiankeyunzhan/本溪/benxi
+鹏翔购物广场/pengxianggouwuguangchang/本溪/benxi
+八千平购物中心/baqianpinggouwuzhongxin/本溪/benxi
+桓仁客运站/huanrenkeyunzhan/本溪/benxi
+平山区/pingshanqu/本溪/benxi
+溪湖区/xihuqu/本溪/benxi
+明山区/mingshanqu/本溪/benxi
+南芬区/nanfenqu/本溪/benxi
+本溪满族自治县/benximanzuzizhixian/本溪/benxi
+桓仁满族自治县/huanrenmanzuzizhixian/本溪/benxi
+本溪站/landmark_202/本溪/benxi
+本溪湖火车站/landmark_18921/本溪/benxi
+小市火车站 /landmark_15517/本溪/benxi
+本溪动植物园 /landmark_15405/本溪/benxi
+望溪公园 /landmark_15406/本溪/benxi
+本溪湖公园 /landmark_15531/本溪/benxi
+藏龙寺 /landmark_15532/本溪/benxi
+本溪湖 /landmark_15533/本溪/benxi
+本溪博物馆/landmark_15502/本溪/benxi
+高峪山公园/landmark_15503/本溪/benxi
+开元购物广场/landmark_15506/本溪/benxi
+四方古寨/landmark_15508/本溪/benxi
+本溪水洞/landmark_9653/本溪/benxi
+本溪天龙古洞/landmark_9656/本溪/benxi
+大石湖风景名胜区/landmark_15513/本溪/benxi
+观音阁水库风景区 /landmark_15515/本溪/benxi
+望天洞 /landmark_15524/本溪/benxi
+本溪广播电视大学/landmark_2909/本溪/benxi

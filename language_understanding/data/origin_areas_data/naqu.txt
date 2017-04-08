@@ -1,0 +1,8 @@
+那曲县/naquxian/那曲/naqu
+嘉黎县/jialixian/那曲/naqu
+安多县/duoxian/那曲/naqu
+申扎县/shenzaxian/那曲/naqu
+索县/suoxian/那曲/naqu
+班戈县/bangexian/那曲/naqu
+尼玛县/nimaxian/那曲/naqu
+安多火车站/landmark_23978/那曲/naqu

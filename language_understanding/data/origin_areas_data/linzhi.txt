@@ -1,0 +1,16 @@
+巴宜区/bayiqu/林芝/linzhi
+工布江达县/gongbujiangdaxian/林芝/linzhi
+米林县/milinxian/林芝/linzhi
+墨脱县/motuoxian/林芝/linzhi
+波密县/bomixian/林芝/linzhi
+察隅县/chayuxian/林芝/linzhi
+朗县/langxian/林芝/linzhi
+柏树王景区/landmark_23887/林芝/linzhi
+林芝自然博物馆/landmark_23889/林芝/linzhi
+雅鲁藏布大峡谷/landmark_9164/林芝/linzhi
+雅鲁藏布大峡谷景区/landmark_9165/林芝/linzhi
+米林南伊沟旅游景区/landmark_9166/林芝/linzhi
+好日子莲花广场/landmark_23874/林芝/linzhi
+西藏大学农业学院/landmark_23886/林芝/linzhi
+西藏农牧学院/landmark_23888/林芝/linzhi
+林芝机场/landmark_23893/林芝/linzhi

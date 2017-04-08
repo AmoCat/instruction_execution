@@ -1,0 +1,14 @@
+呼玛县/humaxian/大兴安岭/daxinganling
+塔河县/tahexian/大兴安岭/daxinganling
+漠河县/mohexian/大兴安岭/daxinganling
+加格达奇区/jiagedaqi/大兴安岭/daxinganling
+漠河火车站/landmark_16126/大兴安岭/daxinganling
+南山公园 /landmark_16094/大兴安岭/daxinganling
+美人松原始森林 /landmark_16098/大兴安岭/daxinganling
+栖霞山植物园 /landmark_16117/大兴安岭/daxinganling
+十八站遗址/landmark_16119/大兴安岭/daxinganling
+塔河县展览中心/landmark_16120/大兴安岭/daxinganling
+北极村/landmark_9594/大兴安岭/daxinganling
+松苑 /landmark_16130/大兴安岭/daxinganling
+大兴安岭五·六火灾纪念馆/landmark_16131/大兴安岭/daxinganling
+图强林业博物馆 /landmark_16133/大兴安岭/daxinganling

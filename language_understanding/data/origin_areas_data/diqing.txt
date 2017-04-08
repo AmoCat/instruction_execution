@@ -1,0 +1,13 @@
+香格里拉市/xianggelilashi/迪庆/diqing
+德钦县/deqinxian/迪庆/diqing
+维西县/weixilisuzuzizhixian/迪庆/diqing
+松赞林寺/landmark_9247/迪庆/diqing
+石卡雪山/landmark_9251/迪庆/diqing
+菩提心院精品山庄/landmark_15487/迪庆/diqing
+迪庆电力生活小区/landmark_15671/迪庆/diqing
+交通小区/landmark_15674/迪庆/diqing
+小龟山/landmark_15686/迪庆/diqing
+委员会生活区/landmark_15694/迪庆/diqing
+德钦 县委/landmark_15655/迪庆/diqing
+百斯盾/landmark_15663/迪庆/diqing
+迪庆香格里拉机场/landmark_10611/迪庆/diqing

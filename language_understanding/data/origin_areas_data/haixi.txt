@@ -1,0 +1,14 @@
+德令哈市/delinghashi/海西/haixi
+格尔木市/geermushi/海西/haixi
+乌兰县/wulanxian/海西/haixi
+都兰县/doulanxian/海西/haixi
+天峻县/tianjunxian/海西/haixi
+格尔木火车站/landmark_19973/海西/haixi
+昆仑公园/landmark_19968/海西/haixi
+寄畅园/landmark_19972/海西/haixi
+将军楼公园/landmark_19978/海西/haixi
+儿童公园/landmark_19979/海西/haixi
+德令哈烈士陵园/landmark_19942/海西/haixi
+西海公园/landmark_19944/海西/haixi
+民族博物馆/landmark_19946/海西/haixi
+天峻县烈士陵园/landmark_19940/海西/haixi

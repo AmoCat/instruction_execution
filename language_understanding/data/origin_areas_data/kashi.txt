@@ -1,0 +1,23 @@
+喀什市/kashenshi/喀什/kashi
+疏勒县/shulexian/喀什/kashi
+英吉沙县/yingjishaxian/喀什/kashi
+莎车县/shajuxian/喀什/kashi
+叶城县/xiechengxian/喀什/kashi
+麦盖提县/maigedixian/喀什/kashi
+岳普湖县/yuepuhuxian/喀什/kashi
+伽师县/jiashixian/喀什/kashi
+巴楚县/bachuxian/喀什/kashi
+塔县/tashenkuergantajikezizhixian/喀什/kashi
+喀什站/landmark_393/喀什/kashi
+莎车西站/landmark_20221/喀什/kashi
+喀什地区博物馆/landmark_20165/喀什/kashi
+东湖公园/landmark_20173/喀什/kashi
+盘裹城班超纪念公园/landmark_20174/喀什/kashi
+张骞公园/landmark_20210/喀什/kashi
+人民公园/landmark_20224/喀什/kashi
+叶城县人民公园/landmark_20146/喀什/kashi
+刀郎公园/landmark_20227/喀什/kashi
+达瓦昆广场/landmark_20192/喀什/kashi
+铜城公园 /landmark_20139/喀什/kashi
+古石头城/landmark_20186/喀什/kashi
+喀什师范学院/landmark_1735/喀什/kashi

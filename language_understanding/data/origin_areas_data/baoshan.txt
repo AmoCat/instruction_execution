@@ -1,0 +1,17 @@
+交通路/jiaotonglu/保山/baoshan
+施甸客运南站/shidiankeyunnanzhan/保山/baoshan
+和顺古镇/heshunguzhen/保山/baoshan
+银杏村/yinxingcun/保山/baoshan
+汇源路/huiyuanlu/保山/baoshan
+右甸南路/youdiannanlu/保山/baoshan
+隆阳区/longyangqu/保山/baoshan
+施甸县/shidianxian/保山/baoshan
+腾冲县/tengchongxian/保山/baoshan
+龙陵县/longlingxian/保山/baoshan
+昌宁县/changningxian/保山/baoshan
+腾冲火山热海/landmark_9658/保山/baoshan
+腾冲热海景区/landmark_9659/保山/baoshan
+板桥高速路口沿320国道/landmark_14433/保山/baoshan
+腾越镇火山社区绮群小区102号/landmark_14629/保山/baoshan
+饮文星社区马河小区/landmark_15263/保山/baoshan
+中国移动龙陵分公司/landmark_16573/保山/baoshan

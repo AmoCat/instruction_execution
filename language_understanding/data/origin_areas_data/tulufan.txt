@@ -1,0 +1,11 @@
+高昌区/gaochangqu/吐鲁番/tulufan
+鄯善县/shanshanxian/吐鲁番/tulufan
+托克逊县/tuokexunxian/吐鲁番/tulufan
+吐鲁番站/landmark_389/吐鲁番/tulufan
+葡萄沟/landmark_9704/吐鲁番/tulufan
+苏公塔/landmark_9707/吐鲁番/tulufan
+吐鲁番坎儿井民俗园/landmark_9708/吐鲁番/tulufan
+吐鲁番博物馆/landmark_19722/吐鲁番/tulufan
+蒲昌公园/landmark_19739/吐鲁番/tulufan
+儿童公园/landmark_19742/吐鲁番/tulufan
+白杨河公园 /landmark_19729/吐鲁番/tulufan

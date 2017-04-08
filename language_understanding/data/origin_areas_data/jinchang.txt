@@ -1,0 +1,8 @@
+金昌火车站/jinchanghuochezhan/金昌/jinchang
+金三角商厦/jinsanjiaoshangsha/金昌/jinchang
+永昌汽车站/yongchangqichezhan/金昌/jinchang
+萬祥城/wanxiangcheng/金昌/jinchang
+金川区/jinchuanqu/金昌/jinchang
+永昌县/yongchangxian/金昌/jinchang
+金昌站/landmark_374/金昌/jinchang
+龙泉公园/landmark_21036/金昌/jinchang

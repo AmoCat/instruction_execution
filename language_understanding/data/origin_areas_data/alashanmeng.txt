@@ -1,0 +1,9 @@
+新华街/xinhuajie/阿拉善盟/alashanmeng
+南环街道/nanhuanjiedao/阿拉善盟/alashanmeng
+众鑫民族商场/zhongxinminzushangchang/阿拉善盟/alashanmeng
+温州商城/wenzhoushangcheng/阿拉善盟/alashanmeng
+阿拉善左旗/elashanzuoqi/阿拉善盟/alashanmeng
+阿拉善右旗/elashanyouqi/阿拉善盟/alashanmeng
+额济纳旗/ejinaqi/阿拉善盟/alashanmeng
+巴彦浩特城市生态公园/landmark_20861/阿拉善盟/alashanmeng
+阿拉善博物馆/landmark_20863/阿拉善盟/alashanmeng

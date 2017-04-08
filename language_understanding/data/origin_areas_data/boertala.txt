@@ -1,0 +1,7 @@
+博乐市/boleshi/博尔塔拉/boertala
+精河县/jinghexian/博尔塔拉/boertala
+温泉县/wenquanxian/博尔塔拉/boertala
+阿拉山口市/alashankoushi/博尔塔拉/boertala
+精河火车南站/landmark_20335/博尔塔拉/boertala
+博尔塔拉博物馆/landmark_20317/博尔塔拉/boertala
+博乐滨河公园/landmark_20321/博尔塔拉/boertala

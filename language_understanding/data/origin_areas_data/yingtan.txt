@@ -1,0 +1,15 @@
+环城西路/huanchengxilu/鹰潭/yingtan
+永盛百货/yongshengbaihuo/鹰潭/yingtan
+雄石街道/xiongshijiedao/鹰潭/yingtan
+贵溪火车站/guixihuochezhan/鹰潭/yingtan
+雄石路/xiongshilu/鹰潭/yingtan
+果喜大道/guoxidadao/鹰潭/yingtan
+月湖区/yuehuqu/鹰潭/yingtan
+贵溪市/guixishi/鹰潭/yingtan
+余江县/yujiangxian/鹰潭/yingtan
+鹰潭站/landmark_258/鹰潭/yingtan
+贵溪火车站/landmark_22653/鹰潭/yingtan
+东湖公园/landmark_22641/鹰潭/yingtan
+体育公园/landmark_22646/鹰潭/yingtan
+江西龙虎山/landmark_9252/鹰潭/yingtan
+翠湖公园/landmark_22654/鹰潭/yingtan

@@ -1,0 +1,16 @@
+远东国际城/yuandongguojicheng/贺州/hezhou
+河西路/hexilu/贺州/hezhou
+兴钟中路/xingzhongzhonglu/贺州/hezhou
+凤凰路/fenghuanglu/贺州/hezhou
+八步区/babuqu/贺州/hezhou
+昭平县/zhaopingxian/贺州/hezhou
+钟山县/zhongshanxian/贺州/hezhou
+富川瑶族自治县/fuchuanyaozuzizhixian/贺州/hezhou
+姑婆山国家森林公园/landmark_9474/贺州/hezhou
+广西贺州玉石林景区/landmark_9475/贺州/hezhou
+贺州十八水/landmark_9476/贺州/hezhou
+灵峰公园/landmark_22296/贺州/hezhou
+黄姚古镇/landmark_9473/贺州/hezhou
+宝塔公园/landmark_22326/贺州/hezhou
+钟山博物馆/landmark_22330/贺州/hezhou
+凤凰山公园/landmark_22310/贺州/hezhou

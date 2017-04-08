@@ -1,0 +1,9 @@
+玛沁县/maqinxian/果洛/guoluo
+班玛县/banmaxian/果洛/guoluo
+甘德县/gandexian/果洛/guoluo
+达日县/darixian/果洛/guoluo
+久治县/jiuzhixian/果洛/guoluo
+玛多县/maduoxian/果洛/guoluo
+珠姆广场/landmark_20965/果洛/guoluo
+年宝玉则宾馆/landmark_10391/果洛/guoluo
+岭·格萨尔主题公园/landmark_20948/果洛/guoluo

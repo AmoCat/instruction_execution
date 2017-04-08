@@ -1,0 +1,6 @@
+外砂/waisha/澄海/chenghai
+澄海中心城区/chenghaizhongxinchengqu/澄海/chenghai
+花园/huayuan/澄海/chenghai
+卜蜂莲花/bufenglianhua/澄海/chenghai
+澄海展览中心/chenghaizhanlanzhongxin/澄海/chenghai
+莲下镇/lianxiazhen/澄海/chenghai

@@ -1,0 +1,15 @@
+北泉镇/beiquanzhen/石河子/shihezi
+新城街道/xinchengjiedao/石河子/shihezi
+向阳街道/xiangyangjiedao/石河子/shihezi
+红山街道/hongshanjiedao/石河子/shihezi
+老街街道/laojiejiedao/石河子/shihezi
+东城街道/dongchengjiedao/石河子/shihezi
+开发区/kaifaqushz/石河子/shihezi
+玛纳斯/manasi/石河子/shihezi
+石河子火车站/landmark_22315/石河子/shihezi
+巴音山庄/landmark_13629/石河子/shihezi
+群众艺术馆/landmark_13775/石河子/shihezi
+军垦博物馆/landmark_13777/石河子/shihezi
+艾青诗歌馆/landmark_13778/石河子/shihezi
+周恩来纪念馆/landmark_13779/石河子/shihezi
+玛河公园/landmark_22318/石河子/shihezi

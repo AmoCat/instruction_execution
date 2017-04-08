@@ -1,0 +1,34 @@
+铁西/tiexi/兴安盟/xinganmeng
+城中城/chengzhongcheng/兴安盟/xinganmeng
+滨河/binhe/兴安盟/xinganmeng
+爱国/aiguo/兴安盟/xinganmeng
+五一广场/wuyiguangchang/兴安盟/xinganmeng
+火车站/huochezhan/兴安盟/xinganmeng
+百货大楼/baihuodalou/兴安盟/xinganmeng
+罕山/hanshan/兴安盟/xinganmeng
+阿尔山火车站/aershanhuochezhan/兴安盟/xinganmeng
+新世界购物中心/xinshijiegouwuzhongxin/兴安盟/xinganmeng
+德隆时代广场/delongshidaiguangchang/兴安盟/xinganmeng
+巴仁哲理木大街/barenzhelimudajie/兴安盟/xinganmeng
+扎赉特旗/zhalaiteqi/兴安盟/xinganmeng
+乌兰浩特市/wulanhaoteshi/兴安盟/xinganmeng
+阿尔山市/eershanshi/兴安盟/xinganmeng
+突泉县/tuquanxian/兴安盟/xinganmeng
+科尔沁右翼前旗/keerqinyouyiqianqi/兴安盟/xinganmeng
+科尔沁右翼中旗/keerqinyouyizhongqi/兴安盟/xinganmeng
+扎赉特旗/zalaiteqi/兴安盟/xinganmeng
+乌兰浩特火车站/landmark_14035/兴安盟/xinganmeng
+兴安站/landmark_200/兴安盟/xinganmeng
+乌斯台站/landmark_16457/兴安盟/xinganmeng
+阿尔山伊尔施机场/landmark_10558/兴安盟/xinganmeng
+成吉思汗庙 /landmark_15414/兴安盟/xinganmeng
+内蒙古民族解放纪念馆 /landmark_15416/兴安盟/xinganmeng
+成吉思汗公园/landmark_15417/兴安盟/xinganmeng
+海神圣泉旅游度假区 /landmark_17850/兴安盟/xinganmeng
+观音殿 /landmark_17861/兴安盟/xinganmeng
+科尔沁右翼前旗博物馆 /landmark_17197/兴安盟/xinganmeng
+乌兰浩特植物园/landmark_17198/兴安盟/xinganmeng
+科右中旗博物馆/landmark_16454/兴安盟/xinganmeng
+多兰湖 /landmark_16445/兴安盟/xinganmeng
+扎赉特旗普慧念佛堂 /landmark_16449/兴安盟/xinganmeng
+青年游园 /landmark_17845/兴安盟/xinganmeng

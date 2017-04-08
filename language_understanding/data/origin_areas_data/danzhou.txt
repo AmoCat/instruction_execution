@@ -1,0 +1,14 @@
+洋浦/yangpu/儋州/danzhou
+中兴大街/zhongxingdajie/儋州/danzhou
+文化北路/wenhuabeilu/儋州/danzhou
+大勇商场/dayongshangchang1/儋州/danzhou
+人民西路/renminxilu/儋州/danzhou
+人民中路/renminzhonglu/儋州/danzhou
+人民东路/renmindonglu/儋州/danzhou
+文化中路/wenhuazhonglu/儋州/danzhou
+先锋路/xianfenglu/儋州/danzhou
+龙腾西路/longtengxilu/儋州/danzhou
+那恁路/neinenlu/儋州/danzhou
+伏波路/fubolu/儋州/danzhou
+东坡路/dongpolu/儋州/danzhou
+农垦路/nongkenlu/儋州/danzhou

@@ -1,0 +1,16 @@
+桑珠孜区/zangzhuziqu/日喀则/rikaze
+江孜县/jiangzixian/日喀则/rikaze
+定日县/dingrixian/日喀则/rikaze
+拉孜县/lazixian/日喀则/rikaze
+谢通门县/xietongmenxian/日喀则/rikaze
+白朗县/bailangxian/日喀则/rikaze
+仲巴县/zhongbaxian/日喀则/rikaze
+亚东县/yadongxian/日喀则/rikaze
+吉隆县/jilongxian/日喀则/rikaze
+聂拉木县/nielamuxian/日喀则/rikaze
+萨嘎县/sagaxian/日喀则/rikaze
+扎什伦布寺/landmark_9750/日喀则/rikaze
+扎什文化广场/landmark_23918/日喀则/rikaze
+江孜上海公园/landmark_23909/日喀则/rikaze
+达热瓦公园/landmark_23920/日喀则/rikaze
+白朗县中心广场/landmark_23922/日喀则/rikaze

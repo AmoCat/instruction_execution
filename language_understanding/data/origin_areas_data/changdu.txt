@@ -1,0 +1,12 @@
+卡若区/karuoqu/昌都/changdu
+江达县/jiangdaxian/昌都/changdu
+贡觉县/gongjiaoxian/昌都/changdu
+类乌齐县/leiwuqixian/昌都/changdu
+丁青县/dingqingxian/昌都/changdu
+察雅县/chayaxian/昌都/changdu
+八宿县/basuxian/昌都/changdu
+左贡县/zuogongxian/昌都/changdu
+芒康县/mangkangxian/昌都/changdu
+洛隆县/luolongxian/昌都/changdu
+边坝县/bianbaxian/昌都/changdu
+察乐广场/landmark_23931/昌都/changdu

@@ -1,0 +1,12 @@
+虾街/xiajie/潜江/qianjiang
+广华/guanghu/潜江/qianjiang
+曹禺公园/caoyugongyuan/潜江/qianjiang
+中百广场/zhongbai/潜江/qianjiang
+新时代广场/xinshidaiguangc/潜江/qianjiang
+水牛城/shuinc/潜江/qianjiang
+五七向阳/wuqixy/潜江/qianjiang
+潜江市体育馆/landmark_17595/潜江/qianjiang
+潜江市博物馆/landmark_17597/潜江/qianjiang
+潜江图书馆/landmark_17609/潜江/qianjiang
+曹禺纪念馆/landmark_17616/潜江/qianjiang
+潜江图示馆/landmark_17622/潜江/qianjiang

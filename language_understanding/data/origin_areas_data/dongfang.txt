@@ -1,0 +1,10 @@
+解放西路/jiefangxilu/东方/dongfang
+东海路/donghailu/东方/dongfang
+三角公园/sanjiaogongyuan/东方/dongfang
+琼西路/qiongxilu/东方/dongfang
+滨海南路/binhainanlu/东方/dongfang
+东方大道/dongfangdadao/东方/dongfang
+二环北路/erhuanbeilu/东方/dongfang
+二环南路/erhuannanlu/东方/dongfang
+永安西路/yonganxilu/东方/dongfang
+滨海西路/binhaixilu/东方/dongfang
