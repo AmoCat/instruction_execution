@@ -27,6 +27,7 @@ QUESTIONS = {'city': u'您在哪个城市呢?','to':u'您要去哪里呢?', 'fro
 
 REPLY_UNSUPPORTED_CITY = u'不支持的城市'
 REPLY_NOT_FOUND = u'抱歉！(╯﹏╰)我可能太笨了，没能查到%s市从%s到%s的公交线路信息'
+REPLY_INPUT_ERROR = u'%s和%s真的都在%s吗?你是不是搞错了，不然我怎么会查不到公交信息嘤嘤嘤'
 
 FILL_DEFAULT_CITY = False
 FILL_DEFAULT_FROM  = False 
@@ -149,9 +150,10 @@ class BusCommander(object):
         return status, reply, context
 
     def infer_city(self):
-        if 'from' in self.slots and 'to' in self.slots:
-            f = self.slots['from']
-            to = self.slots['to']
+        if '_from' in self.slots and '_to' in self.slots:
+            #判断是否可从词表推断出城市
+            f = self.slots['_from']
+            to = self.slots['_to']
             k,v = area_preprocessor(f)
             f_city = [tup[1] for tup in v] if v else []
             k,v = area_preprocessor(to)
@@ -159,6 +161,17 @@ class BusCommander(object):
             same = [s for s in f_city if s in t_city]
             if len(same) == 1:
                 self.slots['city'] = same[0].decode('utf-8')
+                return
+            tmp_f = loc_ground(f)
+            tmp_t = loc_ground(to)
+            if tmp_f:
+                self.slots['_from'].replace(tmp_f,"")
+                self.slots['city'] = tmp_f
+                return
+            if tmp_t:
+                self.slots['_to'].replace(tmp_t,"")
+                self.slots['city'] = tmp_t
+                return
 
 
     def add_slot(self, slot_name, slot_value, prob):
@@ -331,27 +344,30 @@ class BusCommander(object):
 
         # 如果必须的slot都有了
         info = self.get_bus_info(self.slots)
-        if info:
+        if len(info) > 0:
             buses = info['bus']#list
             taxi = info['taxi']
             reply = self.make_reply_title(self.slots['from'],self.slots['to'],self.slots['city'])
             if buses:
-                reply += u'\n' + ''.join([str(bus) for bus in buses]).decode('utf-8')
+                reply += ''.join([str(bus) for bus in buses]).decode('utf-8')
             if taxi:
                 reply += str(taxi).decode('utf-8')
             reply += "#####"
+        elif info != None:
+            reply = self.make_not_found_title(self.slots['from'],self.slots['to'],self.slots['city'], REPLY_INPUT_ERROR)
         else:
-            reply = make_not_found_titile(self.slots['from'],self.slots['to'],self.slots['city'])
+            reply = self.make_not_found_title(self.slots['from'],self.slots['to'],self.slots['city'], REPLY_NOT_FOUND)
         context = {}
         if DEBUG:
             context = {CONTEXT_SLOTS: self.slots}
         return STATUS_SUCCESS, reply.encode('utf-8'), context
 
-    def make_not_found_titile(self, st, des,city):
-        return REPLY_NOT_FOUND % (city, st, des)
+    def make_not_found_title(self, st, des,city, sentence):
+        return sentence % (city, st, des)
 
     def make_reply_title(self, st, des, city):
-        return u"公交线路信息#####以下是我找到%s市从%s到%s的公交线路信息" % (city, st, des)
+        return u"公交线路信息#####以下是我找到%s市从%s到%s的公交线路信息:\n\n" % (city, st, des)
+        #return u"\n%s市\t%s 至 %s#####" % (city, st, des)
 
     def get_bus_info(self, slots):
         region = self.slots['city'].encode('utf-8')

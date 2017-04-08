@@ -27,6 +27,9 @@ def area_preprocessor(sent, city = None, default = None):
     for k, v in dict.items():
         if k in sent.encode('utf-8'):
             f.close()
-            return k, v
+            if k in ['火车站','机场','汽车站']:
+                pass
+            else:
+                return k, v
     f.close()
     return default, default

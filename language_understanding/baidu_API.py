@@ -19,8 +19,9 @@ MAX_SELECTION_NUM = 10
 
 class Taxi(object):
     def __init__(self, t):
-        self.day = t['detail'][0]
-        self.night = t['detail'][1]
+        detail = t['detail']
+        self.day = detail[0]
+        self.night = detail[1] if len(detail) > 1 else None
         self.distance = t['distance']
         self.duration = t['duration']
         self.remark = t['remark']
@@ -33,7 +34,7 @@ class Taxi(object):
                    self.day['start_price'], self.start_km, self.day['km_price'])
         res += u"%s : %s 元\t(起步价:%s元/%skm,超出部分%s元/km)\n"\
                 %(self.night['desc'], self.night['total_price'], \
-                  self.night['start_price'], self.start_km, self.night['km_price'])
+                  self.night['start_price'], self.start_km, self.night['km_price']) if self.night else ""
         return res
 
     def __str__(self):
@@ -79,8 +80,8 @@ class Scheme(object):
 
     def __unicode__(self):
         res = u"%s" % (self.instruction)
-        res += "\t" if self.bus_ids != None else "\n"
-        res += u"耗时：%s\t%s公里" % (self.cal_time(self.duration),self.cal_dis(self.distance))
+        #res += "\t" if self.bus_ids != None else "\n"
+        #res += u"耗时：%s\t%s公里" % (self.cal_time(self.duration),self.cal_dis(self.distance))
         if self.bus_price != -1:
             res += u"\t¥%s" % (self.cal_price(self.bus_price))
         #res += u"\n"
@@ -247,8 +248,8 @@ class baiduAPI(object):
             print >> sys.stderr, e
             return None
         response.close()
-        f = open('bus_info.txt', 'w')
-        print >> f, response_html
+        #f = open('bus_info.txt', 'w')
+        #print >> f, response_html
         data = json.loads(response_html)
         return data
 
@@ -281,7 +282,7 @@ class baiduAPI(object):
                     buses.append(scheme)
                     print scheme
             bus_info_list['bus'] = buses
-            print Taxi(taxi)
+            #print Taxi(taxi)
             bus_info_list['taxi'] = Taxi(taxi)
             return bus_info_list
         return None
@@ -311,6 +312,9 @@ class baiduAPI(object):
     def get_info(self, query):
         url = self.make_query_url(**query)
         data = self.request(url)
+        if not data.has_key('type'):
+            print ".............return []"
+            return []
         if data['type'] == 2: #起终点明确，得到查询结果
             return self.info_mode_hash(query['mode'], data)
         elif data['type'] == 1: #起终点模糊，得到选择界面

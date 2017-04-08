@@ -147,6 +147,8 @@ class QunarSpider(object):
                 price = v['price']
                 if count == 0:
                     count = u"无票"
+                elif count == -1:
+                    count = u"停售"
                 else:
                     count = str(count)+u"张"
                 seat_info = Seat(price,count,seats_type)
