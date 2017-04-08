@@ -15,6 +15,7 @@ API_URL = "http://api.map.baidu.com"
 URL_SUFFIX_V1 = "/direction/v1"
 URL_SUFFIX_V2 = "/direction/v2"
 ERROR_CODE = {"1":"Parameter Error","2":"Permission denied"}
+MAX_SELECTION_NUM = 10
 
 class Taxi(object):
     def __init__(self, t):
@@ -203,20 +204,28 @@ class Selection(object):
         res = u""
         if self.origin != None:
             for dict in self.origin:
-                res += dict['name'] + ':' + dict['address'] + '\n'
+                res += dict['name'] + ':' + dict['address'] + ',location:' \
+                    + str(dict['location']['lng']) + ',' + str(dict['location']['lat'])+ '\n'
         if self.destination != None:
             for dict in self.destination:
-                res += dict['name'] + ":" + dict['address'] + '\n'
+                res += dict['name'] + ":" + dict['address'] + ',location:' \
+                    + str(dict['location']['lng']) + ',' + str(dict['location']['lat'])+ '\n'
         return res
 
     def __str__(self):
         return unicode(self).encode('utf-8')
 
-    def get_first_origin(self):
-        return None if self.origin == None else self.origin[0]['name'].encode('utf-8')
+    def get_latitude(self, index):
+        #只有模糊检索的那个不是None
+        ori_loc = self.origin[index]['location'] if self.origin != None else {"lng":0,"lat":0}
+        des_loc = self.destination[index]['location'] if self.destination !=None else {"lng":0,"lat":0}
+        return ori_loc['lng']*100,ori_loc['lat']*100,des_loc['lng']*100,des_loc['lat']
 
-    def get_first_des(self):
-        return None if self.destination == None else self.destination[0]['name'].encode('utf-8')
+    def get_origin(self, index):
+        return None if self.origin == None or len(self.origin) <= index else self.origin[index]['name'].encode('utf-8')
+
+    def get_des(self, index):
+        return None if self.destination == None or len(self.destination) <= index else self.destination[index]['name'].encode('utf-8')
 
 class baiduAPI(object):
 
@@ -250,28 +259,32 @@ class baiduAPI(object):
         return self.add_sk(query_url)   
     
     def get_bus_info(self, data):
-        #print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
+        print >> sys.stderr, "GET_BUS_INFO: status: " + data['message']
+        f = open("response/txt_response.txt",'w')
+        print >> f,data
+        pkl.dump(data, open('response/pkl_response','w'))
         if data['status'] != 0:
             return None
-
-        result = data['result']
-        routes = result['routes']
-        origin = result['origin']
-        destination = result['destination']
-        taxi = result['taxi']
-        bus_info_list = {}
-        buses = []
-        for v in routes:
-            schemes = v["scheme"]
-            for s in schemes:
-                "scheme is a dictionary"
-                scheme = Scheme(s)
-                buses.append(scheme)
-                print scheme
-        bus_info_list['bus'] = buses
-        print Taxi(taxi)
-        bus_info_list['taxi'] = Taxi(taxi)
-        return bus_info_list
+        if data['type'] == 2:
+            result = data['result']
+            routes = result['routes']
+            origin = result['origin']
+            destination = result['destination']
+            taxi = result['taxi']
+            bus_info_list = {}
+            buses = []
+            for v in routes:
+                schemes = v["scheme"]
+                for s in schemes:
+                    "scheme is a dictionary"
+                    scheme = Scheme(s)
+                    buses.append(scheme)
+                    print scheme
+            bus_info_list['bus'] = buses
+            print Taxi(taxi)
+            bus_info_list['taxi'] = Taxi(taxi)
+            return bus_info_list
+        return None
     
     def get_bus_selection(self, data):
         print >> sys.stderr, "GET_BUS_SELECTION: status: " + data['message']
@@ -298,8 +311,6 @@ class baiduAPI(object):
     def get_info(self, query):
         url = self.make_query_url(**query)
         data = self.request(url)
-        #pkl.dump(data, open('beijing_response','w'))
-        #data = pkl.load(open('beijing_response', 'r'))
         if data['type'] == 2: #起终点明确，得到查询结果
             return self.info_mode_hash(query['mode'], data)
         elif data['type'] == 1: #起终点模糊，得到选择界面
@@ -308,27 +319,35 @@ class baiduAPI(object):
                 print >> sys.stderr, "ERROR INFO: In selection page get \"None\" response.."
                 return None
             else:
-                first_origin = sel.get_first_origin()
-                first_des = sel.get_first_des()
-                query['origin'] = first_origin if first_origin != None else query['origin']
-                query['destination'] = first_des if first_des != None else query['destination']
-                url = self.make_query_url(**query)
-                data = self.request(url)
+                print str(sel)
+                ori_lng,ori_lat,des_lng,des_lat = sel.get_latitude(0)
+                print ori_lng,ori_lat,des_lng,des_lat
+                for i in range(0,MAX_SELECTION_NUM):
+                    first_origin = sel.get_origin(i)
+                    first_des = sel.get_des(i)
+                    query['origin'] = first_origin if first_origin != None else query['origin']
+                    query['destination'] = first_des if first_des != None else query['destination']
+                    url = self.make_query_url(**query)
+                    data = self.request(url)
+                    a,b,c,d = sel.get_latitude(i)
+                    f = abs(ori_lng - a) < 3 and abs(ori_lat - b) < 3 and abs(des_lng - c) < 3 and abs(des_lat - d) < 3
+                    if(data['type'] == 2) and f:
+                        print a,ori_lng,b,ori_lat,c,des_lng,d,des_lat
+                        break
                 
                 #pp = pprint.PrettyPrinter(indent = 4)
                 #pp.pprint(data['result'])
 
-                res = self.info_mode_hash(query['mode'], data)
-                if res:
-                    return res
-                else:
-                    return None
+                res = None
+                if data['type'] == 2:
+                    res = self.info_mode_hash(query['mode'], data)
+                return res
 
 if __name__ == "__main__":
     api = baiduAPI()
     #query = {"origin":"哈工大","destination":"凯德广场","mode":"transit","region":"哈尔滨"}
     #query = {"origin":"上地五街","destination":"北京大学","mode":"transit","region":"北京"}
     #query = {"origin":"五道口","destination":"天安门","mode":"transit","region":"哈尔滨"}
-    query = {"origin":"哈工大","destination":"哈工大二校区","mode":"transit","region":"哈尔滨"}
+    query = {"origin":"哈站","destination":"哈南站","mode":"transit","region":"哈尔滨"}
     api.get_info(query)
 
